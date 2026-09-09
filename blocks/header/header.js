@@ -627,7 +627,7 @@ function buildGovBanner() {
     div(
       { class: 'va-gov-banner-inner' },
       img({
-        src: '/icons/flag-USD.svg', alt: '', class: 'va-gov-banner-flag', loading: 'lazy',
+        src: '/styles/industry-specific/va-theme/icons/tiny-usa-flag.png', alt: '', class: 'va-gov-banner-flag', loading: 'lazy',
       }),
       span({}, 'An official website of the United States government'),
       div(
@@ -638,7 +638,13 @@ function buildGovBanner() {
           domEl('p', 'Official government websites end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.'),
         ),
       ),
-      a({ href: 'tel:988', class: 'va-crisis-line' }, 'Crisis Line'),
+      a(
+        { href: 'tel:988', class: 'va-crisis-line' },
+        img({
+          src: '/styles/industry-specific/va-theme/icons/VCL-icon-white.svg', alt: '', class: 'va-crisis-line-icon', loading: 'lazy',
+        }),
+        span({}, 'Talk to the Veterans Crisis Line now'),
+      ),
     ),
   );
 }
@@ -739,16 +745,22 @@ export default async function decorate(block) {
     if (isLoggedIn) {
       if (signInLi) signInLi.classList.add('nav-auth-hidden');
       createUserProfile(targetContainer, langCode, true);
-    } else if (!targetContainer.querySelector('.sign-in-btn')) {
-      const signInLink = document.createElement('a');
-      signInLink.href = isAuthor
-        ? `/content/${siteName}${PATH_PREFIX}/${langCode}/sign-in.html`
-        : `/${langCode}/sign-in`;
-      signInLink.className = 'sign-in-btn';
-      signInLink.textContent = 'Sign in';
-      signInLink.title = 'Sign-In';
-      signInLink.setAttribute('aria-label', 'Sign In');
-      targetContainer.append(signInLink);
+    } else {
+      const existingSignIn = targetContainer.querySelector('.sign-in-btn, a[href*="sign-in"]');
+      if (existingSignIn) {
+        existingSignIn.classList.add('sign-in-btn');
+        if (!existingSignIn.hasAttribute('aria-label')) existingSignIn.setAttribute('aria-label', 'Sign In');
+      } else {
+        const signInLink = document.createElement('a');
+        signInLink.href = isAuthor
+          ? `/content/${siteName}${PATH_PREFIX}/${langCode}/sign-in.html`
+          : `/${langCode}/sign-in`;
+        signInLink.className = 'sign-in-btn';
+        signInLink.textContent = 'Sign in';
+        signInLink.title = 'Sign-In';
+        signInLink.setAttribute('aria-label', 'Sign In');
+        targetContainer.append(signInLink);
+      }
     }
 
     // Language switcher (minimal UI)

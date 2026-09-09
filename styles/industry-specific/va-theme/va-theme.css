@@ -145,8 +145,7 @@ body.va-theme header {
 
 body.va-theme header .nav-wrapper {
   position: static;
-  background-color: #fff;
-  border-bottom: 4px solid var(--va-primary);
+  background-color: var(--va-primary-darker);
 }
 
 body.va-theme .va-gov-banner {
@@ -160,21 +159,22 @@ body.va-theme .va-gov-banner {
 body.va-theme .va-gov-banner-inner {
   max-width: 1264px;
   margin: 0 auto;
-  padding: 6px 24px;
+  padding: 0 24px;
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
+  overflow: visible;
 }
 
 body.va-theme .va-gov-banner-flag {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: auto;
   flex: none;
 }
 
 body.va-theme .va-gov-banner-details {
-  margin-left: auto;
+  display: inline-flex;
 }
 
 body.va-theme .va-gov-banner summary {
@@ -182,43 +182,134 @@ body.va-theme .va-gov-banner summary {
   color: var(--va-link);
   font-weight: 600;
   text-decoration: underline;
+  list-style: none;
+}
+
+body.va-theme .va-gov-banner summary::-webkit-details-marker {
+  display: none;
+}
+
+body.va-theme .va-gov-banner summary::after {
+  content: '\f107';
+  font-family: 'Font Awesome 5 Solid', sans-serif;
+  margin-left: 4px;
+  display: inline-block;
 }
 
 body.va-theme .va-crisis-line {
-  background-color: var(--va-error);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgb(139 10 3);
   color: #fff !important;
-  padding: 2px 10px;
+  padding: 12px 16px;
   border-radius: var(--border-radius-small);
   font-weight: 700;
   text-decoration: none;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: -20px;
+  flex: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 35%);
 }
 
 body.va-theme .va-crisis-line:hover {
-  background-color: #a32900;
+  background-color: rgb(109 8 2);
   color: #fff !important;
 }
 
+body.va-theme .va-crisis-line::after,
+body.va-theme .va-crisis-line:hover::after,
+body.va-theme .va-crisis-line:focus::after {
+  color: #fff;
+}
+
+body.va-theme .va-crisis-line-icon {
+  width: 22px;
+  height: 14px;
+  flex: none;
+}
+
 /* -----------------------------------------------------
-   4. Header
+   4. Header — logo, main nav and utility nav as three
+   distinct sections, utility nav pinned to the top row
+   next to the logo (matching the va.gov layout)
 ----------------------------------------------------- */
+body.va-theme header nav .nav-brand picture {
+  width: auto;
+  aspect-ratio: auto;
+}
+
 body.va-theme header nav .nav-brand img {
   width: auto;
-  height: 40px;
+  max-width: none;
+  height: 59px;
+  object-fit: contain;
 }
 
 body.va-theme header nav .nav-sections ul > li > a {
-  color: var(--brand-text-color);
+  color: #fff;
   font-family: var(--body-font-family);
   font-weight: 600;
 }
 
 body.va-theme header nav .nav-sections ul > li > a:hover,
 body.va-theme header nav .nav-sections ul > li > a:focus {
-  color: var(--va-primary);
+  color: var(--va-primary-light);
 }
 
 body.va-theme header nav .nav-sections ul > li > a::before {
-  background: var(--va-primary);
+  background: var(--va-primary-light);
+}
+
+body.va-theme header nav .nav-tools {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+body.va-theme header nav .nav-tools a:not(.sign-in-btn) {
+  color: #fff;
+}
+
+/* Utility nav row order: search, contact us, sign in, language picker */
+body.va-theme header nav .nav-tools .search-wrapper {
+  order: 1;
+}
+
+body.va-theme header nav .nav-tools > .default-content-wrapper {
+  order: 2;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+body.va-theme header nav .nav-tools .default-content-wrapper p {
+  margin: 0;
+}
+
+body.va-theme header nav .nav-tools .default-content-wrapper > ul {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.va-theme header nav .nav-tools .default-content-wrapper > ul > li {
+  list-style: none;
+}
+
+body.va-theme header nav .nav-tools .lang-switcher {
+  order: 3;
 }
 
 body.va-theme a.sign-in-btn {
@@ -236,16 +327,66 @@ body.va-theme a.sign-in-btn:hover {
 }
 
 body.va-theme .lang-switcher .lang-button {
-  color: var(--brand-text-color);
-  border: 1px solid var(--va-primary);
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 body.va-theme header .search.search-icon .icon {
-  background-color: var(--va-primary);
+  background-color: #fff;
 }
 
 body.va-theme header .nav-hamburger button {
-  color: var(--va-primary);
+  color: #fff;
+}
+
+/* Two-row layout: [logo ............ utility nav] / [main nav ......] */
+@media (width >= 900px) {
+  body.va-theme header nav {
+    display: grid;
+    grid-template:
+      'brand tools' auto
+      'sections sections' auto / auto 1fr;
+    align-items: center;
+    align-content: start;
+    row-gap: 8px;
+    padding: 40px 24px 0;
+    height: auto;
+    min-height: 0;
+  }
+
+  body.va-theme header nav .nav-brand {
+    grid-area: brand;
+  }
+
+  body.va-theme header nav .nav-tools {
+    grid-area: tools;
+    justify-self: end;
+  }
+
+  body.va-theme header nav .nav-sections {
+    grid-area: sections;
+    border-top: 2px solid rgb(255 255 255 / 30%);
+    padding-top: 15px;
+  }
+
+  /* Two sibling ULs authored in the nav fragment: primary nav on the
+     left, secondary links (My VA / My HealtheVet) on the right */
+  body.va-theme header nav .nav-sections,
+  body.va-theme header nav .nav-sections .default-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: 100%;
+  }
+
+  body.va-theme header nav .nav-sections ul {
+    justify-content: flex-start;
+  }
+
+  body.va-theme header nav .nav-sections ul + ul {
+    gap: 32px;
+  }
 }
 
 /* -----------------------------------------------------
