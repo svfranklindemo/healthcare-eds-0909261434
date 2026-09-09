@@ -10,60 +10,59 @@
     "components": [
       "accordion",
       "action-button",
+      "add-external",
+      "build-your-own",
       "button",
       "cards",
       "carousel",
+      "cart",
+      "category-products-lister",
+      "checkout",
+      "checkout-shipping",
+      "child-account-application",
+      "coffee-quiz-frescopa",
       "columns",
+      "confirmation",
       "contentfragment",
+      "create-account",
+      "credit-card-application-form",
       "dm-template",
       "dynamic-media-image",
-      "fragment",
-      "hero",
-      "iframe",
-      "image",
-      "quote",
-      "teaser",
-      "text",
-      "title",
-      "video",
-      "search",
-      "separator",
-      "tabs",
-      "form",
-      "forex",
       "embed-adaptive-form",
+      "feedback",
       "find-a-doctor",
       "flight-search",
       "flights",
-      "create-account",
-      "child-account-application",
-      "name-change-request",
-      "sign-in",
-      "transfer-funds",
-      "set-up-auto-save",
-      "checkout",
-      "checkout-shipping",
-      "credit-card-application-form",
-      "loan-application-form",
+      "forex",
+      "form",
+      "fragment",
       "get-offer",
-      "new-account",
-      "loan-calculator",
+      "hero",
+      "iframe",
+      "image",
       "insurance",
-      "add-external",
-      "confirmation",
-      "feedback",
-      "coffee-quiz-frescopa",
       "join-us",
-      "test-drive",
-      "cart",
-      "category-products-lister",
+      "loan-application-form",
+      "loan-calculator",
+      "name-change-request",
+      "new-account",
       "new-arrival",
       "order-confirmation",
       "order-summary",
-      "product-detail",
       "product-card",
-      "build-your-own",
-      "bodea-secure-antivirus",
+      "product-detail",
+      "quote",
+      "search",
+      "separator",
+      "set-up-auto-save",
+      "sign-in",
+      "tabs",
+      "teaser",
+      "test-drive",
+      "text",
+      "title",
+      "transfer-funds",
+      "video",
       "rss-list",
       "rss-details",
       "insurance-plan-selection",
@@ -71,6 +70,30 @@
       "plan-application",
       "healthcare-upload-photo",
       "healthcare-schedule-check"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "action-button",
+      "button",
+      "dm-template",
+      "image",
+      "text",
+      "title",
+      "video"
     ]
   },
   {
@@ -92,6 +115,14 @@
     ]
   },
   {
+    "id": "category-products-lister",
+    "components": []
+  },
+  {
+    "id": "child-account-application",
+    "components": []
+  },
+  {
     "id": "columns",
     "components": [
       "column"
@@ -104,18 +135,12 @@
       "image",
       "button",
       "title",
-      "video",
-      "action-button"
+      "dm-asset",
+      "video"
     ]
   },
   {
-    "id": "tabs",
-    "components": [
-      "tabs-item"
-    ]
-  },
-    {
-    "id": "bodea-secure-antivirus",
+    "id": "create-account",
     "components": []
   },
   {
@@ -149,15 +174,7 @@
     ]
   },
   {
-    "id": "insurance-plan-selection",
-    "components": []
-  },
-  {
-    "id": "medicare-plan-selection",
-    "components": []
-  },
-  {
-    "id": "plan-application",
+    "id": "healthcare-schedule-check",
     "components": []
   },
   {
@@ -165,7 +182,57 @@
     "components": []
   },
   {
-    "id": "healthcare-schedule-check",
+    "id": "insurance-plan-selection",
+    "components": []
+  },
+  {
+    "id": "join-us",
+    "components": []
+  },
+  {
+    "id": "medicare-plan-selection",
+    "components": []
+  },
+  {
+    "id": "name-change-request",
+    "components": []
+  },
+  {
+    "id": "new-arrival",
+    "components": []
+  },
+  {
+    "id": "plan-application",
+    "components": []
+  },
+  {
+    "id": "rss-details",
+    "components": []
+  },
+  {
+    "id": "rss-list",
+    "components": []
+  },
+  {
+    "id": "set-up-auto-save",
+    "components": []
+  },
+  {
+    "id": "sign-in",
+    "components": []
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tabs-item"
+    ]
+  },
+  {
+    "id": "test-drive",
+    "components": []
+  },
+  {
+    "id": "transfer-funds",
     "components": []
   }
 ]

@@ -98,6 +98,10 @@
           {
             "name": "Expnews Theme",
             "value": "expnews-theme"
+          },
+          {
+            "name": "VA Theme",
+            "value": "va-theme"
           }
         ]
       },

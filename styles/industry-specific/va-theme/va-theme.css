@@ -1,0 +1,378 @@
+/*
+ * VA Theme — USWDS-inspired restyle to bring the wehealthcare vertical
+ * closer to the va.gov look & feel (VA Design System tokens).
+ */
+
+/* Bitter (headings) + Source Sans Pro (body), loaded from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+/* -----------------------------------------------------
+   1. Brand tokens
+----------------------------------------------------- */
+.va-theme {
+  --brand-theme-color: #005ea2;
+  --brand-background-color: #fff;
+  --brand-dark-color: #162e51;
+  --brand-light-color: #f0f0f0;
+  --brand-text-color: #1b1b1b;
+  --brand-light-text-color: #fff;
+  --brand-link-color: #005ea2;
+  --brand-link-hover-color: #0b4778;
+  --brand-nav-background-color: #fff;
+  --brand-nav-text-color: #1b1b1b;
+  --brand-footer-background-color: #162e51;
+  --brand-footer-text-color: #fff;
+
+  /* VA-specific tokens with no generic slot in styles.css */
+  --va-primary: #005ea2;
+  --va-primary-dark: #1a4480;
+  --va-primary-darker: #162e51;
+  --va-primary-light: #73b3e7;
+  --va-primary-lighter: #d9e8f6;
+  --va-primary-alt: #00bde3;
+  --va-link: #005ea2;
+  --va-link-active: #0b4778;
+  --va-link-visited: #54278f;
+  --va-bg-muted: #f0f0f0;
+  --va-inset-bg: #e7f6f8;
+  --va-success: #00a91c;
+  --va-warning: #ffbe2e;
+  --va-error: #d54309;
+  --va-info: #00bde3;
+  --body-font-family: 'Source Sans Pro', helvetica, arial, sans-serif;
+  --heading-font-family: 'Bitter', georgia, 'Times New Roman', serif;
+  --light-font-family: 'Source Sans Pro', helvetica, arial, sans-serif;
+  --extra-font-family: 'Bitter', georgia, serif;
+  --black-font-family: 'Bitter', georgia, serif;
+}
+
+/* Sticky footer layout, consistent with the other theme files */
+body.va-theme {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.va-theme main {
+  flex: 1;
+}
+
+body.va-theme footer {
+  margin-top: auto;
+  background-color: var(--brand-footer-background-color);
+  color: var(--brand-footer-text-color);
+}
+
+body.va-theme h1,
+body.va-theme h2,
+body.va-theme h3,
+body.va-theme h4,
+body.va-theme h5,
+body.va-theme h6 {
+  font-weight: 700;
+}
+
+/* -----------------------------------------------------
+   2. Links, buttons, focus states
+----------------------------------------------------- */
+body.va-theme a,
+body.va-theme a:any-link {
+  color: var(--va-link);
+}
+
+body.va-theme a:visited {
+  color: var(--va-link-visited);
+}
+
+body.va-theme a:hover,
+body.va-theme a:focus {
+  color: var(--va-link-active);
+  text-decoration-thickness: 2px;
+}
+
+body.va-theme .cta-button a.button,
+body.va-theme .hero-wrapper .button-container.cta-button a.button {
+  background-color: var(--va-primary);
+  border: 1px solid var(--va-primary);
+  border-radius: var(--border-radius-small);
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-weight: 700;
+}
+
+body.va-theme .cta-button a.button:hover,
+body.va-theme .hero-wrapper .button-container.cta-button a.button:hover {
+  background-color: var(--va-primary-dark) !important;
+  border-color: var(--va-primary-dark) !important;
+  color: #fff !important;
+}
+
+body.va-theme .cta-button a.button::after,
+body.va-theme .hero-wrapper .button-container.cta-button a.button::after {
+  content: none;
+}
+
+body.va-theme .cta-button-secondary a.button,
+body.va-theme .hero-wrapper .button-container.cta-button-secondary a.button {
+  background: transparent;
+  border: 2px solid var(--va-primary);
+  border-radius: var(--border-radius-small);
+  color: var(--va-primary);
+  font-weight: 700;
+}
+
+body.va-theme .cta-button-secondary a.button:hover,
+body.va-theme .hero-wrapper .button-container.cta-button-secondary a.button:hover {
+  background-color: var(--va-primary-lighter) !important;
+  color: var(--va-primary-dark) !important;
+}
+
+/* USWDS-style accessible focus ring, scoped to this theme only */
+body.va-theme *:focus-visible {
+  outline: 0.25rem solid var(--va-warning);
+  outline-offset: 0.25rem;
+}
+
+/* -----------------------------------------------------
+   3. "Official government site" utility banner
+   (markup injected by blocks/header/header.js when va-theme is active)
+----------------------------------------------------- */
+body.va-theme header {
+  position: static;
+  min-height: auto;
+  height: auto;
+}
+
+body.va-theme header .nav-wrapper {
+  position: static;
+  background-color: #fff;
+  border-bottom: 4px solid var(--va-primary);
+}
+
+body.va-theme .va-gov-banner {
+  background-color: var(--va-bg-muted);
+  color: var(--brand-text-color);
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+body.va-theme .va-gov-banner-inner {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 6px 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+body.va-theme .va-gov-banner-flag {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+body.va-theme .va-gov-banner-details {
+  margin-left: auto;
+}
+
+body.va-theme .va-gov-banner summary {
+  cursor: pointer;
+  color: var(--va-link);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+body.va-theme .va-crisis-line {
+  background-color: var(--va-error);
+  color: #fff !important;
+  padding: 2px 10px;
+  border-radius: var(--border-radius-small);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.va-theme .va-crisis-line:hover {
+  background-color: #a32900;
+  color: #fff !important;
+}
+
+/* -----------------------------------------------------
+   4. Header
+----------------------------------------------------- */
+body.va-theme header nav .nav-brand img {
+  width: auto;
+  height: 40px;
+}
+
+body.va-theme header nav .nav-sections ul > li > a {
+  color: var(--brand-text-color);
+  font-family: var(--body-font-family);
+  font-weight: 600;
+}
+
+body.va-theme header nav .nav-sections ul > li > a:hover,
+body.va-theme header nav .nav-sections ul > li > a:focus {
+  color: var(--va-primary);
+}
+
+body.va-theme header nav .nav-sections ul > li > a::before {
+  background: var(--va-primary);
+}
+
+body.va-theme a.sign-in-btn {
+  background-color: var(--va-primary);
+  color: #fff !important;
+  border: 1px solid var(--va-primary);
+  border-radius: var(--border-radius-small);
+  padding: 8px 16px;
+  font-weight: 700;
+}
+
+body.va-theme a.sign-in-btn:hover {
+  background-color: var(--va-primary-dark);
+  border-color: var(--va-primary-dark);
+}
+
+body.va-theme .lang-switcher .lang-button {
+  color: var(--brand-text-color);
+  border: 1px solid var(--va-primary);
+}
+
+body.va-theme header .search.search-icon .icon {
+  background-color: var(--va-primary);
+}
+
+body.va-theme header .nav-hamburger button {
+  color: var(--va-primary);
+}
+
+/* -----------------------------------------------------
+   5. Hero
+----------------------------------------------------- */
+body.va-theme .hero {
+  background-color: var(--va-primary-lighter);
+  min-height: auto;
+  padding: 48px 24px;
+}
+
+body.va-theme .hero.theme-light {
+  background-color: #fff;
+}
+
+body.va-theme .hero h1,
+body.va-theme .hero h2,
+body.va-theme .hero p {
+  color: var(--brand-text-color);
+}
+
+body.va-theme .hero h1::after {
+  display: none;
+}
+
+body.va-theme .hero.image-right h1,
+body.va-theme .hero.image-right h2,
+body.va-theme .hero.image-left h1,
+body.va-theme .hero.image-left h2 {
+  color: var(--brand-text-color);
+}
+
+/* search block reused directly below the hero */
+body.va-theme .search .search-box input {
+  border: 2px solid var(--va-primary);
+  border-radius: var(--border-radius-small);
+}
+
+body.va-theme .search.search-icon .search-box .icon img,
+body.va-theme .search.search-icon .search-trigger .icon img {
+  filter: none;
+}
+
+/* -----------------------------------------------------
+   6. Cards — benefit-category icon grid
+   (author sets the cards block style to "Icon Cards"; wrap the section
+   with the custom class "va-benefits-grid" for the 4-column desktop grid)
+----------------------------------------------------- */
+body.va-theme .cards > ul > li.icon-cards {
+  background-color: #fff;
+  border: 1px solid var(--va-bg-muted);
+  border-radius: var(--border-radius-small);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+body.va-theme .cards > ul > li.icon-cards:hover {
+  border-color: var(--va-primary-light);
+  box-shadow: 0 4px 12px rgb(0 94 162 / 15%);
+}
+
+body.va-theme .cards > ul > li.icon-cards .cards-card-image {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+body.va-theme .cards > ul > li.icon-cards img {
+  min-height: 48px;
+  max-height: 48px;
+  width: 48px;
+  margin: 24px auto 0;
+  object-fit: contain;
+}
+
+body.va-theme .cards > ul > li.icon-cards .cards-card-body h2,
+body.va-theme .cards > ul > li.icon-cards .cards-card-body h3 {
+  font-family: var(--heading-font-family);
+  color: var(--brand-text-color);
+}
+
+body.va-theme .cards > ul > li.icon-cards .cards-card-body p {
+  color: var(--brand-text-color);
+}
+
+body.va-theme .cards > ul > li.icon-cards .cards-card-body a {
+  color: var(--va-link);
+  font-weight: 600;
+}
+
+body.va-theme main .section.va-benefits-grid .cards > ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (width >= 900px) {
+  body.va-theme main .section.va-benefits-grid .cards > ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* -----------------------------------------------------
+   7. Footer
+----------------------------------------------------- */
+body.va-theme footer .footer a {
+  color: #fff;
+}
+
+body.va-theme footer .footer a:hover {
+  color: var(--va-primary-light);
+  text-decoration: underline;
+}
+
+body.va-theme footer .footer > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+}
+
+body.va-theme footer .footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+body.va-theme footer .footer ul li a {
+  display: block;
+  padding: 4px 0;
+}
