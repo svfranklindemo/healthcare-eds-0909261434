@@ -39,6 +39,11 @@
   --va-warning: #ffbe2e;
   --va-error: #d54309;
   --va-info: #00bde3;
+
+  /* VADS token names, aliased to the values above */
+  --vads-color-primary: var(--va-primary);
+  --vads-color-primary-dark: var(--va-primary-dark);
+  --vads-color-primary-darker: var(--va-primary-darker);
   --body-font-family: 'Source Sans Pro', helvetica, arial, sans-serif;
   --heading-font-family: 'Bitter', georgia, 'Times New Roman', serif;
   --light-font-family: 'Source Sans Pro', helvetica, arial, sans-serif;
@@ -400,6 +405,39 @@ body.va-theme .hero {
 
 body.va-theme .hero.theme-light {
   background-color: #fff;
+}
+
+body.va-theme .hero.theme-dark {
+  background: linear-gradient(to left, var(--vads-color-primary) 30%, var(--vads-color-primary-dark) 60%, var(--vads-color-primary-darker)) !important;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* Background bleeds edge to edge, but the actual content stays
+   aligned to the same 1200px column as the rest of the page */
+body.va-theme .hero.theme-dark > div {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+body.va-theme .hero.theme-dark h1,
+body.va-theme .hero.theme-dark h2,
+body.va-theme .hero.theme-dark h3,
+body.va-theme .hero.theme-dark h4,
+body.va-theme .hero.theme-dark h5,
+body.va-theme .hero.theme-dark h6,
+body.va-theme .hero.theme-dark p {
+  color: #fff !important;
+}
+
+body.va-theme .hero.theme-dark .button-container a.button {
+  color: #fff !important;
+  border-color: #fff !important;
 }
 
 body.va-theme .hero h1,
