@@ -1,0 +1,63 @@
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script src="/scripts/copilot-init.js" type="module" defer></script>
+  <script src="/alloyServiceWorker.js" async></script>
+<!-- Adobe Experience Platform Launch - Secur Financial -->
+  <script>
+  (function loadLaunchFromPlaceholders() {
+    const PLACEHOLDERS_URL = '/placeholders.json';
+
+    const toCamelCase = (key) => String(key || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+(.)/g, (_, chr) => (chr ? chr.toUpperCase() : ''));
+
+    const appendLaunchScript = (src) => {
+      if (!src) {
+        console.warn('[launch] Placeholder "launch" is missing. Launch script will not be loaded.');
+        return;
+      }
+      if (document.querySelector(`head > script[src="${src}"]`)) {
+        console.info('[launch] Launch script already present:', src);
+        return;
+      }
+      console.info('[launch] Appending Launch script:', src);
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.onload = () => {
+        window._launchReady = true;
+        document.dispatchEvent(new CustomEvent('launchReady'));
+        console.info('[launch] Launch script loaded and launchReady dispatched.');
+      };
+      script.onerror = (error) => {
+        console.warn('[launch] Launch script failed to load:', src, error);
+      };
+      document.head.appendChild(script);
+    };
+
+    const pickLaunchUrl = (placeholders) => placeholders.launch || '';
+
+    console.info('[launch] Fetching placeholders for Launch URL from:', PLACEHOLDERS_URL);
+    fetch(PLACEHOLDERS_URL, { credentials: 'same-origin' })
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error(`HTTP ${response.status}`))))
+      .then((json) => {
+        const placeholders = {};
+        (json?.data || [])
+          .filter((row) => row && row.Key)
+          .forEach((row) => {
+            placeholders[toCamelCase(row.Key)] = row.Text;
+          });
+        console.info('[launch] Placeholder "launch" value:', placeholders.launch);
+        appendLaunchScript(pickLaunchUrl(placeholders));
+      })
+      .catch((error) => {
+        console.warn('[launch] Failed to fetch placeholders. Launch script will not be loaded.', error);
+      });
+  }());
+</script>
+
+<script src="/scripts/aem.js" type="module"></script>
+<script src="/scripts/scripts.js" type="module"></script>
+<link rel="stylesheet" href="/styles/styles.css"/>
+<link rel="stylesheet" href="/styles/ui-utils.css"/>
+<!-- DO NOT DELETE THE BELOW SCRIPTS -->
+<script type="text/javascript" src="https://s7d1.scene7.com/s7viewers/libs/responsive_image.js" defer></script>

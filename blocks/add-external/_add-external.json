@@ -1,0 +1,89 @@
+{
+  "definitions": [
+    {
+      "title": "Add External",
+      "id": "add-external",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Add External",
+              "model": "add-external",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "add-external",
+      "fields": [
+        {
+          "component": "select",
+          "name": "variant",
+          "label": "Variant",
+          "value": "account",
+          "valueType": "string",
+          "description": "Form variant: Add external account (Type: Bank Account) or Add external credit card (Type: Credit Card)",
+          "options": [
+            {
+              "name": "Add external account",
+              "value": "account"
+            },
+            {
+              "name": "Add external credit card",
+              "value": "credit-card"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "buttoneventtype",
+          "label": "Button Event Type",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttonwebhookurl",
+          "label": "Button Webhook URL",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttonformid",
+          "label": "Button Form ID",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "buttondata",
+          "label": "Button Data Sheet",
+          "valueType": "string",
+          "description": "AEM sheet path whose key/value rows are sent on submit"
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        },
+        {
+          "component": "text",
+          "name": "mobilebuttoneventtype",
+          "label": "Mobile Button Event Type",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

@@ -1,0 +1,141 @@
+{
+  "definitions": [
+    {
+      "title": "Category Products Lister",
+      "id": "category-products-lister",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Category Products Lister",
+              "model": "category-products-lister",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "category-products-lister",
+      "fields": [
+        {
+          "component": "aem-content",
+          "name": "folder",
+          "label": "Products Folder (Content Fragments)",
+          "multi": false,
+          "validation": { "rootPath": "/content/dam" }
+        },
+        {
+          "component": "aem-tag",
+          "name": "cqTags",
+          "label": "Category Tags",
+          "valueType": "string",
+          "rootPath": "/content/cq:tags"
+        },
+        {
+          "component": "select",
+          "name": "cards-per-row",
+          "label": "Cards Per Row",
+          "valueType": "string",
+          "value": "5",
+          "description": "Number of cards to display per row on desktop",
+          "options": [
+            { "name": "3", "value": "3" },
+            { "name": "4", "value": "4" },
+            { "name": "5", "value": "5" }
+          ]
+        },
+        {
+          "component": "boolean",
+          "name": "enableaddtocartattileview",
+          "label": "Enable Add to Cart at Tile View",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "When enabled, each product card shows an Add to Cart button directly in the listing view."
+        },
+        {
+          "component": "text",
+          "name": "addtocarteventtype",
+          "label": "Add to Cart Event Type",
+          "value": "",
+          "valueType": "string",
+          "description": "Custom event name to dispatch when the Add to Cart button is clicked.",
+          "condition": {
+            "==": [
+              { "var": "enableaddtocartattileview" },
+              true
+            ]
+          }
+        },
+        {
+          "component": "select",
+          "name": "style",
+          "label": "Style Variant",
+          "valueType": "string",
+          "value": "",
+          "description": "Visual style variant for the product listing",
+          "options": [
+            { "name": "Default", "value": "" },
+            { "name": "No Border", "value": "no-border" },
+            { "name": "Carousel", "value": "carousel" }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "heading",
+          "label": "Carousel Heading",
+          "value": "",
+          "valueType": "string",
+          "description": "Heading text displayed above the carousel.",
+          "condition": {
+            "==": [
+              { "var": "style" },
+              "carousel"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "learn-more-label",
+          "label": "Learn More Label",
+          "value": "Learn more",
+          "valueType": "string",
+          "description": "Label for the learn more button in the carousel.",
+          "condition": {
+            "==": [
+              { "var": "style" },
+              "carousel"
+            ]
+          }
+        },
+        {
+          "component": "boolean",
+          "name": "no-background",
+          "label": "No Background",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "Remove the media overlay and image brightness filter when toggled on."
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "category-products-lister",
+      "components": []
+    }
+  ]
+}
+
+

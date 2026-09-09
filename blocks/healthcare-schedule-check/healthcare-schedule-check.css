@@ -1,0 +1,212 @@
+main .healthcare-schedule-check {
+  --hsc-accent-color: #1671d9;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 24px;
+  box-sizing: border-box;
+  text-align: center;
+  max-width: 1200px;
+}
+
+main .healthcare-schedule-check .hsc-title {
+  font-size: 36px;
+  line-height: 1.5;
+  margin: 0.67em 0;
+  font-family: 'Adobe Clean Black', sans-serif;
+  font-weight: 900;
+  color: #28272b;
+  text-align: center;
+}
+
+main .healthcare-schedule-check .hsc-doctor-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 8%);
+  width: calc(425px - 3rem);
+  padding: 1.5rem;
+  margin: 0 auto;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+main .healthcare-schedule-check .hsc-doctor-photo {
+  flex: 0 0 50%;
+  height: fit-content;
+  font-size: 0;
+}
+
+main .healthcare-schedule-check .hsc-doctor-photo img {
+  display: block;
+  width: auto;
+  height: 114px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+main .healthcare-schedule-check .hsc-doctor-info {
+  padding: 1rem;
+}
+
+main .healthcare-schedule-check .hsc-doctor-rating {
+  color: var(--hsc-accent-color);
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+main .healthcare-schedule-check .hsc-doctor-title {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  color: #28272b;
+  margin: 0;
+  text-align: center;
+}
+
+main .healthcare-schedule-check .hsc-doctor-name {
+  text-align: center;
+  font-weight: 700;
+  color: #28272b;
+  font-size: 16.38px;
+  margin: 1em 0;
+}
+
+main .healthcare-schedule-check .hsc-doctor-profile-link {
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--hsc-accent-color);
+  text-decoration: none;
+  font-family: 'Adobe Clean', sans-serif;
+  cursor: text;
+}
+
+main .healthcare-schedule-check .hsc-doctor-profile-link::after {
+  content: unset;
+}
+
+main .healthcare-schedule-check .hsc-pick-date-label {
+  color: #acacac;
+  font-size: 21px;
+  line-height: 1.5;
+  margin: 0.83em 0;
+}
+
+main .healthcare-schedule-check .hsc-slot-picker-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+main .healthcare-schedule-check .hsc-slot-nav {
+  flex-shrink: 0;
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #4b4b4b;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 16px;
+  transition: background 0.15s;
+}
+
+main .healthcare-schedule-check .hsc-slot-nav svg {
+  width: 20px;
+  height: 20px;
+  fill: currentcolor;
+}
+
+main .healthcare-schedule-check .hsc-slot-nav-prev svg {
+  transform: rotate(180deg);
+}
+
+main .healthcare-schedule-check .hsc-slot-nav:hover:not(:disabled) {
+  background: rgb(0 0 0 / 6%);
+}
+
+main .healthcare-schedule-check .hsc-slot-nav:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+main .healthcare-schedule-check .hsc-slot-columns {
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  gap: 10px;
+}
+
+main .healthcare-schedule-check .hsc-slot-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  width: fit-content;
+}
+
+main .healthcare-schedule-check .hsc-slot-col-header {
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+main .healthcare-schedule-check .hsc-slot-col-header strong {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #28272b;
+}
+
+main .healthcare-schedule-check .hsc-slot-col-header em {
+  display: block;
+  font-style: normal;
+  font-size: 0.75rem;
+  color: #acacac;
+}
+
+main .healthcare-schedule-check .hsc-slot-option {
+  width: fit-content;
+  padding: 8px 16px;
+  background: rgba(22, 113, 217, 10%);
+  border: 1px solid rgba(22, 113, 217, 12%);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #28272b;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+main .healthcare-schedule-check .hsc-slot-option:hover:not(.is-disabled):not(.is-selected) {
+  background: rgba(22, 113, 217, 18%);
+}
+
+main .healthcare-schedule-check .hsc-slot-option.is-selected {
+  color: var(--hsc-accent-color);
+  border-color: var(--hsc-accent-color);
+  background: rgba(22, 113, 217, 8%);
+}
+
+main .healthcare-schedule-check .hsc-slot-option.is-disabled {
+  background: transparent;
+  border-color: transparent;
+  text-decoration: line-through;
+  color: #999;
+  cursor: default;
+}
+
+@media (width < 600px) {
+  main .healthcare-schedule-check .hsc-doctor-card {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+}

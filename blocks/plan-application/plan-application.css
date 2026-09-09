@@ -1,0 +1,340 @@
+/* ============================================
+   Plan Application Block Styling
+   ============================================ */
+
+.plan-application {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* --- Progress Dots (Step Indicator) --- */
+.plan-application .wizard-progress-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 4rem;
+  gap: 1rem;
+}
+
+.plan-application .Progress__dots {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.plan-application .Progress__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  opacity: 0.3;
+  background-color: #acacac;
+  transition: all 0.3s ease;
+}
+
+.plan-application .Progress__dot.active {
+  background-color: #0065d6;
+  opacity: 1;
+}
+
+.plan-application .Progress__label {
+  font-size: 14px;
+  color: #464646;
+}
+
+/* --- Form Container & Grid Architecture --- */
+.plan-application .form-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+
+.plan-application .plan-application-form {
+  --form-columns: 12;
+  display: block;
+}
+
+/* Hide non-current wizard steps */
+.plan-application .plan-application-form.is-wizard .wizard > .panel-wrapper {
+  display: none;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0 32px;
+  border: none;
+}
+
+.plan-application .plan-application-form.is-wizard .wizard > .panel-wrapper.current-wizard-step {
+  display: grid !important;
+}
+
+/* 12-Column Layout Implementation */
+.plan-application .plan-application-form.is-wizard .col-12 {
+  grid-column: span 12 !important;
+}
+
+.plan-application .plan-application-form.is-wizard .col-6 {
+  grid-column: span 6 !important;
+}
+
+/* 🚨 KILL DUPLICATE LABELS & HEADLESS DEFAULTS 🚨 */
+.plan-application .plan-application-form .wizard-menu-items,
+.plan-application .plan-application-form .heading-wrapper label,
+.plan-application .plan-application-form .wizard > .panel-wrapper > label,
+.plan-application .plan-application-form .wizard > .panel-wrapper > .field-label {
+  display: none !important;
+}
+
+/* --- Typography & Headings --- */
+.plan-application .wizard-step-title h2,
+.plan-application .wizard-step-title h1 {
+  font-size: 21px;
+  font-weight: 700;
+  color: #28272b;
+  margin: 0.83em 0;
+  text-align: center;
+  padding: 0;
+}
+
+.plan-application .wizard-step-subtitle h3,
+.plan-application .wizard-step-subtitle h2 {
+  font-size: 16.38px;
+  font-weight: 700;
+  color: #28272b;
+  margin: 1em 0;
+  text-align: left;
+  padding: 0;
+}
+
+/* --- Form Inputs --- */
+.plan-application .field-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-application .field-wrapper.text-wrapper, .plan-application .field-wrapper.drop-down-wrapper {
+  margin-bottom: 2rem;
+}
+
+.plan-application label, .plan-application .field-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: #28272b;
+  display: inline-block;
+  padding: 4px 0 5px;
+  line-height: 1.3;
+}
+
+/* Required Asterisk */
+.plan-application [data-required="true"] > label::after {
+  content: " *";
+  color: #ea3829;
+  font-weight: 600;
+}
+
+.plan-application input[type="text"],
+.plan-application select {
+  width: 100%;
+  padding: 3px 12px 5px 11px;
+  height: 32px;
+  border: 1px solid #909090;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #222;
+  box-sizing: border-box;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+
+.plan-application input[type="text"]:focus,
+.plan-application select:focus {
+  outline: none;
+  border-color: #0065d6;
+  box-shadow: 0 0 0 1px #0065d6;
+}
+
+/* --- Radio Group Styling --- */
+.plan-application .radio-group-field fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.plan-application .radio-wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  height: 32px;
+}
+
+.plan-application .radio-group-field fieldset > label,
+.plan-application .radio-group-field fieldset > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.plan-application .radio-group-field input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  accent-color: #464646;
+  cursor: pointer;
+  margin: 0;
+}
+
+.plan-application .radio-group-field span,
+.plan-application .radio-group-field label {
+  font-size: 14px;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Wizard Navigation & Buttons --- */
+.plan-application .wizard-button-wrapper {
+  display: flex;
+  justify-content: flex-end; /* Push to right per mockups */
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  grid-column: span 12;
+}
+
+.plan-application button {
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+/* Next / Submit Buttons */
+.plan-application .wizard-button-next button,
+.plan-application .submit-wrapper button {
+  background-color: #0065d6;
+  color: #ffffff;
+}
+
+.plan-application .wizard-button-next button:hover,
+.plan-application .submit-wrapper button:hover {
+  background-color: #0054b6;
+}
+
+/* Back Button */
+.plan-application .wizard-button-prev button {
+  display: none;
+  background-color: transparent;
+  color: #464646;
+  border: 1px solid #d5d5d5;
+}
+
+.plan-application .wizard-button-prev button:hover {
+  background-color: #e6e6e6;
+  color: #222;
+}
+
+.plan-application .wizard-button-prev button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+/* Hide submit wrapper until the end */
+.plan-application .plan-application-form.is-wizard .submit-wrapper {
+  display: none;
+  margin: 0;
+}
+
+.plan-application .current-wizard-step:last-of-type ~ .wizard-button-wrapper .wizard-button-next {
+  display: none;
+}
+
+.plan-application .current-wizard-step:last-of-type ~ .wizard-button-wrapper .submit-wrapper {
+  display: block;
+}
+
+/* --- Step 3 Success State Styling --- */
+.plan-application .success-container {
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 0 5rem;
+}
+
+.plan-application .success-container h1 {
+  font-size: 36px;
+  font-weight: 900;
+  font-family: 'Adobe Clean Black', sans-serif;
+  color: #28272b;
+  text-align: left;
+  margin: 0.67em 0;
+  padding: 0;
+}
+
+.plan-application .success-container p {
+  font-size: 14px;
+  color: #28272b;
+  line-height: 1.5;
+  margin: 0;
+  text-align: left;
+}
+
+.plan-application .success-container strong {
+  color: #0065d6;
+  font-weight: 700;
+}
+
+/* --- Mobile Responsiveness --- */
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .plan-application .plan-application-form.is-wizard .wizard > .panel-wrapper.current-wizard-step {
+    display: flex !important;
+  }
+
+  .plan-application .plan-application-form.is-wizard .wizard > .panel-wrapper {
+    gap: 0;
+    flex-direction: column;
+  }
+  
+  .plan-application .plan-application-form.is-wizard .col-6,
+  .plan-application .plan-application-form.is-wizard .col-12 {
+    grid-column: span 12 !important; 
+    width: 100%;
+  }
+
+  /* Explicit Mobile Ordering */
+  .plan-application .mo-1 { order: 1; }
+  .plan-application .mo-2 { order: 2; }
+  .plan-application .mo-3 { order: 3; }
+  .plan-application .mo-4 { order: 4; }
+  .plan-application .mo-5 { order: 5; }
+  
+  .plan-application .mo-6 { 
+    order: 6; 
+  }
+  
+  .plan-application .mo-7 { order: 7; }
+  .plan-application .mo-8 { order: 8; }
+  .plan-application .mo-9 { order: 9; }
+
+  .plan-application .wizard-button-wrapper .submit-wrapper {
+    width: fit-content !important;
+  }
+
+  .plan-application button {
+    width: 100%;
+    max-width: 150px;
+  }
+}

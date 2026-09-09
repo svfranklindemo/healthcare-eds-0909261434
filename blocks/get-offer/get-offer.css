@@ -1,0 +1,112 @@
+/* Get Offer block – email input + Get offer button, centered on dark background */
+
+.get-offer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #2c3e50;
+  border-radius: var(--border-radius-medium, 0.5rem);
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+}
+
+.get-offer-input {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-family: var(--body-font-family, system-ui, sans-serif);
+  color: #374151;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--border-radius-medium, 0.5rem);
+  box-sizing: border-box;
+}
+
+.get-offer-input::placeholder {
+  color: #6b7280;
+}
+
+.get-offer-input:focus {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+.get-offer-button {
+  padding: 0.625rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--body-font-family, system-ui, sans-serif);
+  color: var(--text-light, #fff);
+  background: var(--main-accent-color, #0d9488);
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.get-offer-button:hover {
+  background: var(--main-accent-hover, var(--link-hover-color, #0f766e));
+}
+
+.get-offer-button:focus {
+  outline: 2px solid var(--main-accent-color, #0ea5e9);
+  outline-offset: 2px;
+}
+
+/* ─── Toast ──────────────────────────────────────────────────────────────── */
+
+.get-offer-toast {
+  position: fixed;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #16a34a;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(0 0 0 / 18%);
+  max-width: calc(100vw - 2rem);
+  white-space: nowrap;
+  transition: top 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.get-offer-toast.get-offer-toast-visible {
+  top: 1.5rem;
+  opacity: 1;
+}
+
+.get-offer-toast-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.get-offer-toast-text {
+  flex: 1;
+  min-width: 0;
+  white-space: normal;
+}
+
+@media (width < 768px) {
+  .get-offer-toast {
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+    max-width: 100%;
+  }
+}

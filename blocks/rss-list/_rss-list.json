@@ -1,0 +1,73 @@
+{
+  "definitions": [
+    {
+      "title": "RSS List",
+      "id": "rss-list",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "RSS List",
+              "model": "rss-list",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "rss-list",
+      "fields": [
+        {
+          "component": "number",
+          "name": "maxcardsdisplayed",
+          "label": "Max Cards Displayed",
+          "value": 6,
+          "valueType": "number"
+        },
+        {
+          "component": "select",
+          "name": "cards-per-row",
+          "label": "Cards Per Row",
+          "valueType": "string",
+          "value": "3",
+          "options": [
+            { "name": "3", "value": "3" },
+            { "name": "4", "value": "4" },
+            { "name": "5", "value": "5" }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "category-filter",
+          "label": "Category Filter",
+          "valueType": "string",
+          "description": "Leave blank to show all categories."
+        },
+        {
+          "component": "text",
+          "name": "detail-page-url",
+          "label": "Detail Page Redirect URL",
+          "valueType": "string",
+          "value": "/en/article"
+        },
+        {
+          "component": "boolean",
+          "name": "showdescription",
+          "label": "Show Description",
+          "value": "true",
+          "valueType": "boolean"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "rss-list",
+      "components": []
+    }
+  ]
+}

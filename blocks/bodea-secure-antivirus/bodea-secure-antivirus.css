@@ -1,0 +1,686 @@
+/* ============================================================
+   BodeaSecure Antivirus Block — all four trial page variants
+   ============================================================ */
+
+/* --- Base reset for the block --- */
+.bodea-secure-antivirus {
+  font-family: adobe-clean, 'Source Sans Pro', sans-serif;
+  color: #2c2c2c;
+  background: #fff;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Training header bar
+   ============================================================ */
+.bsav-training-header {
+  background: #000;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.bsav-training-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.bsav-training-header__logo {
+  height: 40px;
+  object-fit: contain;
+}
+
+.bsav-training-header__title {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Layout: sidebar + main
+   ============================================================ */
+.bsav-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   Sidebar
+   ============================================================ */
+.bsav-sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: #1a1a1a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 20px 24px;
+  gap: 24px;
+}
+
+.bsav-sidebar__company-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.bsav-sidebar__meta {
+  font-size: 11px;
+  color: #b0b0b0;
+  margin: 4px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bsav-sidebar__meta strong {
+  color: #4caf50;
+}
+
+.bsav-sidebar__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bsav-sidebar__nav-item {
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.bsav-sidebar__nav-item a {
+  display: block;
+  padding: 10px 12px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.bsav-sidebar__nav-item a:hover {
+  color: #fff;
+}
+
+.bsav-sidebar__nav-item--active {
+  border-left-color: #35b28c;
+}
+
+.bsav-sidebar__nav-item--active a {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ============================================================
+   Main content area
+   ============================================================ */
+.bsav-main {
+  flex: 1;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: #fff;
+  overflow-x: auto;
+}
+
+/* ============================================================
+   Shared content styles
+   ============================================================ */
+.bsav-content__heading {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  color: #1a1a1a;
+}
+
+.bsav-content__subheading {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.bsav-content__subheading--warning {
+  color: #e85d04;
+}
+
+.bsav-content__desc {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 20px;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.bsav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 20px !important;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+a.bsav-btn::after {
+  content: unset;
+}
+
+.bsav-btn--primary {
+  background: #35b28c !important;
+  color: #fff !important;
+  border: 2px solid #35b28c;
+}
+
+.bsav-btn--primary:hover {
+  background: #278e70;
+  border-color: #278e70;
+}
+
+.bsav-btn--cta {
+  background: #e85d04;
+  color: #fff;
+  border: 2px solid #e85d04;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.bsav-btn--cta:hover {
+  background: #c94e02;
+  border-color: #c94e02;
+}
+
+.bsav-btn--outline {
+  background: transparent;
+  color: #35b28c;
+  border: 2px solid #35b28c;
+}
+
+.bsav-btn--outline:hover {
+  background: #35b28c;
+  color: #fff;
+}
+
+.bsav-btn--outline-white {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.bsav-btn--outline-white:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* ============================================================
+   Links
+   ============================================================ */
+.bsav-link {
+  color: #35b28c;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bsav-link:hover {
+  text-decoration: underline;
+}
+
+.bsav-link--more {
+  font-size: 13px;
+  color: #555;
+}
+
+.bsav-link--arrow::before {
+  content: '› ';
+}
+
+/* ============================================================
+   Page 1 — Antivirus
+   ============================================================ */
+.bsav-status-grid {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.bsav-status-item__label {
+  font-size: 13px;
+  color: #777;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bsav-status-item__value {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.bsav-status-item__value--success {
+  color: #35b28c;
+}
+
+.bsav-status-item__value--warning {
+  color: #e85d04;
+}
+
+/* ============================================================
+   Page 2 — Firewall
+   ============================================================ */
+.bsav-firewall-columns {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.bsav-firewall-status,
+.bsav-firewall-toggles {
+  min-width: 200px;
+}
+
+.bsav-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.bsav-checklist__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.bsav-checklist__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 13px;
+  background: #35b28c;
+  color: #fff;
+}
+
+.bsav-checklist__icon--warn {
+  background: #e85d04;
+}
+
+.bsav-toggle-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bsav-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.bsav-toggle {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.bsav-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.bsav-toggle__slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #ccc;
+  border-radius: 24px;
+  transition: background 0.3s;
+}
+
+.bsav-toggle__slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.bsav-toggle input:checked + .bsav-toggle__slider {
+  background: #35b28c;
+}
+
+.bsav-toggle input:checked + .bsav-toggle__slider::before {
+  transform: translateX(18px);
+}
+
+/* ============================================================
+   Page 3 — Encryption
+   ============================================================ */
+.bsav-encryption-panel {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.bsav-encryption-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 260px;
+}
+
+.bsav-encryption-form__row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bsav-input {
+  padding: 9px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 200px;
+}
+
+.bsav-input:focus {
+  border-color: #35b28c;
+}
+
+.bsav-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+}
+
+.bsav-checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: #35b28c;
+}
+
+.bsav-encryption-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bsav-encryption-options li {
+  padding-left: 14px;
+  border-left: 3px solid #35b28c;
+}
+
+/* ============================================================
+   Page 4 — Log Management
+   ============================================================ */
+.bsav-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+}
+
+.bsav-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.bsav-table th {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.bsav-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: middle;
+}
+
+.bsav-table__row--warning td {
+  background: #fff5f0;
+}
+
+.bsav-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bsav-badge--warning {
+  background: #ffd5c4;
+  color: #c94e02;
+}
+
+.bsav-badge--info {
+  background: #e4f4ef;
+  color: #278e70;
+}
+
+.bsav-analytics {
+  margin-top: 24px;
+}
+
+.bsav-analytics__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.bsav-analytics__title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #555;
+  margin: 0 0 12px;
+}
+
+.bsav-analytics__chart {
+  height: 200px;
+  background: linear-gradient(135deg, #e8f8f3 0%, #d0f0e4 100%);
+  border: 1px solid #cde8de;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   Feature cards (common to all pages)
+   ============================================================ */
+.bsav-feature-cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.bsav-feature-card {
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  transition: box-shadow 0.2s;
+}
+
+.bsav-feature-card:hover {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+}
+
+.bsav-feature-card__image {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bsav-feature-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.bsav-feature-card__title {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.bsav-feature-card__status {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #555;
+}
+
+.bsav-feature-card__status--success {
+  color: #35b28c;
+}
+
+.bsav-feature-card__status--warning {
+  color: #e85d04;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (width < 900px) {
+  .bsav-layout {
+    flex-direction: column;
+    min-height: 600px;
+  }
+
+  .bsav-sidebar {
+    width: 100%;
+    min-width: unset;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 16px;
+  }
+  
+  .bsav-training-header__inner {
+    justify-content: center;
+  }
+
+  .bsav-training-header__title {
+    display: none;
+  }
+
+  .bsav-training-header__title + .bsav-btn {
+    display: none;
+  }
+
+  .bsav-sidebar__complete-btn {
+    margin-top: 0;
+    width: auto;
+  }
+
+  .bsav-sidebar__nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .bsav-main {
+    padding: 24px 20px;
+  }
+
+  .bsav-analytics__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width < 600px) {
+  .bsav-feature-cards {
+    justify-content: center;
+  }
+
+  .bsav-feature-card {
+    min-width: 130px;
+  }
+
+  .bsav-firewall-columns {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .bsav-encryption-panel {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

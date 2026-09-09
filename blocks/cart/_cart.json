@@ -1,0 +1,51 @@
+{
+  "definitions": [
+    {
+      "title": "Cart",
+      "id": "cart",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Cart",
+              "model": "cart",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "cart",
+      "fields": [
+        {
+          "component": "aem-content",
+          "name": "folder",
+          "label": "Product Folder",
+          "valueType": "string",
+          "required": false,
+          "rootPath": "/content/dam"
+        },
+        {
+          "component": "boolean",
+          "name": "showyoumayalsolikesection",
+          "label": "Show You May Also Like Section",
+          "value": "true",
+          "valueType": "boolean",
+          "description": "When disabled, the You May Also Like recommendations section is not rendered."
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        }
+      ]
+    }
+  ]
+}

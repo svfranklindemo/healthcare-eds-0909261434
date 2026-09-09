@@ -1,0 +1,929 @@
+body.carvelo-theme {
+  --main-accent-color: #f82216;
+  --main-accent-hover: #c41a10;
+  --link-hover-color: #f82216;
+  --nav-text-color: #000000;
+  --footer-text-color: #ffffff;
+  --light-color: #f3f2f6;
+  --dark-color: #050e13;
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --body-font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+  --heading-font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+  --heading-font-size-xxl: 3.5rem;
+  --heading-font-size-xl: 3rem;
+  --heading-font-size-l: 2.35rem;
+  --heading-font-size-m: 1.9rem;
+  --heading-font-size-s: 1.5rem;
+  --nav-height: 72px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.carvelo-theme main {
+  flex: 1;
+}
+
+body.carvelo-theme main > .section:not([data-sec-full-width="true"]) {
+  max-width: 1280px;
+  width: 100%;
+}
+body.carvelo-theme main  > .section.bg-dark > div {
+    max-width: 1200px !important;
+    margin: auto !important;
+}
+body.carvelo-theme main .hero.image-left > div:nth-child(2), 
+body.carvelo-theme main.hero.image-right > div:nth-child(2) {
+    padding: 0;
+}
+.center-action-btn  .action-button-wrapper {
+    text-align: center;
+}
+/* ─── Typography ─────────────────────────────────────────────────────── */
+body.carvelo-theme h1,
+body.carvelo-theme h2,
+body.carvelo-theme h3,
+body.carvelo-theme h4,
+body.carvelo-theme h5,
+body.carvelo-theme h6 {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif !important;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+body.carvelo-theme .hero h1 {
+  font-size: 50px !important;
+}
+
+body.carvelo-theme h1 {
+  font-size: 28px !important;
+}
+body.carvelo-theme h2 {
+  font-size: 1.3rem !important;
+}
+body.carvelo-theme .hero h2 {
+    font-size: 2rem !important;
+}
+
+
+body.carvelo-theme .hero h2,
+body.carvelo-theme .hero-wrapper h2 {
+  font-size: 2.55rem !important;
+}
+
+body.carvelo-theme h3 {
+  font-size: 1.5rem !important;
+}
+
+body.carvelo-theme p,
+body.carvelo-theme li {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────── */
+body.carvelo-theme a.button,
+body.carvelo-theme button {
+  border-radius: 10px !important;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+  font-size: 14px !important;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+}
+
+body.carvelo-theme a.button::after,
+body.carvelo-theme button::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.carvelo-theme .button-container.cta-button a.button,
+body.carvelo-theme .cta-button a.button,
+body.carvelo-theme .cta-button-dark a.button {
+  background: #f82216;
+  border-color: #f82216;
+  color: #ffffff !important;
+}
+
+body.carvelo-theme .button-container.cta-button a.button:hover,
+body.carvelo-theme .cta-button a.button:hover,
+body.carvelo-theme .cta-button-dark a.button:hover {
+  background: #c41a10;
+  border-color: #c41a10;
+}
+
+body.carvelo-theme .cta-button-secondary a.button,
+body.carvelo-theme .default-button-secondary a.button,
+body.carvelo-theme a.button.secondary,
+body.carvelo-theme button.secondary {
+  background: #ffffff;
+  border: 2px solid #000000;
+  color: #000000 !important;
+}
+
+body.carvelo-theme .cta-button-secondary a.button:hover,
+body.carvelo-theme .default-button-secondary a.button:hover {
+  background: #000000;
+  border-color: #000000;
+  color: #ffffff !important;
+}
+
+/* ─── Header & Nav ───────────────────────────────────────────────────── */
+body.carvelo-theme header nav a::after {
+  content: none !important;
+}
+
+body.carvelo-theme header .nav-wrapper {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.carvelo-theme header nav {
+  max-width: 1280px !important;
+  width: 100%;
+  padding-left: 0;
+
+}
+
+body.carvelo-theme header .nav-brand,
+body.carvelo-theme header nav .nav-brand a,
+body.carvelo-theme header nav .nav-brand picture {
+  display: flex;
+  align-items: center;
+}
+
+body.carvelo-theme header .nav-brand {
+  flex-basis: unset;
+}
+
+body.carvelo-theme header nav .nav-brand picture {
+  width: 150px;
+}
+
+body.carvelo-theme header nav .nav-brand img {
+  width: 150px;
+  height: auto;
+}
+
+body.carvelo-theme header nav .nav-sections ul > li > a,
+body.carvelo-theme footer .footer,
+body.carvelo-theme footer .footer p,
+body.carvelo-theme footer .footer a {
+  color: #000000;
+}
+
+body.carvelo-theme header nav .nav-sections ul > li > a {
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+  font-size: 16px !important;
+  font-weight: 700;
+  padding-top:10px;
+}
+
+body.carvelo-theme header nav .nav-sections ul > li > a::before {
+  background: #f82216;
+}
+
+body.carvelo-theme header nav .nav-sections ul > li > a:hover {
+  color: #f82216;
+}
+ body.carvelo-theme header nav .nav-sections ul {
+   gap: 22px;
+}
+body.carvelo-theme footer .footer a:hover {
+  color: #f82216;
+}
+
+body.carvelo-theme .lang-switcher .lang-button,
+body.carvelo-theme a.sign-in-btn,
+body.carvelo-theme header nav .nav-tools a[href*="sign"] {
+  color: #000000;
+  border: 2px solid #000000;
+  background: #ffffff;
+  border-radius: 10px !important;
+}
+
+body.carvelo-theme a.sign-in-btn,
+body.carvelo-theme header nav .nav-tools a[href*="sign"] {
+  text-align: center;
+  align-items: center;
+  min-width: 108px;
+  padding: 0.6rem 1.4rem;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+body.carvelo-theme header nav .nav-tools {
+  gap: 18px;
+}
+
+body.carvelo-theme header nav .nav-tools .cart-icon,
+body.carvelo-theme header nav .nav-tools a[href*="cart"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" fill="%23000000"><ellipse fill-rule="evenodd" cx="10.445" cy="31.143" rx="2.667" ry="2.917"/><ellipse fill-rule="evenodd" cx="25.778" cy="31.143" rx="2.667" ry="2.917"/><path fill-rule="evenodd" d="M29.326,24H10.469l.762-2.6H28a1.331,1.331,0,0,0,1.307-1.071L33.974,7.66a1.334,1.334,0,0,0-1.308-1.595H32.54v-.03H6.5l-1.289-3.5A1.335,1.335,0,0,0,3.889,1.4H1.333a1.334,1.334,0,0,0,0,2.667H2.739L8.667,20,7.373,25.075A1.569,1.569,0,0,0,8.667,27H29.333a1.589,1.589,0,0,0,1.334-1.6A1.4,1.4,0,0,0,29.326,24ZM7.529,8.835H30.6l-3.693,9.9H11.174Z" transform="translate(0)"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+  background-color: transparent;
+  overflow: visible;
+}
+
+body.carvelo-theme header nav .nav-tools .cart-icon::after,
+body.carvelo-theme header nav .nav-tools a[href*="cart"]::after,
+body.carvelo-theme footer .footer a::after {
+  content: none !important;
+}
+
+body.carvelo-theme header nav .nav-tools .cart-icon .cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 16px;
+  height: 16px;
+  background-color: #f82216;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  line-height: 1;
+}
+body.carvelo-theme header nav {
+    padding-top: 0;
+}
+body.carvelo-theme main .product-detail .pd-container {
+    grid-template-columns: 46% 54%;
+}
+body.carvelo-theme main .product-detail {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+}
+/* ─── Top Ribbon ─────────────────────────────────────────────────────── */
+body.carvelo-theme .TopRibbon {
+  background: #000000;
+  color: #ffffff;
+}
+
+body.carvelo-theme .TopRibbon__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 42px;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+body.carvelo-theme .TopRibbon__image {
+  height: 25px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ─── Footer ─────────────────────────────────────────────────────────── */
+body.carvelo-theme footer {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.carvelo-theme footer .footer > div {
+  max-width: 1280px;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body.carvelo-theme footer .footer,
+body.carvelo-theme footer .footer p,
+body.carvelo-theme footer .footer a {
+  color: #ffffff !important;
+}
+
+body.carvelo-theme footer .footer a:hover {
+  color: #f82216 !important;
+}
+
+body.carvelo-theme footer .footer a::after {
+  content: none !important;
+}
+
+body.carvelo-theme footer .footer p:has(> a) {
+  font-size: 0.9rem;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Form Variables ─────────────────────────────────────────────────── */
+body.carvelo-theme :root {
+  --button-primary-color: #f82216;
+  --button-primary-hover-color: #c41a10;
+  --button-secondary-color: #000000;
+  --form-label-color: #000000;
+  --form-input-border-color: #000000;
+  --label-color: #000000;
+  --border-color: #000000;
+}
+
+/* ─── Form Inputs (all blocks) ───────────────────────────────────────── */
+body.carvelo-theme main .form form input,
+body.carvelo-theme main .form form textarea,
+body.carvelo-theme main .form form select {
+  color: #000000 !important;
+  border: 1.5px solid #bcbcbc !important;
+  border-radius: 10px !important;
+  padding:5px 5px;
+}
+
+body.carvelo-theme form button {
+    padding: 10px 32px !important;
+    text-align: center;
+} 
+body.carvelo-theme main .form form input:focus,
+body.carvelo-theme main .form form textarea:focus,
+body.carvelo-theme main .form form select:focus {
+  border-color: #f82216 !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(248, 34, 22, 0.12);
+}
+
+body.carvelo-theme main .form form input::placeholder,
+body.carvelo-theme main .form form textarea::placeholder {
+  color: #999;
+}
+
+body.carvelo-theme main .form form label,
+body.carvelo-theme main .form fieldset legend {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+body.carvelo-theme main .form form p {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+body.carvelo-theme main .form .field-description {
+  color: #555555;
+}
+
+/* ─── Form Submit Buttons ────────────────────────────────────────────── */
+body.carvelo-theme main .form button[type='submit'],
+body.carvelo-theme main .form .button,
+body.carvelo-theme main .sign-in .submit-wrapper button,
+body.carvelo-theme main .membership button[type='submit'],
+body.carvelo-theme main .create-account .submit-wrapper button,
+body.carvelo-theme main .user-registration .submit-wrapper button,
+body.carvelo-theme main .child-account-application .submit-wrapper button,
+body.carvelo-theme main .name-change-request .submit-wrapper button,
+body.carvelo-theme main .set-up-auto-save .submit-wrapper button,
+body.carvelo-theme main .transfer-funds .submit-wrapper button,
+body.carvelo-theme main .join-us .submit-wrapper button,
+body.carvelo-theme main .insurance-block .insurance-form .submit-wrapper button,
+body.carvelo-theme main .add-external-block .add-external-form .submit-wrapper button,
+body.carvelo-theme main .credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-next button,
+body.carvelo-theme main .credit-card-application-form-block .credit-card-application-form-wizard .submit-wrapper button,
+body.carvelo-theme main .new-account-block .new-account-wizard .wizard-button-next button,
+body.carvelo-theme main .new-account-block .new-account-wizard .submit-wrapper button,
+body.carvelo-theme main .loan-application-form-block .loan-application-form-wizard .wizard-button-next button,
+body.carvelo-theme main .loan-application-form-block .loan-application-form-wizard .submit-wrapper button,
+body.carvelo-theme main .loan-calculator button[type='submit'],
+body.carvelo-theme main .checkout .submit-wrapper button,
+body.carvelo-theme main .checkout-shipping .submit-wrapper button,
+body.carvelo-theme main .confirmation .submit-wrapper button {
+  background: #f82216 !important;
+  background-color: #f82216 !important;
+  border-color: #f82216 !important;
+  color: #ffffff !important;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .form button[type='submit']:hover,
+body.carvelo-theme main .form .button:hover,
+body.carvelo-theme main .sign-in .submit-wrapper button:hover,
+body.carvelo-theme main .membership button[type='submit']:hover,
+body.carvelo-theme main .create-account .submit-wrapper button:hover,
+body.carvelo-theme main .user-registration .submit-wrapper button:hover,
+body.carvelo-theme main .child-account-application .submit-wrapper button:hover,
+body.carvelo-theme main .name-change-request .submit-wrapper button:hover,
+body.carvelo-theme main .set-up-auto-save .submit-wrapper button:hover,
+body.carvelo-theme main .transfer-funds .submit-wrapper button:hover,
+body.carvelo-theme main .join-us .submit-wrapper button:hover,
+body.carvelo-theme main .insurance-block .insurance-form .submit-wrapper button:hover,
+body.carvelo-theme main .add-external-block .add-external-form .submit-wrapper button:hover,
+body.carvelo-theme main .credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-next button:hover,
+body.carvelo-theme main .credit-card-application-form-block .credit-card-application-form-wizard .submit-wrapper button:hover,
+body.carvelo-theme main .new-account-block .new-account-wizard .wizard-button-next button:hover,
+body.carvelo-theme main .new-account-block .new-account-wizard .submit-wrapper button:hover,
+body.carvelo-theme main .loan-application-form-block .loan-application-form-wizard .wizard-button-next button:hover,
+body.carvelo-theme main .loan-application-form-block .loan-application-form-wizard .submit-wrapper button:hover,
+body.carvelo-theme main .loan-calculator button[type='submit']:hover,
+body.carvelo-theme main .checkout .submit-wrapper button:hover,
+body.carvelo-theme main .checkout-shipping .submit-wrapper button:hover,
+body.carvelo-theme main .confirmation .submit-wrapper button:hover {
+  background: #c41a10 !important;
+  background-color: #c41a10 !important;
+  border-color: #c41a10 !important;
+}
+
+/* ─── Wizard Step Indicators ─────────────────────────────────────────── */
+body.carvelo-theme main .credit-card-application-form-block .credit-card-application-form-wizard .wizard-menu-active-item,
+body.carvelo-theme main .new-account-block .wizard-menu-active-item,
+body.carvelo-theme main .loan-application-form-block .wizard-menu-active-item {
+  background: #f82216 !important;
+  border-color: #f82216 !important;
+}
+
+body.carvelo-theme main .form form .wizard .wizard-menu-item::before {
+  border-color: #f82216;
+  color: #f82216;
+}
+
+body.carvelo-theme main .form form .wizard .wizard-menu-active-item::before {
+  background: #f82216;
+  border-color: #f82216;
+  color: #ffffff;
+}
+
+/* ─── Sign-In Block ──────────────────────────────────────────────────── */
+body.carvelo-theme main .sign-in .form-container,
+body.carvelo-theme main .sign-in form {
+  background-color: transparent;
+}
+
+body.carvelo-theme main .sign-in form label,
+body.carvelo-theme main .sign-in form p {
+  color: #000000;
+}
+
+
+body.carvelo-theme main .sign-in {
+    box-shadow: none;
+    background: #fff;
+    max-width: 400px;
+}
+
+body.carvelo-theme main .sign-in .create-account-link {
+  color: #f82216;
+  border: 2px solid #f82216;
+  text-align: center;
+}
+
+body.carvelo-theme main .sign-in .create-account-link:hover {
+  background: #f82216 !important;
+  color: #fff !important;
+}
+
+/* ─── Registration / Create Account ─────────────────────────────────── */
+body.carvelo-theme main .create-account .form-container,
+body.carvelo-theme main .user-registration .form-container {
+  background-color: transparent;
+}
+
+body.carvelo-theme main .create-account form label,
+body.carvelo-theme main .user-registration form label {
+  color: #000000;
+}
+
+body.carvelo-theme main .create-account .field-wrapper.switch input[type="checkbox"]:checked,
+body.carvelo-theme main .user-registration .field-wrapper.switch input[type="checkbox"]:checked {
+  background: #000;
+}
+
+body.carvelo-theme main .create-account .field-wrapper.switch input[type="checkbox"]::before,
+body.carvelo-theme main .user-registration .field-wrapper.switch input[type="checkbox"]::before {
+  top: 0;
+  left: 0;
+}
+
+/* ─── Join Us Block ──────────────────────────────────────────────────── */
+body.carvelo-theme main .join-us {
+  background: none;
+  width: 100%;
+  max-width: 90%;
+}
+
+body.carvelo-theme main .join-us h2#heading-join-us {
+  display: block;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+body.carvelo-theme main .join-us .field-wrapper.switch input[type="checkbox"]:checked {
+  background: #f82216 !important;
+}
+
+body.carvelo-theme main .join-us .field-wrapper.switch input[type="checkbox"]::before {
+  top: 0;
+}
+
+/* ─── Product Detail Block ───────────────────────────────────────────── */
+body.carvelo-theme main .product-detail input,
+body.carvelo-theme main .product-detail select {
+  color: #000000;
+  border: 1.5px solid #bcbcbc;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .product-detail input:focus,
+body.carvelo-theme main .product-detail select:focus {
+  border-color: #f82216;
+}
+
+body.carvelo-theme main .product-detail label {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+body.carvelo-theme main .product-detail .pd-btn-primary {
+  background: #f82216 !important;
+  background-color: #f82216 !important;
+  border-color: #f82216 !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .product-detail .pd-btn-primary:hover {
+  background: #c41a10 !important;
+  background-color: #c41a10 !important;
+  border-color: #c41a10 !important;
+}
+
+body.carvelo-theme main .product-detail .pd-btn-secondary {
+  background: transparent !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .product-detail .pd-btn-secondary:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+body.carvelo-theme main .product-detail .pd-name,
+body.carvelo-theme main .product-detail .pd-category,
+body.carvelo-theme main .product-detail .pd-price,
+body.carvelo-theme main .product-detail .pd-description p {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+/* ─── Cart Block ─────────────────────────────────────────────────────── */
+body.carvelo-theme main .cart .cart-qty-input,
+body.carvelo-theme main .cart .cart-discount-input {
+  color: #000000;
+  border: 1.5px solid #bcbcbc;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .cart .cart-qty-input::placeholder,
+body.carvelo-theme main .cart .cart-discount-input::placeholder {
+  color: #999;
+}
+
+body.carvelo-theme main .cart .cart-discount-label {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+body.carvelo-theme main .cart .cart-checkout-btn {
+  background: #f82216 !important;
+  background-color: #f82216 !important;
+  border-color: #f82216 !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+  padding: 14px 32px;
+}
+
+body.carvelo-theme main .cart .cart-checkout-btn:hover {
+  background: #c41a10 !important;
+  background-color: #c41a10 !important;
+  border-color: #c41a10 !important;
+}
+
+body.carvelo-theme main .cart .cart-empty-button {
+  background: transparent !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .cart .cart-empty-button:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* ─── Checkout Block ─────────────────────────────────────────────────── */
+body.carvelo-theme main .checkout .checkout-form input[type="text"],
+body.carvelo-theme main .checkout .checkout-form input[type="email"],
+body.carvelo-theme main .checkout .checkout-form input[type="tel"],
+body.carvelo-theme main .checkout .checkout-form select,
+body.carvelo-theme main .checkout .checkout-prefs select {
+  color: #000000;
+  border: 1.5px solid #bcbcbc;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .checkout .checkout-form input:focus,
+body.carvelo-theme main .checkout .checkout-form select:focus {
+  border-color: #f82216;
+}
+
+body.carvelo-theme main .checkout .checkout-form input::placeholder {
+  color: #999;
+}
+
+body.carvelo-theme main .checkout .checkout-form label,
+body.carvelo-theme main .checkout .checkout-prefs label,
+body.carvelo-theme main .checkout label.checkout-checkbox {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+body.carvelo-theme main .checkout .checkout-confirm-btn {
+  background: #f82216 !important;
+  background-color: #f82216 !important;
+  border-color: #f82216 !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .checkout .checkout-confirm-btn:hover {
+  background: #c41a10 !important;
+  background-color: #c41a10 !important;
+  border-color: #c41a10 !important;
+}
+
+body.carvelo-theme main .checkout .form-container,
+body.carvelo-theme main .checkout-shipping .form-container {
+  background-color: transparent;
+}
+
+body.carvelo-theme main .checkout form label,
+body.carvelo-theme main .checkout-shipping form label,
+body.carvelo-theme main .checkout form p,
+body.carvelo-theme main .checkout-shipping form p {
+  color: #000000;
+}
+
+/* ─── Order Summary Block ────────────────────────────────────────────── */
+body.carvelo-theme main .order-summary .order-summary-title,
+body.carvelo-theme main .order-summary .order-summary-items-title,
+body.carvelo-theme main .order-summary .order-summary-total,
+body.carvelo-theme main .order-summary .order-summary-item-name {
+  color: #000000;
+}
+
+body.carvelo-theme main .order-summary .order-summary-btn-confirm {
+  background: #f82216 !important;
+  background-color: #f82216 !important;
+  border-color: #f82216 !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .order-summary .order-summary-btn-confirm:hover {
+  background: #c41a10 !important;
+  background-color: #c41a10 !important;
+  border-color: #c41a10 !important;
+}
+
+body.carvelo-theme main .order-summary .order-summary-btn-back {
+  background: transparent !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .order-summary .order-summary-btn-back:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* ─── Order Confirmation Block ───────────────────────────────────────── */
+body.carvelo-theme main .order-confirmation .order-confirmation-title,
+body.carvelo-theme main .order-confirmation .order-confirmation-subtitle,
+body.carvelo-theme main .order-confirmation .order-confirmation-number,
+body.carvelo-theme main .order-confirmation .order-confirmation-details,
+body.carvelo-theme main .order-confirmation .order-confirmation-support {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+body.carvelo-theme main .order-confirmation .order-confirmation-btn {
+  background: #f82216 !important;
+  background-color: #f82216 !important;
+  border-color: #f82216 !important;
+  color: #ffffff !important;
+  border-radius: 10px;
+}
+
+body.carvelo-theme main .order-confirmation .order-confirmation-btn:hover {
+  background: #c41a10 !important;
+  background-color: #c41a10 !important;
+  border-color: #c41a10 !important;
+}
+
+/* ─── Confirmation Block ─────────────────────────────────────────────── */
+body.carvelo-theme main .confirmation .confirmation-detail-label,
+body.carvelo-theme main .confirmation .confirmation-detail-value {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+/* ─── Form Card Styling ──────────────────────────────────────────────── */
+body.carvelo-theme main .form form fieldset.cards > .radio-wrapper > label,
+body.carvelo-theme main .form form fieldset.cards > .checkbox-wrapper > label {
+  border-color: #bcbcbc;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.carvelo-theme main .form form fieldset.cards > .radio-wrapper > input:checked ~ label,
+body.carvelo-theme main .form form fieldset.cards > .checkbox-wrapper > input:checked ~ label {
+  border-color: #f82216;
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 1px #f82216;
+}
+
+/* ─── Credit Card Application Form & Loan Application Form Wizards ──── */
+body.carvelo-theme main .credit-card-application-form-block .form-container,
+body.carvelo-theme main .new-account-block .form-container,
+body.carvelo-theme main .loan-application-form-block .form-container {
+  background-color: transparent;
+}
+
+body.carvelo-theme main .credit-card-application-form-block form label,
+body.carvelo-theme main .new-account-block form label,
+body.carvelo-theme main .loan-application-form-block form label {
+  color: #000000;
+  font-family: adobe-clean, proxima-nova, "Proxima Nova", sans-serif;
+}
+
+/* ─── Search ─────────────────────────────────────────────────────────── */
+body.carvelo-theme .search.search-icon .search-box .icon img,
+body.carvelo-theme .search.search-icon .search-trigger .icon img {
+  filter: invert(0);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+@media (width < 900px) {
+  body.carvelo-theme header nav .nav-sections ul > li > a {
+    color: #000000;
+  }
+}
+
+@media (width <= 768px) {
+  body.carvelo-theme h1 {
+    font-size: 2rem !important;
+  }
+
+  body.carvelo-theme h2 {
+    font-size: 1.5rem !important;
+  }
+
+  body.carvelo-theme .hero h2,
+  body.carvelo-theme .hero-wrapper h2 {
+    font-size: 2rem !important;
+  }
+
+  body.carvelo-theme header nav .nav-brand picture,
+  body.carvelo-theme header nav .nav-brand img {
+    width: 120px;
+  }
+
+  body.carvelo-theme .TopRibbon__content {
+    padding: 0 12px;
+    text-align: center;
+  }
+}
+
+/* Icon cards – let image height follow the icon's natural size */
+body.carvelo-theme .cards > ul > li.icon-cards img {
+  width: auto;
+  height: auto;
+  min-height: unset;
+  max-height: unset;
+  aspect-ratio: unset;
+  object-fit: unset;
+}
+
+body.carvelo-theme .cards > ul > li.icon-cards .cards-card-image {
+  min-height: unset;
+  max-height: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0 0;
+}
+
+/* Sign In – submit button: auto width, centered */
+body.carvelo-theme main .sign-in .submit-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+body.carvelo-theme main .sign-in .submit-wrapper button {
+  width: auto !important;
+  min-width: 160px;
+  padding: 0.75rem 2.5rem;
+}
+
+/* Add to Cart (product-detail) – auto width, centered */
+body.carvelo-theme main .product-detail .pd-actions {
+  justify-content: center;
+}
+
+body.carvelo-theme main .product-detail .pd-btn {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 180px;
+  padding: 0.875rem 2.5rem;
+}
+
+body.carvelo-theme .cards > ul > li.teaser-card .cards-card-body {
+    bottom: 0;
+        text-align: center;
+}
+body.carvelo-theme .cards > ul > li.teaser-card .cards-card-body h2 {
+    font-size: 21px !important;
+    font-weight: bold;
+        padding: 0;
+}
+body.carvelo-theme .cards > ul > li.cards-card--custom-text-color .cards-card-body strong{
+   background-color: #1FAA6F;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+}
+.section.latest-models.cards-container {
+    max-width: 1500px;
+    margin: auto;
+}
+body.carvelo-theme .cards > ul > li.teaser-card{
+  border-radius: 15px;
+}
+body.carvelo-theme .cards > ul > li {
+    border-radius: 15px !important;
+}
+body.carvelo-theme .hero.block.image-background-text-left{
+  padding: 0;
+}
+body.carvelo-theme  .hero.image-background-text-left div:nth-child(2){
+    margin-left: 11.5%;
+}
+body.carvelo-theme main .category-products-lister.carousel .cpl-carousel-meta {
+    padding-top: 0;
+}
+body.carvelo-theme main .category-products-lister .cpl-card-category{
+    text-align: center;
+    background-color: #1FAA6F;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    line-height: 1 !important;
+}
+body.carvelo-theme main .category-products-lister h3.cpl-card-title {
+    font-weight: bold;
+    font-size: 21px !important;
+}
+body.carvelo-theme .hero.block.overlay * {
+    color: #fff !important;
+}
+body.carvelo-theme .button-container.cta-button a.button:hover{
+  border-color:#fff !important
+}
+body.carvelo-theme .hero h5 {
+    font-size: 36px;
+    font-family: 'Adobe Clean Light' !important;
+    margin-bottom: 10px;
+}
+body.carvelo-theme .button-container.cta-button a.button:hover {
+    border-color: red !important;
+    color: red !important;
+}

@@ -1,0 +1,297 @@
+/* ============================================
+   Child Account Application Form Styling
+   ============================================ */
+
+main .child-account-application {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: #fff;
+}
+
+main .child-account-application form {
+  display: block;
+}
+
+main .child-account-application .child-account-application-form {
+  --form-columns: 12;
+  --form-button-background-color: #2874F0;
+  --form-button-background-hover-color: #0052cc;
+  --form-input-border-color: #cbd5e1;
+  --form-label-color: #1e293b;
+  --form-label-font-weight: 500;
+  --form-label-font-size: 16px;
+  --form-field-vert-gap: 16px;
+  --form-field-horz-gap: 24px;
+}
+
+main .child-account-application .panel-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+main .child-account-application .heading-wrapper label {
+  display: none !important;
+}
+
+main .child-account-application .heading-wrapper {
+  grid-column: span 12 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+main .child-account-application h2#heading-child-information {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0 0 32px;
+  padding: 0;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+main .child-account-application h2#heading-parent-information,
+main .child-account-application h2#heading-consent {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 28px 0 0;
+  padding: 0;
+  color: #1e293b;
+  letter-spacing: 0.05em;
+}
+
+main .child-account-application .panel-wrapper > .heading-wrapper {
+  grid-column: span 12 !important;
+}
+
+main .child-account-application label {
+  color: #334155;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+main .child-account-application input[type="text"],
+main .child-account-application input[type="email"],
+main .child-account-application select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #1e293b;
+  background: #fff;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+main .child-account-application input[type="text"]:focus,
+main .child-account-application input[type="email"]:focus,
+main .child-account-application select:focus {
+  outline: none;
+  border-color: #2874F0;
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.1);
+}
+
+main .child-account-application input[type="text"]:hover,
+main .child-account-application input[type="email"]:hover,
+main .child-account-application select:hover {
+  border-color: #94a3b8;
+}
+
+main .child-account-application input::placeholder {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+main .child-account-application .field-wrapper {
+  margin: 0;
+}
+
+main .child-account-application .field-wrapper.col-12,
+main .child-account-application .field-wrapper[data-colspan="12"] {
+  grid-column: span 12 !important;
+}
+
+main .child-account-application .field-wrapper.col-6,
+main .child-account-application .field-wrapper[data-colspan="6"] {
+  grid-column: span 6 !important;
+}
+
+main .child-account-application .checkbox-wrapper.col-12,
+main .child-account-application .submit-wrapper.col-12 {
+  grid-column: span 12 !important;
+}
+
+main .child-account-application .checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+main .child-account-application .checkbox-wrapper label {
+  order: 2;
+  font-size: 15px;
+  color: #334155;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+main .child-account-application .checkbox-wrapper input[type="checkbox"] {
+  order: 1;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin: 2px 0 0;
+}
+
+main .child-account-application .submit-wrapper {
+  margin-top: 24px;
+  grid-column: span 12 !important;
+  display: flex;
+  justify-content: center;
+}
+
+main .child-account-application .submit-wrapper button {
+  background: var(--accent-color, #008dd0);
+  color: #fff;
+  padding: 16px 60px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 141, 208, 0.2);
+}
+
+main .child-account-application .submit-wrapper button:hover {
+  background: var(--accent-hover-color, #007ab5);
+  box-shadow: 0 4px 12px rgba(0, 141, 208, 0.3);
+  transform: translateY(-1px);
+}
+
+main .child-account-application .submit-wrapper button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 141, 208, 0.2);
+}
+
+main .child-account-application select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23334155' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+.child-account-application input.error,
+.child-account-application select.error,
+.child-account-application textarea.error {
+  border-color: #f44336 !important;
+  background-color: #ffebee !important;
+}
+
+.child-account-application input.error:focus,
+.child-account-application select.error:focus,
+.child-account-application textarea.error:focus {
+  outline-color: #f44336;
+  border-color: #f44336;
+}
+
+.child-account-application .form-message {
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  animation: slideDown 0.3s ease-out;
+}
+
+.child-account-application .form-message.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.child-account-application .form-message.error {
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.child-account-application button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.child-account-application [data-aue-prop="buttoneventtype"],
+.child-account-application [data-aue-prop="buttonwebhookurl"],
+.child-account-application [data-aue-prop="buttonformid"],
+.child-account-application [data-aue-prop="buttondata"] {
+  display: none !important;
+}
+
+.child-account-application div:has(> [data-aue-prop="buttoneventtype"]),
+.child-account-application div:has(> [data-aue-prop="buttonwebhookurl"]),
+.child-account-application div:has(> [data-aue-prop="buttonformid"]),
+.child-account-application div:has(> [data-aue-prop="buttondata"]) {
+  display: none !important;
+}
+
+@media (width <= 768px) {
+  main .child-account-application {
+    padding: 40px 20px;
+  }
+
+  main .child-account-application .panel-wrapper > .field-wrapper[class*="col-"] {
+    grid-column: span 12 !important;
+  }
+
+  main .child-account-application h2#heading-child-information {
+    font-size: 1.875rem;
+    margin-bottom: 32px;
+  }
+
+  main .child-account-application h2#heading-parent-information,
+  main .child-account-application h2#heading-consent {
+    font-size: 1.125rem;
+    margin: 32px 0 0;
+  }
+
+  main .child-account-application .submit-wrapper button {
+    width: auto;
+    min-width: 220px;
+    padding: 16px 32px;
+  }
+}
+
+@media (width <= 480px) {
+  main .child-account-application {
+    padding: 30px 16px;
+  }
+
+  main .child-account-application h2#heading-child-information {
+    font-size: 1.75rem;
+    margin-bottom: 28px;
+  }
+}

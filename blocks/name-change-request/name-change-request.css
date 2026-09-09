@@ -1,0 +1,345 @@
+/* ============================================
+   Name Change Request Form Styling
+   ============================================ */
+
+main .name-change-request {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: #fff;
+}
+
+main .name-change-request form {
+  display: block;
+}
+
+main .name-change-request .name-change-request-form {
+  --form-columns: 12;
+  --form-button-background-color: #2874F0;
+  --form-button-background-hover-color: #0052cc;
+  --form-input-border-color: #cbd5e1;
+  --form-label-color: #1e293b;
+  --form-label-font-weight: 500;
+  --form-label-font-size: 16px;
+  --form-field-vert-gap: 16px;
+  --form-field-horz-gap: 24px;
+}
+
+main .name-change-request .panel-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+main .name-change-request .heading-wrapper label {
+  display: none !important;
+}
+
+main .name-change-request .heading-wrapper {
+  grid-column: span 12 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+main .name-change-request h2#heading-name-change-request {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0 0 32px;
+  padding: 0;
+  color: #1e293b;
+  line-height: 1.2;
+  text-align: center;
+}
+
+main .name-change-request .panel-wrapper > .heading-wrapper {
+  grid-column: span 12 !important;
+}
+
+main .name-change-request label,
+main .name-change-request .name-change-request-question {
+  color: #334155;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+main .name-change-request .name-change-request-question {
+  margin-top: 0;
+}
+
+main .name-change-request input[type="text"],
+main .name-change-request input[type="email"],
+main .name-change-request select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #1e293b;
+  background: #fff;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+main .name-change-request input[type="text"]:focus,
+main .name-change-request input[type="email"]:focus,
+main .name-change-request select:focus {
+  outline: none;
+  border-color: #2874F0;
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.1);
+}
+
+main .name-change-request input[type="text"]:hover,
+main .name-change-request input[type="email"]:hover,
+main .name-change-request select:hover {
+  border-color: #94a3b8;
+}
+
+main .name-change-request input::placeholder {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+main .name-change-request .field-wrapper {
+  margin: 0;
+}
+
+main .name-change-request .field-wrapper.col-12,
+main .name-change-request .field-wrapper[data-colspan="12"],
+main .name-change-request .checkbox-group-wrapper.col-12,
+main .name-change-request .submit-wrapper.col-12 {
+  grid-column: span 12 !important;
+}
+
+main .name-change-request .field-wrapper.col-6,
+main .name-change-request .field-wrapper[data-colspan="6"] {
+  grid-column: span 6 !important;
+}
+
+main .name-change-request .checkbox-group-wrapper {
+  padding: 0;
+  border: none;
+  margin: 6px 0 18px;
+  grid-column: span 12 !important;
+}
+
+main .name-change-request .checkbox-group-wrapper legend {
+  display: none;
+}
+
+main .name-change-request .checkbox-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 0;
+}
+
+main .name-change-request .checkbox-wrapper label {
+  order: 2;
+  font-size: 15px;
+  color: #334155;
+  cursor: pointer;
+  margin: 0;
+  line-height: 1.5;
+}
+
+main .name-change-request .checkbox-wrapper input[type="checkbox"] {
+  order: 1;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin: 2px 0 0;
+}
+
+main .name-change-request .file-wrapper {
+  grid-column: span 12 !important;
+  margin: 0 0 18px;
+}
+
+main .name-change-request .file-wrapper > label {
+  display: none !important;
+}
+
+main .name-change-request .file-drag-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: relative;
+}
+
+main .name-change-request .file-dragIcon,
+main .name-change-request .file-dragText {
+  display: none;
+}
+
+main .name-change-request .file-drag-area input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+main .name-change-request .file-attachButton {
+  background: #cfe6f3;
+  color: #334155;
+  padding: 16px 60px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+main .name-change-request .file-attachButton:hover {
+  background: #bddaea;
+  transform: translateY(-1px);
+}
+
+main .name-change-request .files-list {
+  margin-top: 12px;
+}
+
+main .name-change-request .submit-wrapper {
+  margin-top: 24px;
+  grid-column: span 12 !important;
+  display: flex;
+  justify-content: center;
+}
+
+main .name-change-request .submit-wrapper button {
+  background: var(--main-accent-color, #C2410C);
+  color: var(--text-light, #fff);
+  padding: 16px 60px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: none;
+  border: 2px solid var(--main-accent-color, #C2410C);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: var(--heading-font-family);
+}
+
+main .name-change-request .submit-wrapper button:hover {
+  background: transparent;
+  color: var(--main-accent-color, #C2410C);
+  border-color: var(--main-accent-color, #C2410C);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+main .name-change-request .submit-wrapper button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.name-change-request input.error,
+.name-change-request select.error,
+.name-change-request textarea.error {
+  border-color: #f44336 !important;
+  background-color: #ffebee !important;
+}
+
+.name-change-request input.error:focus,
+.name-change-request select.error:focus,
+.name-change-request textarea.error:focus {
+  outline-color: #f44336;
+  border-color: #f44336;
+}
+
+.name-change-request .form-message {
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  animation: slideDown 0.3s ease-out;
+}
+
+.name-change-request .form-message.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.name-change-request .form-message.error {
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.name-change-request button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.name-change-request [data-aue-prop="buttoneventtype"],
+.name-change-request [data-aue-prop="buttonwebhookurl"],
+.name-change-request [data-aue-prop="buttonformid"],
+.name-change-request [data-aue-prop="buttondata"] {
+  display: none !important;
+}
+
+.name-change-request div:has(> [data-aue-prop="buttoneventtype"]),
+.name-change-request div:has(> [data-aue-prop="buttonwebhookurl"]),
+.name-change-request div:has(> [data-aue-prop="buttonformid"]),
+.name-change-request div:has(> [data-aue-prop="buttondata"]) {
+  display: none !important;
+}
+
+@media (width <= 768px) {
+  main .name-change-request {
+    padding: 40px 20px;
+  }
+
+  main .name-change-request .panel-wrapper > .field-wrapper[class*="col-"] {
+    grid-column: span 12 !important;
+  }
+
+  main .name-change-request h2#heading-name-change-request {
+    font-size: 1.875rem;
+    margin-bottom: 32px;
+  }
+
+  main .name-change-request .file-attachButton,
+  main .name-change-request .submit-wrapper button {
+    width: 100%;
+    padding: 16px 32px;
+  }
+}
+
+@media (width <= 480px) {
+  main .name-change-request {
+    padding: 30px 16px;
+  }
+
+  main .name-change-request h2#heading-name-change-request {
+    font-size: 1.75rem;
+    margin-bottom: 28px;
+  }
+}

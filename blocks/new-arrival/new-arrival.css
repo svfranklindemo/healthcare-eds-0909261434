@@ -1,0 +1,333 @@
+/* New Arrival Component */
+.new-arrival {
+  padding: 2rem 0;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Header */
+.na-header {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.na-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #2c2c2c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Empty State */
+.na-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+  font-size: 1.125rem;
+}
+
+/* Carousel Wrapper */
+.na-carousel-wrapper {
+  position: relative;
+  padding: 0 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Carousel Container */
+.na-carousel {
+  overflow: hidden;
+  /* Width is set dynamically by JavaScript to show only complete cards */
+  margin: 0 auto;
+}
+
+/* Carousel Track */
+.na-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.4s ease-in-out;
+}
+
+.na-carousel-track.is-centered {
+  justify-content: center;
+}
+
+/* Card Styles */
+.na-card {
+  flex: 0 0 227.2px;
+  width: 227.2px;
+  overflow: hidden;
+  background: #fff;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.na-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+/* Card Media */
+.na-card-media {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #0000000a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.na-card-media img {
+ filter: brightness(.96);
+}
+.na-card-media picture {
+  width: 100%;
+  height: 100%;
+}
+
+.na-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.na-card:hover .na-card-media img {
+  transform: scale(1.05);
+}
+
+/* Card Meta */
+.na-card-meta {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  align-items: center;
+}
+
+.na-card-category {
+  margin: 0;
+  font-size: 11px;
+  color: #888;
+  text-align: center;
+}
+
+.na-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c2c2c;
+  line-height: 1.4;
+  text-align: center;
+  padding-top: 0px;
+}
+
+/* Carousel Navigation Buttons */
+.na-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border: 2px solid #0066cc;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  color: #0066cc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.na-carousel-btn:hover:not(:disabled) {
+  background: #0066cc;
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 102, 204, 0.3);
+}
+
+.na-carousel-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.na-carousel-btn-prev {
+  left: 0;
+}
+
+.na-carousel-btn-next {
+  right: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .na-carousel-track {
+    gap: 1.25rem;
+  }
+  
+  .na-card {
+    flex: 0 0 227.2px;
+    width: 227.2px;
+  }
+}
+
+@media (max-width: 900px) {
+  .na-carousel-wrapper {
+    padding: 0 3rem;
+  }
+  
+  .na-carousel-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+  
+  .na-card {
+    flex: 0 0 260px;
+    width: 260px;
+  }
+  
+  .na-card-media {
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .new-arrival {
+    padding: 1.5rem 0;
+  }
+  
+  .na-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .na-title {
+    font-size: 1.5rem;
+  }
+  
+  .na-carousel-wrapper {
+    padding: 0 2.5rem;
+  }
+  
+  .na-carousel-track {
+    gap: 1rem;
+  }
+  
+  .na-carousel-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.125rem;
+  }
+  
+  .na-card {
+    flex: 0 0 240px;
+    width: 240px;
+  }
+  
+  .na-card-media {
+    height: 240px;
+  }
+  
+  .na-card-meta {
+    padding: 1rem;
+  }
+  
+  .na-card-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .na-carousel-wrapper {
+    padding: 0 2rem;
+  }
+
+  .na-card {
+    flex: 0 0 220px;
+    width: 220px;
+  }
+
+  .na-card-media {
+    height: 220px;
+  }
+}
+
+/* Vertical Layout */
+.na-vertical {
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.na-vertical .na-card {
+  flex: none;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 1.5rem;
+}
+
+.na-vertical .na-card:last-child {
+  margin-bottom: 0;
+}
+
+.na-vertical .na-card-meta {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.na-vertical .na-card-category,
+.na-vertical .na-card-title {
+  text-align: left;
+}
+
+/* Horizontal Grid Layout */
+.na-horizontal-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem; /* 24px */
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.na-horizontal-grid .na-card {
+  flex: none;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .na-horizontal-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .na-horizontal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .na-horizontal-grid {
+    grid-template-columns: 1fr;
+  }
+}

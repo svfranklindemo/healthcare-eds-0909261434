@@ -1,0 +1,102 @@
+main .healthcare-upload-photo {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 24px;
+  box-sizing: border-box;
+  text-align: center;
+  max-width: 1200px;
+}
+
+main .healthcare-upload-photo .hup-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+main .healthcare-upload-photo .hup-title {
+  font-size: 36px;
+  line-height: 1.5;
+  margin: 0.67em 0;
+  font-family: 'Adobe Clean Black', sans-serif;
+  font-weight: 900;
+  color: #28272b;
+  text-align: center;
+}
+
+main .healthcare-upload-photo .hup-photo-frame {
+  position: relative;
+  width: 200px;
+  margin: 3rem auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+main .healthcare-upload-photo .hup-photo-placeholder,
+main .healthcare-upload-photo .hup-photo-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+main .healthcare-upload-photo .hup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 14px 5px;
+  border: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+main .healthcare-upload-photo .hup-btn::after {
+  content: unset;
+}
+
+main .healthcare-upload-photo .hup-btn-primary {
+  background: #1671d9;
+  color: #fff;
+}
+
+main .healthcare-upload-photo .hup-link-btn {
+  display: block;
+  margin: 14px auto 0;
+  background: none;
+  border: none;
+  color: #005486;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: 'Adobe Clean', sans-serif;
+}
+
+main .healthcare-upload-photo .hup-btn:disabled,
+main .healthcare-upload-photo .hup-link-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+main .healthcare-upload-photo .hup-upload-status {
+  min-height: 22px;
+  margin: 12px 0 0;
+  font-size: 14px;
+}
+
+main .healthcare-upload-photo .hup-upload-status.is-uploading {
+  color: #585858;
+}
+
+main .healthcare-upload-photo .hup-upload-status.is-success {
+  color: #147a28;
+}
+
+main .healthcare-upload-photo .hup-upload-status.is-error {
+  color: #c62828;
+}

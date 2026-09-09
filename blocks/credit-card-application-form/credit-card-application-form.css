@@ -1,0 +1,399 @@
+/* Application Form block – 3-step wizard, clean L&F: teal Next/Submit, grey Back, dots + "n/3 step" */
+:root {
+  --credit-card-application-form-teal: #0d9488;
+  --credit-card-application-form-teal-hover: #0f766e;
+  --credit-card-application-form-grey: #e5e7eb;
+  --credit-card-application-form-grey-border: #d1d5db;
+  --credit-card-application-form-label: #374151;
+}
+
+main > .section:has(.credit-card-application-form-block) > div {
+  background: #fff;
+}
+
+.credit-card-application-form-block {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem 1.25rem;
+  font-family: var(--body-font-family, system-ui, sans-serif);
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.credit-card-application-form-block .credit-card-application-form-heading {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  text-align: center;
+  width: 100%;
+}
+
+.credit-card-application-form-block .credit-card-application-form-subtitle {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9375rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wrapper {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Place progress dots below title/subtitle: wizard uses display:contents so its
+   children (menu, panels, buttons) flow as form children after heading & subtitle */
+.credit-card-application-form-block form {
+  display: flex;
+  flex-direction: column;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard.wizard {
+  display: contents;
+}
+
+.credit-card-application-form-block .credit-card-application-form-subtitle {
+  margin-bottom: 1rem;
+}
+
+/* Progress dots: below subtitle; inactive = light grey border + white fill, active = teal filled */
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-menu-items,
+.credit-card-application-form-block .wizard-menu-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-menu-item,
+.credit-card-application-form-block .wizard-menu-item {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--credit-card-application-form-grey-border);
+  padding: 0;
+  margin: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-menu-item::before,
+.credit-card-application-form-block .wizard-menu-item::before {
+  display: none !important;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-menu-active-item,
+.credit-card-application-form-block .wizard-menu-active-item {
+  background: var(--credit-card-application-form-teal);
+  border-color: var(--credit-card-application-form-teal);
+}
+
+.credit-card-application-form-block .credit-card-application-form-step-label {
+  font-size: 0.875rem;
+  color: var(--credit-card-application-form-label);
+  margin: 0 1rem;
+  flex: 0 0 auto;
+  order: 2;
+}
+
+/* Button wrapper: Back (left), step label (center), Next (right); wrappers auto width */
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--credit-card-application-form-grey);
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-wrapper > .field-wrapper {
+  width: auto;
+  flex: 0 0 auto;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-prev,
+.credit-card-application-form-block .credit-card-application-form-wizard [id*="wizard-button-prev"] {
+  order: 1;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-prev button,
+.credit-card-application-form-block .credit-card-application-form-wizard [id*="wizard-button-prev"] button {
+  padding: 0.75rem 1.5rem;
+  background: var(--credit-card-application-form-grey) !important;
+  color: var(--credit-card-application-form-label) !important;
+  border: 1px solid var(--credit-card-application-form-grey-border) !important;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: auto !important;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-next,
+.credit-card-application-form-block .credit-card-application-form-wizard [id*="wizard-button-next"] {
+  order: 3;
+}
+
+/* Submit in same row as Back / step label (moved into .wizard-button-wrapper by JS).
+   Hidden on steps 1–2; only visible on last step in place of Next. */
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-wrapper > .submit-wrapper {
+  order: 3;
+  width: auto !important;
+  flex: 0 0 auto !important;
+  margin-top: 0;
+  display: none;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-wrapper > .submit-wrapper,
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-wrapper > .submit-wrapper.field-wrapper {
+  grid-column: unset;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-wrapper > .submit-wrapper button {
+  width: auto !important;
+  min-width: auto !important;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .current-wizard-step.panel-wrapper:last-of-type ~ .wizard-button-wrapper > .submit-wrapper {
+  display: flex;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-next button,
+.credit-card-application-form-block .credit-card-application-form-wizard [id*="wizard-button-next"] button {
+  padding: 0.75rem 1.5rem !important;
+  background: var(--credit-card-application-form-teal) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: auto !important;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .wizard-button-next button:hover,
+.credit-card-application-form-block .credit-card-application-form-wizard [id*="wizard-button-next"] button:hover {
+  background: var(--credit-card-application-form-teal-hover) !important;
+}
+
+/* Inputs: rounded, light grey border */
+.credit-card-application-form-block .credit-card-application-form-wizard input[type="text"],
+.credit-card-application-form-block .credit-card-application-form-wizard input[type="email"],
+.credit-card-application-form-block .credit-card-application-form-wizard select {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--credit-card-application-form-grey-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .field-label {
+  font-weight: 600;
+  color: var(--credit-card-application-form-label);
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .panel-wrapper {
+  gap: 0.875rem;
+}
+
+/* Submit button: same teal oval as Next (when in button row, width auto from rule above) */
+.credit-card-application-form-block .credit-card-application-form-wizard .submit-wrapper {
+  max-width: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .submit-wrapper button {
+  width: auto !important;
+  min-width: auto !important;
+  padding: 0.75rem 1.5rem !important;
+  background: var(--credit-card-application-form-teal) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.credit-card-application-form-block .credit-card-application-form-wizard .submit-wrapper button:hover,
+.credit-card-application-form-block .credit-card-application-form-submit-btn:hover {
+  background: var(--credit-card-application-form-teal-hover) !important;
+}
+
+.credit-card-application-form-header {
+  margin-bottom: 1.5rem;
+}
+
+.credit-card-application-form-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.credit-card-application-form-subtitle {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.credit-card-application-form-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.credit-card-application-form-section {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  text-align: left;
+}
+
+.credit-card-application-form-section-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.credit-card-application-form-description {
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.credit-card-application-form-required {
+  color: #c00;
+}
+
+.credit-card-application-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.credit-card-application-form-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #333;
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.credit-card-application-form-fields input[type="text"],
+.credit-card-application-form-fields input[type="email"],
+.credit-card-application-form-fields input[type="tel"],
+.credit-card-application-form-fields select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+}
+
+.credit-card-application-form-fields select {
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+}
+
+.credit-card-application-form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  text-align: left;
+  max-width: 100%;
+}
+
+.credit-card-application-form-checkbox input {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.credit-card-application-form-checkbox a {
+  color: var(--link-color, #0563c1);
+}
+
+.credit-card-application-form-submit-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.credit-card-application-form-submit-btn {
+
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.credit-card-application-form-submit-btn:hover {
+  filter: brightness(1.05);
+}
+
+.credit-card-application-form-note {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.credit-card-application-form-success-msg {
+  margin: 0 0 0.5rem 0;
+  padding: 0.75rem 1rem;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .credit-card-application-form-block {
+    padding: 0 1rem 2rem;
+  }
+  .credit-card-application-form-section {
+    padding: 1rem 1.25rem;
+  }
+  .credit-card-application-form-fields label {
+    max-width: none;
+  }
+}

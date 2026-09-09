@@ -1,0 +1,1342 @@
+[
+  {
+    "id": "page-metadata",
+    "fields": [
+      {
+        "component": "tab",
+        "label": "Basic",
+        "name": "tab-basic"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "jcr:title",
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "jcr:description",
+        "label": "Description"
+      },
+      {
+        "component": "aem-content-fragment",
+        "name": "theme_cf_reference",
+        "label": "Brand Theme",
+        "description": "Select the CF with authored values for the brand theme. This will be applied on the pages",
+        "valueType": "string",
+        "validation": {
+          "rootPath": "/content/dam"
+        }
+      },
+      {
+        "component": "select",
+        "name": "theme",
+        "label": "Theme",
+        "description": "Note: This takes priority over CF based theme.",
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "Gray Theme",
+            "value": "gray-theme"
+          },
+          {
+            "name": "Red Theme",
+            "value": "red-theme"
+          },
+          {
+            "name": "Blue Theme",
+            "value": "blue-theme"
+          },
+          {
+            "name": "Green Theme",
+            "value": "green-theme"
+          },
+          {
+            "name": "WeHealthcare Theme",
+            "value": "wehealthcare-theme"
+          },
+          {
+            "name": "Fly Theme",
+            "value": "fly-theme"
+          },
+          {
+            "name": "SecurBank Theme",
+            "value": "securbank-theme"
+          },
+          {
+            "name": "Luma Theme",
+            "value": "luma-theme"
+          },
+          {
+            "name": "Citi Signal",
+            "value": "citi-signal-theme"
+          },
+          {
+            "name": "Frescopa Theme",
+            "value": "frescopa-theme"
+          },
+          {
+            "name": "Carvelo Theme",
+            "value": "carvelo-theme"
+          },
+          {
+            "name": "Binji Theme",
+            "value": "binji-theme"
+          },
+          {
+            "name": "Halliby Theme",
+            "value": "halliby-theme"
+          },
+          {
+            "name": "Bodea Theme",
+            "value": "bodea-theme"
+          },
+          {
+            "name": "Expnews Theme",
+            "value": "expnews-theme"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "js-files",
+        "multi": true,
+        "value": "",
+        "label": "JS Library URL(s)",
+        "description": "List of js libraries to include under head section of the page"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "jcr:pagetitle",
+        "label": "Page Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "pageCategory",
+        "label": "Page Category"
+      },
+      {
+        "component": "text",
+        "name": "mobileIcon",
+        "label": "Mobile Icon",
+        "value": "",
+        "valueType": "string",
+        "description": "DAM path of the icon used for the mobile event on this page"
+      },
+      {
+        "component": "text",
+        "name": "mobilepageeventtype",
+        "label": "Mobile Page Event Type",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-tag",
+        "name": "cq:tags",
+        "label": "Tags",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags/reference-demo"
+      }
+    ]
+  },
+  {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Custom Style Classes",
+        "value": "",
+        "description": "Add custom CSS class names (space-separated). Example: feature-cards, image-left, bg-light-gray"
+      }
+    ]
+  },
+  {
+    "id": "category-products-lister",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "folder",
+        "label": "Products Folder (Content Fragments)",
+        "multi": false,
+        "validation": {
+          "rootPath": "/content/dam"
+        }
+      },
+      {
+        "component": "aem-content",
+        "name": "redirect-url",
+        "label": "Redirect URL",
+        "value": "",
+        "valueType": "string",
+        "description": "Optional product details page to use for product card clicks. Leave empty to use the default product details page."
+      },
+      {
+        "component": "aem-tag",
+        "name": "cqTags",
+        "label": "Category Tags",
+        "valueType": "string",
+        "rootPath": "/content/cq:tags"
+      },
+      {
+        "component": "select",
+        "name": "cards-per-row",
+        "label": "Cards Per Row",
+        "valueType": "string",
+        "value": "5",
+        "description": "Number of cards to display per row on desktop",
+        "options": [
+          {
+            "name": "3",
+            "value": "3"
+          },
+          {
+            "name": "4",
+            "value": "4"
+          },
+          {
+            "name": "5",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "enableaddtocartattileview",
+        "label": "Enable Add to Cart at Tile View",
+        "value": "false",
+        "valueType": "boolean",
+        "description": "When enabled, each product card shows an Add to Cart button directly in the listing view."
+      },
+      {
+        "component": "text",
+        "name": "addtocarteventtype",
+        "label": "Add to Cart Event Type",
+        "value": "",
+        "valueType": "string",
+        "description": "Custom event name to dispatch when the Add to Cart button is clicked.",
+        "condition": {
+          "==": [
+            {
+              "var": "enableaddtocartattileview"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Style Variant",
+        "valueType": "string",
+        "value": "",
+        "description": "Visual style variant for the product listing",
+        "options": [
+          {
+            "name": "Default",
+            "value": ""
+          },
+          {
+            "name": "No Border",
+            "value": "no-border"
+          },
+          {
+            "name": "Carousel",
+            "value": "carousel"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Carousel Heading",
+        "value": "",
+        "valueType": "string",
+        "description": "Heading displayed above the carousel (e.g. 'Choose your car'). Only used in Carousel variant.",
+        "condition": {
+          "==": [
+            { "var": "style" },
+            "carousel"
+          ]
+        }
+      },
+      {
+        "component": "text",
+        "name": "learn-more-label",
+        "label": "Learn More Button Label",
+        "value": "Learn more",
+        "valueType": "string",
+        "description": "Text for the Learn more button in the Carousel variant.",
+        "condition": {
+          "==": [
+            { "var": "style" },
+            "carousel"
+          ]
+        }
+      },
+      {
+        "component": "boolean",
+        "name": "no-background",
+        "label": "No Background",
+        "value": "false",
+        "valueType": "boolean",
+        "description": "Remove the media overlay and image brightness filter when toggled on."
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "test-drive",
+    "fields": [
+      {
+        "component": "select",
+        "name": "variant",
+        "label": "Variant",
+        "value": "test-drive",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Test Drive (Schedule test drive)",
+            "value": "test-drive"
+          },
+          {
+            "name": "Schedule Appointment",
+            "value": "schedule-appointment"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "form-title",
+        "label": "Form Title (overrides variant default)",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "submit-label",
+        "label": "Submit Button Label (overrides variant default)",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "time-slots",
+        "label": "Time Slots (comma-separated)",
+        "value": "9 AM, 10 AM, 11 AM",
+        "valueType": "string",
+        "description": "Comma-separated list of time slots shown each day"
+      },
+      {
+        "component": "text",
+        "name": "days-shown",
+        "label": "Days Shown",
+        "value": "3",
+        "valueType": "string",
+        "description": "Number of day columns to display at once (1-7)"
+      },
+      {
+        "component": "boolean",
+        "name": "multiple-slots",
+        "label": "Allow Multiple Slot Selection",
+        "value": "false",
+        "valueType": "boolean"
+      },
+      {
+        "component": "text",
+        "name": "success-message",
+        "label": "Success Message (overrides variant default)",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "redirect-url",
+        "label": "Redirect URL (after submit)",
+        "valueType": "string",
+        "description": "Optional page to redirect to 2 seconds after successful submission"
+      },
+      {
+        "component": "text",
+        "name": "buttoneventtype",
+        "label": "Button Event Type",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "buttonwebhookurl",
+        "label": "Button Webhook URL",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "buttonformid",
+        "label": "Button Form ID",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "name": "buttondata",
+        "label": "Button Data Sheet",
+        "valueType": "string",
+        "description": "AEM sheet path whose key/value rows are sent on submit"
+      }
+    ]
+  },
+  {
+    "id": "product-detail",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "folder",
+        "label": "Product Folder",
+        "valueType": "string",
+        "required": true,
+        "rootPath": "/content/dam"
+      },
+      {
+        "component": "text",
+        "name": "productvieweventtype",
+        "label": "Product View Event Type",
+        "value": "",
+        "valueType": "string",
+        "description": "Optional Launch event fired when the product page loads."
+      },
+      {
+        "component": "text",
+        "name": "addtocarteventtype",
+        "label": "Add To Cart Event Type",
+        "value": "",
+        "valueType": "string",
+        "description": "Optional Launch event fired on Add to Cart click."
+      },
+      {
+        "component": "boolean",
+        "name": "showaddtowishlistbutton",
+        "label": "Show Add To Wishlist Button",
+        "value": "true",
+        "valueType": "boolean",
+        "description": "When disabled, Add to Cart and Add to Wishlist buttons are not rendered."
+      },
+      {
+        "component": "boolean",
+        "name": "showaddtocartbutton",
+        "label": "Show Add To Cart Button",
+        "value": "true",
+        "valueType": "boolean",
+        "description": "When disabled, the Add to Cart button is not rendered."
+      },
+      {
+        "component": "text",
+        "name": "addtowishlisteventtype",
+        "label": "Add To Wishlist Event Type",
+        "value": "",
+        "valueType": "string",
+        "description": "Optional Launch event fired on Add to Wishlist click.",
+        "condition": {
+          "==": [
+            {
+              "var": "showaddtowishlistbutton"
+            },
+            true
+          ]
+        }
+      },
+      {
+        "component": "boolean",
+        "name": "showyoumayalsolikesection",
+        "label": "Show Related Products Section",
+        "value": "true",
+        "valueType": "boolean",
+        "description": "When disabled, the Related Products section is not rendered."
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "new-arrival",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "folder",
+        "label": "Products Folder (Content Fragments)",
+        "multi": false,
+        "validation": {
+          "rootPath": "/content/dam"
+        }
+      },
+      {
+        "component": "text",
+        "name": "skus",
+        "label": "Product SKUs",
+        "valueType": "string[]",
+        "multi": true
+      },
+      {
+        "component": "select",
+        "name": "layout",
+        "label": "Layout",
+        "valueType": "string",
+        "value": "horizontal",
+        "options": [
+          {
+            "name": "Horizontal (Carousel)",
+            "value": "horizontal"
+          },
+          {
+            "name": "Vertical (Grid)",
+            "value": "vertical"
+          },
+          {
+            "name": "Horizontal (Grid)",
+            "value": "horizontal-grid"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "cart",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "folder",
+        "label": "Product Folder",
+        "valueType": "string",
+        "required": false,
+        "rootPath": "/content/dam"
+      },
+      {
+        "component": "boolean",
+        "name": "showyoumayalsolikesection",
+        "label": "Show Related Products Section",
+        "value": "true",
+        "valueType": "boolean",
+        "description": "When disabled, the You May Also Like recommendations section is not rendered."
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "order-summary",
+    "fields": [
+      {
+        "component": "text",
+        "name": "checkouteventtype",
+        "label": "Checkout Event Type",
+        "value": "",
+        "valueType": "string",
+        "description": "Optional Launch event fired when order summary loads."
+      },
+      {
+        "component": "aem-content",
+        "name": "back-path",
+        "label": "Back Path",
+        "value": "",
+        "valueType": "string",
+        "description": "Where to navigate on BACK. Use a full AEM path (e.g. /content/<site-name>/language-masters/<language-node>/checkout)."
+      },
+      {
+        "component": "aem-content",
+        "name": "confirm-path",
+        "label": "Confirm Path",
+        "value": "",
+        "valueType": "string",
+        "description": "Where to navigate on CONFIRM ORDER. Use a full AEM path (e.g. /content/<site-name>/language-masters/<language-node>/order-confirmation). Order number is appended as ?order=."
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "order-confirmation",
+    "fields": [
+      {
+        "component": "text",
+        "name": "purchase-order-event-type",
+        "label": "Purchase Order Event Type",
+        "value": "",
+        "valueType": "string",
+        "description": "Optional Launch event fired when order confirmation loads."
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "image",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "title",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "titleType",
+        "label": "Title Type",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "alignment",
+        "label": "Alignment",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left"
+          },
+          {
+            "name": "Center",
+            "value": "center"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "button",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Link"
+      },
+      {
+        "component": "text",
+        "name": "linkText",
+        "label": "Text"
+      },
+      {
+        "component": "text",
+        "name": "linkTitle",
+        "label": "Title"
+      },
+      {
+        "component": "select",
+        "name": "linkType",
+        "label": "Type",
+        "options": [
+          {
+            "name": "Link",
+            "value": "cta-link"
+          },
+          {
+            "name": "Primary Button",
+            "value": "cta-button"
+          },
+          {
+            "name": "Secondary Button",
+            "value": "cta-button-secondary"
+          },
+          {
+            "name": "Dark Button",
+            "value": "cta-button-dark"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "alignment",
+        "label": "Alignment",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left"
+          },
+          {
+            "name": "Center",
+            "value": "center"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "textUppercase",
+        "label": "Text Uppercase",
+        "value": "true",
+        "valueType": "boolean"
+      },
+      {
+        "component": "text",
+        "name": "eventType",
+        "label": "Event Type",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "webhookUrl",
+        "label": "Webhook URL",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "formId",
+        "label": "Form ID",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "data",
+        "label": "Custom Data",
+        "value": "",
+        "valueType": "string",
+        "description": "Comma-separated key,value pairs"
+      },
+      {
+        "component": "text",
+        "name": "backgroundColor",
+        "label": "Background Color",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "backgroundColorOnHover",
+        "label": "Background Color on Hover",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "textColor",
+        "label": "Text Color",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "textColorOnHover",
+        "label": "Text Color on Hover",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "borderColor",
+        "label": "Border Color",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "borderColorOnHover",
+        "label": "Border Color on Hover",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "borderWidth",
+        "label": "Border Width",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "style",
+        "label": "Style",
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "Image Top",
+            "value": "image-top"
+          },
+          {
+            "name": "Image Bottom",
+            "value": "image-bottom"
+          },
+          {
+            "name": "Image Left",
+            "value": "image-left"
+          },
+          {
+            "name": "Image Right",
+            "value": "image-right"
+          },
+          {
+            "name": "Teaser Overlay",
+            "value": "teaser-overlay"
+          },
+          {
+            "name": "Teaser Card",
+            "value": "teaser-card"
+          },
+          {
+            "name": "Icon Cards",
+            "value": "icon-cards"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "imagestyle",
+        "label": "Image Style",
+        "options": [
+          {
+            "name": "Cover (default)",
+            "value": ""
+          },
+          {
+            "name": "Contain",
+            "value": "contain"
+          },
+          {
+            "name": "Fill",
+            "value": "fill"
+          },
+          {
+            "name": "None",
+            "value": "none"
+          },
+          {
+            "name": "Scale Down",
+            "value": "scale-down"
+          },
+          {
+            "name": "Compact Style",
+            "value": "compact-style"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "ctastyle",
+        "label": "CTA Style",
+        "options": [
+          {
+            "name": "Link",
+            "value": "cta-link"
+          },
+          {
+            "name": "Primary Button",
+            "value": "cta-button"
+          },
+          {
+            "name": "Secondary Button",
+            "value": "cta-button-secondary"
+          },
+          {
+            "name": "Dark Button",
+            "value": "cta-button-dark"
+          }
+        ]
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Section Link",
+        "description": "Optional link for entire card"
+      },
+      {
+        "component": "boolean",
+        "name": "selectable",
+        "label": "Selectable",
+        "value": "false",
+        "valueType": "boolean"
+      },
+      {
+        "component": "select",
+        "name": "alignment",
+        "label": "Text Alignment",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left"
+          },
+          {
+            "name": "Center",
+            "value": "center"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "backgroundcolor",
+        "label": "Background Color",
+        "value": "",
+        "valueType": "string",
+        "description": "Hex value, e.g. #ffffff or f5f5f5"
+      },
+      {
+        "component": "text",
+        "name": "buttoneventtype",
+        "label": "Button Event Type",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "customstyles",
+        "label": "Custom Styles",
+        "value": "",
+        "valueType": "string",
+        "description": "Custom styles for the card"
+      },
+      {
+        "component": "boolean",
+        "name": "overlaybackground",
+        "label": "Overlay Background",
+        "value": "true",
+        "valueType": "boolean",
+        "description": "Keep the teaser overlay background at 50% opacity. Turn off for a solid black overlay."
+      },
+      {
+        "component": "text",
+        "name": "textcolor",
+        "label": "Text color",
+        "value": "",
+        "valueType": "string",
+        "description": "Optional hex color for card text (e.g. #fff, #000000, or 333). Leave empty for default."
+      }
+    ]
+  },
+  {
+    "id": "columns",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "columnWidths",
+        "value": "",
+        "label": "Column widths (%)",
+        "description": "Comma-separated width percentages per column, e.g. 20,80 or 33,33,34"
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "fragment",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "reference",
+        "label": "Reference"
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "hero",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Enable Underline in Title",
+        "description": "Enable underline in title",
+        "name": "enableunderline",
+        "value": "true",
+        "valueType": "boolean"
+      },
+      {
+        "component": "select",
+        "name": "herolayout",
+        "label": "Hero Layout Style",
+        "options": [
+          {
+            "name": "Default",
+            "value": "overlay"
+          },
+          {
+            "name": "Image Left",
+            "value": "image-left"
+          },
+          {
+            "name": "Image Right",
+            "value": "image-right"
+          },
+          {
+            "name": "Image-Background Text-Left",
+            "value": "image-background-text-left"
+          },
+          {
+            "name": "Image-Background Text-Right",
+            "value": "image-background-text-right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "ctastyle",
+        "label": "CTA Style",
+        "options": [
+          {
+            "name": "Link",
+            "value": "link"
+          },
+          {
+            "name": "Button",
+            "value": "button"
+          },
+          {
+            "name": "Button secondary",
+            "value": "button-secondary"
+          },
+          {
+            "name": "Dark Button",
+            "value": "button-dark"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "backgroundstyle",
+        "label": "Background Style",
+        "options": [
+          {
+            "name": "Default",
+            "value": "default"
+          },
+          {
+            "name": "Theme Dark",
+            "value": "theme-dark"
+          },
+          {
+            "name": "Theme Light",
+            "value": "theme-light"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "backgroundcolor",
+        "label": "Background Color",
+        "value": "",
+        "valueType": "string",
+        "description": "Hex value, e.g. #ffffff or f5f5f5"
+      },
+      {
+        "component": "select",
+        "name": "alignment",
+        "label": "Alignment",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left"
+          },
+          {
+            "name": "Center",
+            "value": "center"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "verticalalignment",
+        "label": "Vertical Alignment",
+        "options": [
+          {
+            "name": "Top",
+            "value": "top"
+          },
+          {
+            "name": "Middle",
+            "value": "middle"
+          },
+          {
+            "name": "Bottom",
+            "value": "bottom"
+          }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "isfullwidth",
+        "label": "Full Width",
+        "value": "false",
+        "valueType": "boolean"
+      },
+      {
+        "component": "text",
+        "name": "height",
+        "label": "Height",
+        "value": "",
+        "valueType": "string",
+        "description": "e.g. auto or 500px"
+      },
+      {
+        "component": "text",
+        "name": "color",
+        "label": "Text Color",
+        "value": "",
+        "valueType": "string",
+        "description": "e.g. #f9e322"
+      },
+      {
+        "component": "aem-content",
+        "name": "link",
+        "label": "Section Link",
+        "description": "Optional link for entire hero section"
+      },
+      {
+        "component": "text",
+        "name": "buttoneventtype",
+        "label": "Button Event Type",
+        "value": "",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "custom-class",
+        "label": "Custom class",
+        "value": "",
+        "valueType": "string",
+        "description": "Space-separated class names to add to the block"
+      },
+      {
+        "component": "boolean",
+        "name": "textoverlay",
+        "label": "Text Overlay",
+        "value": "true",
+        "valueType": "boolean",
+        "description": "Keep the hero text overlay enabled. Turn off for transparent text background and darker image."
+      }
+    ]
+  },
+  {
+    "id": "rss-list",
+    "fields": [
+      {
+        "component": "number",
+        "name": "maxcardsdisplayed",
+        "label": "Max Cards Displayed",
+        "value": 6,
+        "valueType": "number"
+      },
+      {
+        "component": "select",
+        "name": "cards-per-row",
+        "label": "Cards Per Row",
+        "valueType": "string",
+        "value": "3",
+        "options": [
+          { "name": "3", "value": "3" },
+          { "name": "4", "value": "4" },
+          { "name": "5", "value": "5" }
+        ]
+      },
+      {
+        "component": "text",
+        "name": "category-filter",
+        "label": "Category Filter",
+        "valueType": "string",
+        "description": "Leave blank to show all categories."
+      },
+      {
+        "component": "text",
+        "name": "detail-page-url",
+        "label": "Detail Page Redirect URL",
+        "valueType": "string",
+        "value": "/en/article"
+      },
+      {
+        "component": "boolean",
+        "name": "showdescription",
+        "label": "Show Description",
+        "value": "true",
+        "valueType": "boolean"
+      }
+    ]
+  },
+  {
+    "id": "rss-details",
+    "fields": [
+      {
+        "component": "reference",
+        "name": "rss-promo-banner",
+        "label": "RSS Promo Banner",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "name": "rss-promo-banner-alt",
+        "label": "RSS Promo Banner Alt Text"
+      }
+    ]
+  },
+  {
+    "...": "../blocks/*/_*.json#/models"
+  }
+]

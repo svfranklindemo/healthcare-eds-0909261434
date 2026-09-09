@@ -1,0 +1,174 @@
+.product-card-block {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0px;
+}
+.product-card-block .product-card-body h3 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1.25;
+  padding-top:0;
+}
+.product-card-block .product-card-body h3 {
+    font-size: 36px !important;
+    font-weight: 800;
+    font-family: var(--black-font-family);
+}
+.product-card-block .cards {
+  display: flex;
+  justify-content: center;
+}
+
+.product-card-block .cards > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.product-card-block .cards > ul > li {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-block .cards > ul > li.product-card-clickable {
+  cursor: pointer;
+}
+
+.product-card-block .cards.product-card-layout-side-by-side > ul > li {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.product-card-block .cards.product-card-layout-side-by-side > ul > li .product-card-image,
+.product-card-block .cards.product-card-layout-side-by-side > ul > li .product-card-body {
+  flex: 1;
+}
+
+.product-card-block .cards.product-card-layout-side-by-side > ul > li .product-card-image {
+  min-width: 40%;
+}
+
+.product-card-block .cards.product-card-layout-side-by-side > ul > li .product-card-body {
+  padding: 24px;
+}
+
+.product-card-block .product-card-image {
+  position: relative;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.product-card-block .product-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+
+}
+
+.product-card-block .product-card-body {
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.reverse-position .product-card-block .cards.product-card-layout-side-by-side > ul > li {
+    flex-direction: row;
+    align-items: stretch;
+    flex-direction: row-reverse;
+}
+.product-card-block .product-card-category {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark-color, #2d2d2d);
+  margin-bottom: 0;
+}
+.product-card-layout-side-by-side p.product-card-category {
+    display: none;
+}
+.product-card-block .product-card-description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color, #333333);
+}
+
+.product-card-block .product-card-description ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.product-card-block .product-card-sku {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--accent-color, #0d9488);
+  font-weight: 600;
+}
+
+.cards.product-card-layout-stacked,
+.cards.product-card-layout-compact-stacked-card {
+  padding: 20px 50px;
+}
+.cards.product-card-layout-compact-stacked-card{
+ padding: 20px 20px;
+}
+.cards.product-card-block > ul > li {
+    background: transparent;
+}
+
+.cards.product-card-block.product-card-add-border > ul > li {
+  box-shadow: 0 3px 20px #00000010;
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+}
+
+.cards.product-card-block.product-card-hide-description .product-card-description {
+  display: none;
+}
+
+.product-card-layout-stacked .product-card-image img {
+  max-width: 400px;
+  max-height: 260px;
+}
+
+.product-card-layout-compact-stacked-card .product-card-image img {
+  max-width: 400px;
+  min-height: unset;
+  max-height: none;
+}
+
+.cards.product-card-layout-compact-stacked-card > ul > li img {
+  min-height: unset;
+  max-height: none;
+}
+
+.cards.product-card-layout-compact-stacked-card .product-card-body h3 {
+    font-size: 24px !important;
+}
+
+.cards.product-card-block .product-card-image--hidden ~ .product-card-body h3 {
+    font-size: 26px !important;
+}
+
+@media (width >= 900px) {
+    main > .section > div.product-card-wrapper {
+        padding: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+  .product-card-block .cards.product-card-layout-side-by-side > ul > li {
+    flex-direction: column;
+  }
+}
+.custom-text-class .product-card-block a, .custom-text-class .product-card-block a:after{
+    color: #fff !important;
+}

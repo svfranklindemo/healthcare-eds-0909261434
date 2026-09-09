@@ -1,0 +1,379 @@
+/* Test Drive block */
+main .test-drive {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  font-family: var(--body-font-family, system-ui, sans-serif);
+  box-sizing: border-box;
+}
+
+/* Form title (h2 inside heading-wrapper) ----------------------------------- */
+main .test-drive .td-form-title h2,
+main .test-drive h2#heading-test-drive {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 32px;
+  line-height: 1.15;
+}
+
+main .test-drive .td-form-title label,
+main .test-drive .heading-wrapper label {
+  display: none !important;
+}
+
+/* Section headings (personal info / vehicle arrival address) --------------- */
+main .test-drive .td-section-heading h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 24px 0 12px;
+}
+
+main .test-drive .td-section-heading label {
+  display: none !important;
+}
+
+/* Panel / form layout ------------------------------------------------------ */
+main .test-drive .test-drive-form {
+  --form-columns: 12;
+  --form-button-background-color: var(--main-accent-color, #e05a3a);
+  --form-button-background-hover-color: var(--main-accent-color, #c04a2a);
+  --form-input-border-color: #c8c8c8;
+  --form-label-color: #222;
+  --form-label-font-weight: 500;
+  --form-label-font-size: 14px;
+  --form-field-vert-gap: 14px;
+  --form-field-horz-gap: 20px;
+}
+
+main .test-drive form {
+  display: block;
+}
+
+main .test-drive .panel-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 0 20px !important;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+/* Full-width items */
+main .test-drive .panel-wrapper > .heading-wrapper,
+main .test-drive .panel-wrapper > .button-wrapper,
+main .test-drive .panel-wrapper > .submit-wrapper,
+main .test-drive .panel-wrapper > .td-slot-picker,
+main .test-drive .panel-wrapper > .td-slot-error,
+main .test-drive .panel-wrapper > .field-wrapper[data-colspan="12"] {
+  grid-column: span 2;
+}
+
+/* Half-width items (colspan 6 out of 12 = 50%) */
+main .test-drive .panel-wrapper > .field-wrapper[data-colspan="6"] {
+  grid-column: span 1;
+}
+
+main .test-drive .field-wrapper {
+  margin: 0 0 14px;
+}
+
+main .test-drive .field-wrapper label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-bottom: 6px;
+}
+
+main .test-drive .field-wrapper input,
+main .test-drive .field-wrapper select {
+  width: 100%;
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  padding: 11px 14px;
+  font-size: 0.9375rem;
+  background: #fff;
+  color: #1a1a1a;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+main .test-drive .field-wrapper input:focus,
+main .test-drive .field-wrapper select:focus {
+  outline: none;
+  border-color: #888;
+}
+
+/* Submit button ------------------------------------------------------------ */
+main .test-drive .submit-wrapper {
+  margin-top: 8px;
+}
+
+main .test-drive form button[type='submit'] {
+  padding: 16px 40px;
+  background: var(--main-accent-color, #e05a3a);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+  display: inline-block;
+}
+
+main .test-drive form button[type='submit']:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+main .test-drive form button[type='submit']:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Success / error messages ------------------------------------------------ */
+main .test-drive .form-message {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+main .test-drive .form-message.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+
+main .test-drive .form-message.error {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+}
+
+/* TimeSlotPicker ----------------------------------------------------------- */
+main .test-drive .td-slot-picker {
+  margin: 24px 0 20px;
+}
+
+main .test-drive .td-slot-picker__label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 20px;
+}
+
+main .test-drive .td-slot-picker__content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+main .test-drive .td-slot-picker__nav {
+  flex-shrink: 0;
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #4b4b4b;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 34px;
+  border-radius: 18px;
+  line-height: 0;
+  overflow: visible;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+}
+
+main .test-drive .td-slot-picker-nav-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+main .test-drive .td-slot-picker-nav-icon path {
+  fill: currentcolor;
+}
+
+main .test-drive .td-slot-picker-nav-prev .td-slot-picker-nav-icon {
+  transform: rotate(180deg);
+}
+
+main .test-drive .td-slot-picker__nav:hover:not(:disabled) {
+  background: rgb(0 0 0 / 6%);
+  color: #111;
+}
+
+main .test-drive .td-slot-picker__nav:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+body.carvelo-theme main .test-drive .td-slot-picker__nav {
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px;
+  padding: 0 !important;
+  border-radius: 18px !important;
+  color: #111;
+  font-size: 0 !important;
+}
+
+main .test-drive .td-slot-picker__columns {
+  display: flex;
+  flex: 1;
+  gap: 12px;
+}
+
+main .test-drive .td-slot-picker__column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+main .test-drive .td-slot-picker__col-header {
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+main .test-drive .td-slot-picker__col-header strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+main .test-drive .td-slot-picker__col-header em {
+  display: block;
+  font-style: normal;
+  font-size: 0.8125rem;
+  color: #acacac;
+}
+
+main .test-drive .td-slot-picker__option {
+  width: 100%;
+  padding: 12px 8px;
+  background: rgba(0, 101, 214, 0.1);
+  border: 1px solid rgba(0, 101, 214, 0.12);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+main .test-drive .td-slot-picker__option:hover:not(.is-disabled):not(.is-selected) {
+  background: rgba(0, 101, 214, 0.18);
+}
+
+main .test-drive .td-slot-picker__option.is-selected {
+  color: var(--main-accent-color, #e05a3a);
+  border-color: var(--main-accent-color, #e05a3a);
+  background: rgba(224, 90, 58, 0.08);
+}
+
+main .test-drive .td-slot-picker__option.is-disabled {
+  background: transparent;
+  border-color: transparent;
+  text-decoration: line-through;
+  color: #999;
+  cursor: default;
+}
+
+main .test-drive .td-slot-error {
+  font-size: 0.8125rem;
+  color: #c62828;
+  margin: 4px 0 8px;
+}
+
+/* Toast notification (shown when no redirect-url is authored) ------------- */
+.td-toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: #2e7d32;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  max-width: calc(100vw - 48px);
+  text-align: center;
+}
+
+.td-toast.td-toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.section.bg-light.section-horizontal-widths.test-drive-container .test-drive {
+    padding-left: 20%;
+}
+body.carvelo-theme main .test-drive-container .default-content-wrapper {
+    padding-right: 4% !important;
+}
+/* Carvelo theme ------------------------------------------------------------ */
+
+body.carvelo-theme main .test-drive form button[type='submit'] {
+  background: #f82216;
+  border-radius: 50px;
+}
+
+body.carvelo-theme main .test-drive form button[type='submit']:hover:not(:disabled) {
+  background: #c41a10;
+  opacity: 1;
+}
+
+body.carvelo-theme main .test-drive .td-slot-picker__option.is-selected {
+  color: #f82216;
+  border-color: #f82216;
+  background: rgba(248, 34, 22, 0.08);
+}
+
+/* Responsive --------------------------------------------------------------- */
+@media (width < 600px) {
+  main .test-drive {
+    padding: 32px 16px;
+  }
+
+  main .test-drive .panel-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+
+  main .test-drive .panel-wrapper > .field-wrapper[data-colspan="6"] {
+    grid-column: span 1;
+  }
+
+  main .test-drive .panel-wrapper > .heading-wrapper,
+  main .test-drive .panel-wrapper > .button-wrapper,
+  main .test-drive .panel-wrapper > .submit-wrapper,
+  main .test-drive .panel-wrapper > .field-wrapper[data-colspan="12"] {
+    grid-column: span 1;
+  }
+
+  main .test-drive .td-slot-picker__columns {
+    gap: 6px;
+  }
+
+  main .test-drive .td-slot-picker__option {
+    font-size: 0.8125rem;
+    padding: 10px 4px;
+  }
+}

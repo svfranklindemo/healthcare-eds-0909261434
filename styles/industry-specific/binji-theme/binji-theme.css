@@ -1,0 +1,1612 @@
+/*
+ * Binji Theme
+ * Scoped entirely under body.binji-theme.
+ *
+ * NOTE: styles.css computes semantic vars (--nav-background-color, etc.) at :root
+ * via var(--brand-*, fallback). Setting --brand-* on body does NOT propagate into
+ * those :root-computed vars — override FINAL semantic vars directly (same as luma-theme).
+ */
+
+/* =============================================================================
+   1. DESIGN TOKENS
+   ============================================================================= */
+
+body.binji-theme {
+  /* Colors */
+  --background-color: #000;
+  --text-color: #fff;
+  --text-light: #fff;
+  --link-color: #fff;
+  --link-hover-color: #ff8038;
+  --main-accent-color: #ff8038;
+  --light-color: #1a1a1f;
+
+  /* Navigation */
+  --nav-background-color: #000;
+  --nav-text-color: #fff;
+
+  /* Footer */
+  --footer-background-color: #000;
+  --footer-text-color: #a0a0a0;
+
+  /* Skeleton/FOUC loaders — dark shades so they don't flash white on this dark theme */
+  --skeleton-shimmer-color-1: #1a1a1f;
+  --skeleton-shimmer-color-2: #2a2a30;
+  --skeleton-block-color: #1a1a1f;
+  --skeleton-block-color-alt: #1a1a1f;
+
+  /* Sticky full-height layout */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Adobe Clean', sans-serif;
+}
+
+body.binji-theme main {
+  flex: 1;
+}
+
+body.binji-theme:has(.user-profile-host) header nav .nav-sections,
+body.binji-theme:has(.user-profile-host) footer .footer .section:not(.default) ul {
+  display: flex;
+}
+
+body.binji-theme main .section.video-container, body.binji-theme main .section.video-container .video-wrapper {
+  max-width: unset;
+}
+
+body.binji-theme main .section.video-container .video.block {
+  height: 360px;
+}
+
+body.binji-theme main .section.video-container video {
+  height: 800px;
+  width: auto;
+  object-fit: cover;
+}
+
+body.binji-theme main .product-detail .pd-video-layout .pd-video-image-wrapper {
+  display: block;
+  height: 500px;
+}
+
+body.binji-theme main .product-detail .pd-video-layout video {
+  display: none;
+}
+
+body.binji-theme:has(.user-profile-host) main .product-detail .pd-video-layout .pd-video-image-wrapper {
+  display: none;
+}
+
+body.binji-theme:has(.user-profile-host) main .product-detail .pd-video-layout video {
+  display: block;
+}
+
+/* (b) Header */
+/* stylelint-disable no-descending-specificity -- nav-link vs lang-switcher rules target
+   unrelated elements; cross-selector specificity ordering is a false positive here. */
+
+body.binji-theme header {
+  position: static;
+  min-height: unset;
+  height: unset;
+}
+
+body.binji-theme header nav .nav-tools .search-wrapper {
+  display: none;
+}
+
+body.binji-theme header nav .nav-tools .lang-switcher {
+  display: none;
+}
+
+body.binji-theme header .nav-wrapper {
+  background-color: var(--nav-background-color);
+  color: var(--nav-text-color);
+  position: static;
+}
+
+body.binji-theme header nav#nav {
+  max-width: 1200px;
+  padding: 20px 0;
+}
+
+/* 2.2 Nav layout — logo | links | … | tools */
+body.binji-theme header nav {
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+body.binji-theme header nav .nav-sections {
+  flex: 0 0 auto;
+}
+
+body.binji-theme header nav .nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+/* 2.3 Logo */
+body.binji-theme header .nav-brand,
+body.binji-theme header nav .nav-brand a,
+body.binji-theme header nav .nav-brand picture {
+  display: flex;
+  align-items: center;
+  flex-basis: unset;
+}
+
+body.binji-theme header nav .nav-brand a::after {
+  content: unset;
+}
+
+body.binji-theme header nav .nav-brand picture img {
+  width: auto;
+  max-height: 40px;
+}
+
+/* 2.4 Nav links */
+body.binji-theme header nav .nav-sections ul {
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+/* <li> may hold plain text (no <a>), so color both */
+body.binji-theme header nav .nav-sections ul>li,
+body.binji-theme header nav .nav-sections ul>li>a {
+  color: var(--nav-text-color);
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+}
+
+/* Active underline indicator */
+body.binji-theme header nav .nav-sections ul>li>a::before {
+  background: var(--main-accent-color);
+}
+
+/* Hover + expanded states */
+body.binji-theme header nav .nav-sections ul>li:hover,
+body.binji-theme header nav .nav-sections ul>li>a:hover,
+body.binji-theme header nav .nav-sections ul>li[aria-expanded="true"],
+body.binji-theme header nav .nav-sections ul>li[aria-expanded="true"]>a {
+  color: var(--main-accent-color);
+}
+
+/* 2.5 Language switcher */
+body.binji-theme header .lang-switcher .lang-button {
+  color: var(--nav-text-color);
+  background-color: transparent;
+  border: 1px solid rgb(255 255 255 / 40%);
+}
+
+body.binji-theme header .lang-switcher .lang-menu {
+  background-color: var(--nav-background-color);
+  color: var(--nav-text-color);
+}
+
+body.binji-theme header .lang-switcher .lang-item a {
+  color: var(--nav-text-color);
+}
+
+body.binji-theme header .lang-switcher .lang-item a:hover {
+  color: var(--main-accent-color);
+}
+
+/* Nav layout — links sit right after logo; tools pushed to far right */
+body.binji-theme header nav {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+}
+
+body.binji-theme header nav .nav-sections {
+  display: none;
+  flex: 0 0 auto;
+}
+
+body.binji-theme header nav .nav-tools {
+  margin-left: auto;
+}
+
+body.binji-theme header nav .nav-tools .user-profile-btn {
+  color: #fff;
+}
+
+body.binji-theme header nav .nav-sections ul {
+  justify-content: flex-start;
+}
+
+/* list items hold plain text (no <a>), so style the <li> too */
+body.binji-theme header nav .nav-sections ul>li,
+body.binji-theme header nav .nav-sections ul>li>a {
+  color: var(--nav-text-color);
+  font-family: var(--heading-font-family);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+body.binji-theme header nav .nav-sections ul>li>a::before {
+  background: var(--main-accent-color);
+}
+
+body.binji-theme header nav .nav-sections ul>li:hover,
+body.binji-theme header nav .nav-sections ul>li>a:hover,
+body.binji-theme header nav .nav-sections ul>li[aria-expanded="true"],
+body.binji-theme header nav .nav-sections ul>li[aria-expanded="true"]>a {
+  color: var(--main-accent-color);
+}
+
+/* Tools wrapper (search-container.nav-tools) */
+body.binji-theme header nav .nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Search */
+body.binji-theme header .search.search-icon .search-trigger .icon img {
+  filter: invert(1);
+}
+
+body.binji-theme header .search.search-icon .search-overlay-panel,
+body.binji-theme header .search.search-icon .search-dropdown {
+  background-color: var(--nav-background-color);
+  color: var(--nav-text-color);
+}
+
+body.binji-theme header .search.search-icon .search-input {
+  background-color: #1a1a1f;
+  color: var(--nav-text-color);
+  border: 1px solid rgb(255 255 255 / 20%);
+}
+
+body.binji-theme header .search.search-icon .search-input::placeholder {
+  color: #a0a0a0;
+}
+
+/* 2.7 Sign-in — outlined white pill, fills accent on hover */
+body.binji-theme header a.sign-in-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px 14px;
+  background-color: transparent;
+  color: var(--nav-text-color);
+  border: 2px solid var(--nav-text-color);
+  border-radius: var(--border-radius-x-large);
+  font-family: var(--heading-font-family);
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.3;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+body.binji-theme header a.sign-in-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+body.binji-theme header a.sign-in-btn::after {
+  content: unset;
+}
+
+/* 2.8 Mobile hamburger
+   Only pseudo-elements get a background. The .nav-hamburger-icon element itself
+   must stay transparent when aria-expanded="true" (it is 22px tall at that point;
+   adding background-color produces a white rectangle on mobile). */
+body.binji-theme header .nav-hamburger button {
+  color: var(--nav-text-color);
+}
+
+body.binji-theme header .nav-hamburger-icon::before,
+body.binji-theme header .nav-hamburger-icon::after {
+  background-color: var(--nav-text-color);
+}
+
+/* 2.9 Header — mobile (< 900px) */
+@media (width < 900px) {
+  body.binji-theme:has(.user-profile-host) header nav .nav-sections {
+    display: none;
+  }
+
+  body.binji-theme header nav .nav-sections ul>li,
+  body.binji-theme header nav .nav-sections ul>li>a {
+    color: var(--nav-text-color);
+  }
+
+  body.binji-theme header nav[aria-expanded='true'] .nav-sections {
+    background-color: var(--nav-background-color);
+  }
+
+  body.binji-theme:has(.user-profile-host) header nav[aria-expanded='true'] .nav-sections {
+    display: flex;
+  }
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* =============================================================================
+   3. FOOTER
+   ============================================================================= */
+
+/* 3.1 Footer base */
+body.binji-theme footer {
+  background-color: var(--footer-background-color);
+  color: var(--footer-text-color);
+}
+
+/* Match container width to header (1400px) */
+body.binji-theme footer .footer>div {
+  max-width: 1200px;
+  padding: 32px 0;
+}
+
+/* Reset footer.css: img has width:100px + margin-bottom:20px which breaks the inline logo row */
+body.binji-theme footer .footer img {
+  width: auto;
+  max-height: 36px;
+  margin-bottom: 0;
+}
+
+/* 3.2 Logo + nav links row */
+body.binji-theme footer .footer .section:not(.default) {
+  padding-bottom: 24px;
+}
+
+body.binji-theme footer .footer .section:not(.default) .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body.binji-theme footer .footer .section:not(.default) p {
+  margin: 0;
+  line-height: 1;
+}
+
+body.binji-theme footer .footer .section:not(.default) ul {
+  display: none;
+  gap: 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body.binji-theme footer .footer .section:not(.default) ul li {
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+body.binji-theme footer .footer .section:not(.default) ul li:hover {
+  color: var(--main-accent-color);
+}
+
+/* 3.3 Copyright / disclaimer row */
+body.binji-theme footer .footer .default.section {
+  padding-top: 20px;
+}
+
+body.binji-theme footer .footer .default.section p {
+  max-width: 480px;
+  margin: 0;
+  color: #c1c1c1;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+body.binji-theme footer .footer .default.section a {
+  color: #c1c1c1;
+  text-decoration: none;
+}
+
+body.binji-theme header .nav-hamburger {
+  display: none;
+}
+
+body.binji-theme:has(.user-profile-host) header .nav-hamburger {
+  display: none;
+}
+
+/* Mobile hamburger */
+body.binji-theme header .nav-hamburger button {
+  color: #2C2C2C;
+  width: 36px;
+  height: 36px;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" fill="%232C2C2C"><rect fill-rule="evenodd" height="4" rx="1" ry="1" width="28" x="4" y="16"/><rect fill-rule="evenodd" height="4" rx="1" ry="1" width="28" x="4" y="6"/><rect fill-rule="evenodd" height="4" rx="1" ry="1" width="28" x="4" y="26"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+}
+
+body.binji-theme header .nav-hamburger-icon,
+body.binji-theme header .nav-hamburger-icon::before,
+body.binji-theme header .nav-hamburger-icon::after {
+  content: unset;
+  display: none;
+}
+
+@media (width < 900px) {
+
+  body.binji-theme:has(.user-profile-host) header .nav-hamburger {
+    display: block;
+  }
+
+  body.binji-theme header nav#nav {
+    margin: 0 1rem;
+    justify-content: space-between;
+  }
+
+  body.binji-theme header nav .nav-tools {
+    margin: 0;
+  }
+
+  body.binji-theme header nav .nav-tools .sign-in-btn,
+  body.binji-theme header nav .nav-tools a[href*="sign"] {
+    display: inline-flex !important;
+    min-width: unset;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" fill="%232C2C2C"><path fill-rule="evenodd" d="M32.949,34a.993.993,0,0,0,1-1.053c-.661-7.184-8.027-9.631-10.278-9.827C22.026,22.977,22,21.652,22,20c0,0,3.532-3.943,3.532-8.958C25.532,5.617,22.445,2,18,2s-7.532,3.617-7.532,9.042C10.468,16.057,14,20,14,20c0,1.652-.026,2.977-1.674,3.12-2.251.2-9.617,2.643-10.278,9.827a.993.993,0,0,0,1,1.053Z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px 18px;
+    font-size: 0;
+    color: transparent;
+    border-radius: 0;
+  }
+
+  body.binji-theme header .nav-brand {
+    justify-content: center;
+  }
+
+  body.binji-theme header nav .nav-sections ul {
+    gap: 0;
+    margin: 0;
+  }
+
+  body.binji-theme header nav .nav-sections ul>li>a {
+    color: var(--nav-text-color);
+  }
+
+  body.binji-theme header nav[aria-expanded='true']::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 111111;
+    background-color: var(--dark-color-opacity);
+  }
+
+  body.binji-theme header nav[aria-expanded='true'] .nav-sections {
+    background-color: #fff;
+    padding: 1rem;
+  }
+
+  body.binji-theme header nav[aria-expanded='true'] .nav-tools {
+    position: static;
+    width: unset;
+    background-color: unset;
+  }
+
+  body.binji-theme header nav[aria-expanded='true'] .nav-tools .lang-switcher {
+    display: none !important;
+  }
+
+  body.binji-theme footer {
+    padding: 0 16px;
+  }
+
+  body.binji-theme footer .footer .section:not(.default) .default-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  body.binji-theme footer .footer .section:not(.default) ul {
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+
+  body.binji-theme footer .footer .default.section p {
+    max-width: 100%;
+  }
+}
+
+/* =============================================================================
+   4. PRODUCT DETAIL PAGE (movie-preview)
+   ============================================================================= */
+
+/* 4.1 Block base — override hardcoded background: #fff and padding in product-detail.css */
+body.binji-theme .product-detail-wrapper {
+  padding: 0;
+}
+
+body.binji-theme .product-detail {
+  background: #000;
+  color: #fff;
+  padding: 0;
+}
+
+/* 4.2 Layout — switch from side-by-side grid to stacked (image top, content below).
+   DOM order is already image-first so single-column grid stacks correctly. */
+body.binji-theme .product-detail .pd-container {
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* 4.3 Image panel — constrained height so image + title both visible in first fold */
+body.binji-theme .product-detail .pd-image {
+  position: static;
+  background: #0b0b0f;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+  padding: 0;
+}
+
+body.binji-theme .product-detail .pd-image picture,
+body.binji-theme .product-detail .pd-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.binji-theme main .product-detail .pd-video-layout .pd-video-player {
+  border-radius: 0;
+  min-height: 380px;
+  max-height: 720px;
+}
+
+body.binji-theme main .product-detail .pd-video-layout .pd-video-category-tag {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #ff8038;
+  border-radius: 5px;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* 4.4 Content area grid:
+   row 1 = category (full width, above title)
+   row 2 = title (left) | CTA button (right) — matches source ACTION button position
+   row 3 = price (full width)
+   row 4 = description (full width) */
+body.binji-theme .product-detail .pd-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-areas: 
+      "name meta" 
+      "cast cast" 
+      "description description"
+      "extras extras"
+      "quantity quantity"
+      "actions actions";
+}
+
+/* Category: full-width row above title */
+body.binji-theme .product-detail .pd-category {
+  display: inline-block;
+  color: #a0a0a0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* Title: left column, row 2 */
+body.binji-theme .product-detail .pd-name {
+  font-size: 70px;
+  font-weight: 700;
+  color: #fff;
+  grid-area: name;
+  width: fit-content;
+  line-height: 1.5;
+}
+
+body.binji-theme main .product-detail .pd-video-layout .pd-video-meta {
+  justify-content: flex-start;
+  grid-area: meta;
+  margin: 12px 0;
+}
+
+body.binji-theme main .product-detail .pd-video-layout .pd-video-age {
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+body.binji-theme main .product-detail .pd-container.pd-video-layout .pd-cast {
+  grid-area: cast;
+  color: #fff;
+  font-size: 21px;
+  line-height: 1.5;
+  margin: 0.83em 0 0;
+  font-weight: 700;
+}
+
+/* 4.6 Description */
+body.binji-theme main .product-detail .pd-container.pd-video-layout .pd-description {
+  color: #fff;
+  grid-area: description;
+  border-top: 0;
+  margin: 0;
+}
+
+body.binji-theme .product-detail .pd-description a {
+  color: #ff8038;
+}
+
+/* Bullets and headings inside description also use hardcoded dark colors */
+body.binji-theme .product-detail .pd-description li::before {
+  color: #a0a0a0;
+}
+
+body.binji-theme .product-detail .pd-description h2,
+body.binji-theme .product-detail .pd-description h3,
+body.binji-theme .product-detail .pd-description h4 {
+  color: #fff;
+}
+
+/* 4.7 Buttons */
+body.binji-theme .product-detail .pd-btn-primary {
+  background: #ff8038;
+  color: #fff;
+  border-color: #ff8038;
+}
+
+body.binji-theme .product-detail .pd-btn-primary:hover {
+  background: #e06520;
+  border-color: #e06520;
+  box-shadow: 0 4px 16px rgb(255 128 56 / 30%);
+}
+
+body.binji-theme .product-detail .pd-btn-secondary {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+body.binji-theme .product-detail .pd-btn-secondary:hover {
+  background: #ff8038;
+  border-color: #ff8038;
+  color: #fff;
+}
+
+/* 4.8 Recommendations section */
+body.binji-theme .product-detail .pd-recommendations {
+  background: #0b0b0f;
+  border-top-color: rgb(255 255 255 / 10%);
+}
+
+body.binji-theme .product-detail .pd-rec-title {
+  color: #fff;
+}
+
+/* 4.9 Recommendation cards */
+body.binji-theme .product-detail .pd-rec-card {
+  background: #1a1a1f;
+  border-radius: 8px;
+}
+
+body.binji-theme .product-detail .pd-rec-card:hover {
+  box-shadow: 0 8px 24px rgb(0 0 0 / 60%);
+}
+
+body.binji-theme .product-detail .pd-rec-card-title {
+  color: #fff;
+}
+
+/* 4.10 Mobile — collapse title+button inline grid to stacked */
+@media (width <=768px) {
+  body.binji-theme .product-detail .pd-container {
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  /* Reset desktop height — let aspect-ratio drive mobile image height */
+  body.binji-theme .product-detail .pd-image {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    border-radius: 0;
+    margin-inline: 16px;
+  }
+
+  /* Content area gets its own padding since container has none */
+  body.binji-theme main .product-detail .pd-container.pd-video-layout .pd-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: unset;
+    padding-inline: 16px;
+  }
+
+  body.binji-theme .product-detail .pd-name {
+    line-height: 1;
+  }
+
+  body.binji-theme .product-detail .pd-actions {
+    flex-direction: column;
+    margin-top: 16px;
+  }
+
+  body.binji-theme .product-detail .pd-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* =============================================================================
+   5. CATEGORY PRODUCTS LISTER
+   ============================================================================= */
+
+/* 5.1 Card — transparent box, no border/shadow */
+body.binji-theme .category-products-lister .cpl-card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  transition: transform 0.2s ease;
+}
+
+body.binji-theme .category-products-lister .cpl-card:hover {
+  transform: scale(1.03);
+  box-shadow: none;
+}
+
+/* 5.2 Image — aspect-ratio driven, cover fit, rounded */
+body.binji-theme .category-products-lister .cpl-card-media {
+  aspect-ratio: 3 / 2;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0b0b0f;
+}
+
+/* stylelint-disable no-descending-specificity */
+body.binji-theme .category-products-lister .cpl-card-media picture,
+body.binji-theme .category-products-lister .cpl-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* 5.3 Meta — left-aligned, no card padding */
+body.binji-theme .category-products-lister .cpl-card-meta {
+  text-align: left;
+  align-items: flex-start;
+  padding: 10px 0 0;
+}
+
+/* 5.4 Category label */
+body.binji-theme .category-products-lister .cpl-card-category {
+  color: #a0a0a0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+/* 5.5 Title */
+body.binji-theme .category-products-lister .cpl-card-title {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* 5.6 Filter tag chips */
+body.binji-theme .category-products-lister .cpl-tag {
+  background: rgb(255 255 255 / 8%);
+  border-color: rgb(255 255 255 / 20%);
+  color: #fff;
+}
+
+/* 5.7 Empty state */
+body.binji-theme .category-products-lister .cpl-empty {
+  color: #a0a0a0;
+}
+
+/* 5.8 Carousel — dark adaptations */
+body.binji-theme .category-products-lister.carousel .cpl-carousel-header h2,
+body.binji-theme .category-products-lister.carousel .cpl-carousel-name {
+  color: #fff;
+}
+
+body.binji-theme .category-products-lister.carousel .cpl-carousel-btn::before {
+  border-color: #fff;
+}
+
+/* stylelint-disable no-descending-specificity */
+body.binji-theme .category-products-lister.carousel .cpl-carousel-slide picture,
+body.binji-theme .category-products-lister.carousel .cpl-carousel-slide img {
+  object-fit: cover;
+}
+
+/* stylelint-enable no-descending-specificity */
+
+/* ==========================================================================
+   create-account-binji.css
+   Binji theme overrides — scoped to body.binji-theme
+   Drop these on top of create-account.css.
+   The binji wizard is activated via variant="binji" + form-layout="wizard".
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Section / Wrapper background
+   -------------------------------------------------------------------------- */
+body.binji-theme .section.create-account-container {
+  max-width: unset !important;
+  background-color: rgb(52, 52, 52);
+}
+
+body.binji-theme main>.section.create-account-container>.create-account-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 360px;
+  width: 100%;
+  padding: 2rem 0;
+  box-sizing: border-box;
+  font-family: 'Adobe Clean', sans-serif;
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Block root
+   -------------------------------------------------------------------------- */
+body.binji-theme main .create-account {
+  width: 100%;
+  max-width: 460px;
+  background: transparent;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Panel background
+   -------------------------------------------------------------------------- */
+body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard>.panel-wrapper.current-wizard-step {
+  background-color: rgb(52, 52, 52) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Step indicator
+   -------------------------------------------------------------------------- */
+body.binji-theme main .create-account .registration-wizard__step-indicator h2 {
+  font-family: 'Adobe Clean', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Title / Subtitle / Disclaimer
+   -------------------------------------------------------------------------- */
+body.binji-theme main .create-account .registration-wizard__title h2 {
+  font-family: 'Adobe Clean', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  text-align: left;
+  line-height: 42px;
+  margin: 0.67em 0;
+  padding: 0;
+}
+
+body.binji-theme main .create-account .registration-wizard__subtitle h2,
+body.binji-theme main .create-account .registration-wizard__disclaimer h2 {
+  font-family: 'Adobe Clean', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 24px;
+  text-align: left;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Label uppercase style for binji inputs
+   -------------------------------------------------------------------------- */
+body.binji-theme main .create-account .registration-wizard__input label {
+  font-family: 'Adobe Clean', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Text / Email / Password inputs
+   -------------------------------------------------------------------------- */
+body.binji-theme main .create-account .create-account-form.is-binji-wizard input[type="text"],
+body.binji-theme main .create-account .create-account-form.is-binji-wizard input[type="email"],
+body.binji-theme main .create-account .create-account-form.is-binji-wizard input[type="password"] {
+  margin: 0;
+  width: 100%;
+  height: 32px;
+  padding: 3px 12px 5px 11px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  color: #222;
+  font-family: 'Adobe Clean', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body.binji-theme main .create-account .create-account-form.is-binji-wizard input::placeholder {
+  color: #666;
+  font-style: italic;
+  font-weight: 300;
+}
+
+body.binji-theme main .create-account .create-account-form.is-binji-wizard input:focus {
+  outline: none;
+  border-color: #ff8038;
+  box-shadow: 0 0 0 2px rgba(255, 128, 56, 0.3);
+}
+
+body.binji-theme main .create-account .field-wrapper {
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Switch / Checkbox toggles
+   -------------------------------------------------------------------------- */
+
+body.binji-theme main .create-account .field-wrapper.switch {
+  align-items: flex-start;
+}
+
+body.binji-theme main .create-account .registration-wizard__switch input[type="checkbox"] {
+  background-color: #666;
+  height: 14px;
+  margin: 7px 0 0;
+}
+
+body.binji-theme main .create-account .field-wrapper.switch input[type="checkbox"]::before {
+  width: 10px;
+  height: 10px;
+  top: 2px;
+}
+
+body.binji-theme main .create-account .field-wrapper.switch input[type="checkbox"]:checked::before {
+  transform: translateX(12px);
+}
+
+body.binji-theme main .create-account .registration-wizard__switch input[type="checkbox"]:checked {
+  background-color: #ff8038;
+}
+
+body.binji-theme main .create-account .registration-wizard__switch label {
+  font-family: 'Adobe Clean', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   Wizard navigation buttons
+   -------------------------------------------------------------------------- */
+body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard .wizard-button-wrapper {
+  padding: 2rem;
+}
+
+body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard .wizard-button-wrapper button {
+  min-width: 72px;
+  padding: 5px 14px 7px;
+  font-family: 'Adobe Clean', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 20px;
+  text-transform: none;
+}
+
+body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard .wizard-button-next button,
+body.binji-theme main .create-account .registration-wizard__submit-btn button {
+  background-color: #ff8038 !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard .wizard-button-next button:hover,
+body.binji-theme main .create-account .registration-wizard__submit-btn button:hover {
+  filter: brightness(1.1);
+  border: none !important;
+}
+
+body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard .wizard-button-prev button {
+  background-color: #e6e6e6 !important;
+  color: #000 !important;
+  border: none !important;
+}
+
+body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard .wizard-button-prev button:hover {
+  filter: brightness(0.95);
+  border: none !important;
+}
+
+/* First step: prev button grayed out (matches registration-wizard original) */
+body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard>.current-wizard-step.panel-wrapper:first-of-type~.wizard-button-wrapper>.wizard-button-prev button {
+  color: #909090 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Progress dots
+   -------------------------------------------------------------------------- */
+body.binji-theme main .create-account .registration-wizard__dot {
+  background-color: #666;
+}
+
+body.binji-theme main .create-account .registration-wizard__dot.active {
+  background-color: #ff8038;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  body.binji-theme main>.section.create-account-container>.create-account-wrapper {
+    padding: 2rem 1rem;
+  }
+
+  body.binji-theme main .create-account .create-account-form.is-binji-wizard .wizard .wizard-button-wrapper {
+    margin-top: 32px;
+  }
+}
+
+body.binji-theme main .binji-home-signin.section {
+  margin: 0;
+  /* Hidden by default; revealed only for logged-out users to prevent a load-then-hide flash. */
+  display: none;
+}
+
+body.binji-theme.user-logged-out:not(:has(.user-profile-btn)) main .binji-home-signin.section {
+  display: block;
+}
+
+body.binji-theme main .sign-in-wrapper {
+  display: block;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block {
+  margin: 0 0 0 auto;
+  padding: 2rem;
+  background: #000;
+  border-radius: 2rem;
+  max-width: 400px;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block .form {
+  position: relative;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block .heading-wrapper {
+  display: none;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block label {
+  font-size: 12px;
+  padding: 4px 0 5px;
+  margin: 0;
+  color: #fff;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block [data-required=true]>label::after {
+  content: unset;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block input[type=text],
+body.binji-theme main .sign-in-wrapper .sign-in.block input[type=email],
+body.binji-theme main .sign-in-wrapper .sign-in.block input[type=password] {
+  margin: 0;
+  height: 32px;
+  padding: 3px 12px 5px 11px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block .submit-wrapper {
+  text-align: center;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block .submit-wrapper button {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 3px 14px 5px;
+  background-color: #ff8038;
+  border-radius: 2rem;
+  text-transform: unset;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block .sign-in-divider {
+  display: none;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block .sign-in-links .create-account-link {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+  text-decoration: underline;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 400;
+  font-family: "Adobe Clean", sans-serif;
+  text-transform: unset;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block:has(.create-account-link) {
+  margin: 2rem auto;
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block:has(.create-account-link) .submit-wrapper {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: 55px;
+}
+
+@media screen and (max-width: 768px) {
+  body.binji-theme main .sign-in-wrapper .sign-in.block:has(.create-account-link) .submit-wrapper {
+    margin-left: 0;
+  }
+}
+
+body.binji-theme main .sign-in-wrapper .sign-in.block:has(.create-account-link) .sign-in-links {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0;
+  position: absolute;
+  bottom: 12px;
+  left: 165px;
+}
+
+@media screen and (max-width: 768px) {
+  body.binji-theme main .sign-in-wrapper .sign-in.block:has(.create-account-link) .sign-in-links {
+    left: 100px;
+  }
+}
+
+body.binji-theme main .sign-in-page.section .sign-in-wrapper .sign-in.block {
+  margin: 0 auto;
+}
+
+body.binji-theme main .sign-in-page.section .sign-in-wrapper .sign-in.block .heading-wrapper {
+  display: block;
+}
+
+body.binji-theme main .sign-in-page.section .sign-in-wrapper .sign-in.block .heading-wrapper h2#heading-sign-in {
+  font-size: 28px;
+  margin: 0.67rem auto;
+  padding-bottom: 32px;
+  color: #fff;
+}
+
+body.binji-theme main>.section.home-nli-banner.section-has-bg[data-sec-full-width=true]>div {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body.binji-theme main>.section.home-nli-banner.section-has-bg[data-sec-full-width=true]>div.default-content-wrapper {
+  max-width: 700px;
+}
+
+body.binji-theme main>.section.home-nli-banner.section-has-bg[data-sec-full-width=true]>div.sign-in-wrapper {
+  max-width: 500px;
+}
+
+body.binji-theme main .home-nli-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  body.binji-theme main .home-nli-banner {
+    flex-direction: column;
+    padding: 2rem 1rem 1rem;
+  }
+}
+
+body.binji-theme main .home-nli-banner .default-content-wrapper p {
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #fff;
+  max-width: 600px;
+  margin: 0;
+}
+
+body.binji-theme main .home-nli-banner .default-content-wrapper h1 {
+  font-size: 48px;
+  line-height: 1.5;
+  color: #fff;
+  font-weight: 700;
+  padding: 0;
+  margin: 0.67em 0;
+  max-width: 600px;
+}
+
+@media screen and (max-width: 768px) {
+  body.binji-theme main .section.category-products-lister-container {
+    padding: 0 1rem;
+  }
+}
+
+body.binji-theme main .section.category-products-lister-container .category-products-lister-wrapper {
+  padding: 0;
+}
+
+body.binji-theme main .section.category-products-lister-container .default-content-wrapper {
+  padding: 0;
+}
+
+body.binji-theme main .section.category-products-lister-container .default-content-wrapper h2 {
+  color: #fff;
+  padding: 0;
+  margin: 0.67em 0;
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+body.binji-theme main .section.category-products-lister-container .cpl-tags {
+  display: none;
+}
+
+body.binji-theme main .section.category-products-lister-container .category-products-lister .cpl-grid {
+  gap: 1rem;
+}
+
+body.binji-theme main .section.category-products-lister-container .category-products-lister .cpl-card {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+body.binji-theme main .section.category-products-lister-container .category-products-lister .cpl-card .cpl-card-media {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+body.binji-theme main .section.category-products-lister-container .category-products-lister .cpl-card .cpl-card-media img {
+  min-height: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+body.binji-theme main .section.category-products-lister-container .category-products-lister .cpl-card .cpl-card-meta {
+  padding: 16px 0 0;
+  align-items: flex-start;
+}
+
+body.binji-theme main .section.category-products-lister-container.center-card-content .category-products-lister .cpl-card .cpl-card-meta {
+  align-items: center;
+}
+
+body.binji-theme main .section.category-products-lister-container .category-products-lister .cpl-card .cpl-card-meta .cpl-card-category {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+}
+
+body.binji-theme main .section.category-products-lister-container .category-products-lister .cpl-card .cpl-card-meta .cpl-card-title {
+  font-size: 21px;
+  line-height: 32px;
+  margin: 0 0 0.83em;
+}
+
+body.binji-theme main .section.binji-promo-banner {
+  margin: 0;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block {
+  padding: 1rem 0;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block .columns-row {
+  gap: 48px;
+  justify-content: center;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block div>.columns-img-col picture::before {
+  content: unset;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block div>.columns-img-col img {
+  max-width: 500px;
+  margin-left: auto;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block .columns-item-vertical:not(.columns-img-col) {
+  gap: 0;
+  max-width: 450px;
+}
+
+@media screen and (max-width: 768px) {
+
+  body.binji-theme main .section.binji-promo-banner .columns.block .columns-item-vertical:not(.columns-img-col) h1,
+  body.binji-theme main .section.binji-promo-banner .columns.block .columns-item-vertical:not(.columns-img-col) h2,
+  body.binji-theme main .section.binji-promo-banner .columns.block .columns-item-vertical:not(.columns-img-col) p {
+    text-align: center;
+  }
+
+  body.binji-theme main .section.binji-promo-banner .columns.block .columns-item-vertical:not(.columns-img-col) .button {
+    margin: 1rem auto 0;
+  }
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block h1 {
+  font-size: 28px;
+  margin: 0.67em 0;
+  padding: 0;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block h2 {
+  margin: 0.83em 0;
+  padding: 0;
+  font-size: 21px;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  font-weight: 400;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block .button {
+  display: block;
+  background-color: #ff8038;
+  padding: 4px 14px 6px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 1rem;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block .button::after {
+  content: unset;
+}
+
+body.binji-theme main .section.binji-promo-banner .columns.block .button:hover {
+  color: #fff;
+}
+
+body.binji-theme main .section.binji-promo-banner--reverse .columns.block div>.columns-img-col img {
+  max-width: 500px;
+  height: 450px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  margin-left: unset;
+}
+
+@media screen and (max-width: 768px) {
+  body.binji-theme main .section.binji-promo-banner--reverse .columns.block div>.columns-img-col img {
+    height: unset;
+  }
+}
+
+body.binji-theme main .section.binji-promo-banner--reverse .columns.block .columns-item-vertical:not(.columns-img-col) {
+  align-items: flex-end;
+  text-align: right;
+}
+
+body.binji-theme main .section.binji-promo-banner--reverse .columns.block .button {
+  margin-left: auto;
+}
+
+body.binji-theme main .section.video-container .video-wrapper {
+  padding: 0;
+}
+
+body.binji-theme:has(.user-profile-btn) main .section:has(.sign-in-wrapper), body.binji-theme:has(.user-profile-btn) main .section.sign-in-wrapper {
+  display: none !important;
+}
+
+/* =============================================================================
+   NEW ARRIVAL - BINJI THEME OVERRIDES
+   ============================================================================= */
+
+/* Card base */
+body.binji-theme .new-arrival .na-card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  transition: transform 0.2s ease;
+}
+
+body.binji-theme .new-arrival .na-card:hover {
+  transform: scale(1.03);
+  box-shadow: none;
+}
+
+/* Card Media */
+body.binji-theme .new-arrival .na-card-media {
+  aspect-ratio: 3 / 2;
+  height: auto;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0b0b0f;
+}
+
+body.binji-theme .new-arrival .na-card-media picture,
+body.binji-theme .new-arrival .na-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+}
+
+/* Card Meta */
+body.binji-theme .new-arrival .na-card-meta {
+  text-align: left;
+  align-items: flex-start;
+  padding: 10px 0 0;
+}
+
+/* Card Category */
+body.binji-theme .new-arrival .na-card-category {
+  color: #a0a0a0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 4px;
+}
+
+/* Card Title */
+body.binji-theme .new-arrival .na-card-title {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Tags (Mapped for future-proofing if you use tags) */
+body.binji-theme .new-arrival .na-tag {
+  background: rgb(255 255 255 / 8%);
+  border-color: rgb(255 255 255 / 20%);
+  color: #fff;
+}
+
+/* Empty State */
+body.binji-theme .new-arrival .na-empty {
+  color: #a0a0a0;
+}
+
+/* Carousel specific UI */
+body.binji-theme .new-arrival .na-title {
+  color: #fff;
+}
+
+body.binji-theme .new-arrival .na-carousel-btn {
+  border-color: #fff !important;
+  color: #fff !important;
+  background: transparent !important;
+}
+
+body.binji-theme .new-arrival .na-carousel-btn:hover:not(:disabled) {
+  background: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+}
+
+/* Container and Layout overrides */
+@media screen and (max-width: 768px) {
+  body.binji-theme main .section.new-arrival-container {
+    padding: 0 1rem;
+  }
+}
+
+body.binji-theme main .section.new-arrival-container .new-arrival-wrapper {
+  padding: 0;
+}
+
+body.binji-theme main .section.new-arrival-container .default-content-wrapper {
+  padding: 0;
+}
+
+body.binji-theme main .section.new-arrival-container .default-content-wrapper h2 {
+  color: #fff;
+  padding: 0;
+  margin: 0.67em 0;
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+/* Hide tags container if it exists */
+body.binji-theme main .section.new-arrival-container .na-tags {
+  display: none;
+}
+
+/* Grid Gap for your Horizontal Grid */
+body.binji-theme main .section.new-arrival-container .new-arrival .na-horizontal-grid {
+  padding: 0;
+  gap: 1rem;
+}
+
+/* Specific container overrides */
+body.binji-theme main .section.new-arrival-container .new-arrival .na-card {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+body.binji-theme main .section.new-arrival-container .new-arrival .na-card .na-card-media {
+  height: fit-content;
+}
+
+body.binji-theme main .section.new-arrival-container .new-arrival .na-card .na-card-media img {
+  min-height: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+
+body.binji-theme main .section.new-arrival-container .new-arrival .na-card .na-card-meta {
+  padding: 16px 0 0;
+  align-items: flex-start;
+}
+
+body.binji-theme main .section.new-arrival-container.center-card-content .new-arrival .na-card .na-card-meta {
+  align-items: center;
+}
+
+body.binji-theme main .section.new-arrival-container .new-arrival .na-card .na-card-meta .na-card-category {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+}
+
+body.binji-theme main .section.new-arrival-container .new-arrival .na-card .na-card-meta .na-card-title {
+  font-size: 21px;
+  line-height: 32px;
+  margin: 0 0 0.83em;
+}

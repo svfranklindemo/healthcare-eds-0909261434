@@ -1,0 +1,354 @@
+/* ============================================
+   Insurance Plan Selection Block Styling
+   ============================================ */
+
+.insurance-plan-selection-wrapper {
+  padding: 1px 0 !important;
+}
+
+.insurance-plan-selection {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* --- Header Section & Stepper Dots --- */
+.insurance-plan-selection .plan-selection-header {
+  text-align: center;
+  width: 100%;
+}
+
+.insurance-plan-selection .plan-selection-header h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #28272b;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0.67em 0;
+  font-family: 'Adobe Clean Black', sans-serif;
+}
+
+.insurance-plan-selection .plan-selection-header p {
+  font-size: 14px;
+  color: #28272b;
+  line-height: 1.5;
+  margin: 1em 0;
+}
+
+/* Custom Progress Dots (Injected into header) */
+.insurance-plan-selection .wizard-progress-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.insurance-plan-selection .wizard-dots {
+  display: flex;
+  gap: 1rem;
+}
+
+.insurance-plan-selection .wizard-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  transition: background-color 0.3s ease;
+}
+
+.insurance-plan-selection .wizard-dot.active {
+  background-color: #0065d6;
+}
+
+/* --- Form Container & Wizard Architecture --- */
+.insurance-plan-selection .form-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin: 0 auto 5rem;
+}
+
+.insurance-plan-selection .plan-selection-form {
+  --form-columns: 12;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .insurance-plan-selection .plan-selection-form {
+    padding: 0 16px;
+  }
+}
+
+.insurance-plan-selection .plan-selection-form .heading-wrapper {
+  max-width: 600px;
+}
+
+/* 🚨 KILL DUPLICATE LABELS & HEADLESS DEFAULTS 🚨 */
+.insurance-plan-selection .plan-selection-form .wizard-menu-items,
+.insurance-plan-selection .plan-selection-form .heading-wrapper label,
+.insurance-plan-selection .plan-selection-form .wizard > .panel-wrapper > label,
+.insurance-plan-selection .plan-selection-form .wizard > .panel-wrapper > .field-label {
+  display: none !important;
+}
+
+/* Hide non-current wizard steps */
+.insurance-plan-selection .plan-selection-form.is-wizard .wizard > .panel-wrapper {
+  display: none;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0;
+  border: none;
+}
+
+.insurance-plan-selection .plan-selection-form.is-wizard .wizard > .panel-wrapper.current-wizard-step {
+  display: grid !important;
+}
+
+.insurance-plan-selection .plan-selection-form.is-wizard .panel-wrapper > * {
+  grid-column: span 12;
+}
+
+/* --- Step Headings --- */
+.insurance-plan-selection .wizard-step-title h2,
+.insurance-plan-selection .wizard-step-title h1 {
+  font-size: 21px;
+  font-family: 'Adobe Clean Bold';
+  font-weight: 600;
+  margin: 0.83em 0;
+  color: #28272b;
+  line-height: 1.5;
+  padding: 0;
+  text-align: center;
+}
+
+.insurance-plan-selection .wizard-step-subtitle h1,
+.insurance-plan-selection .wizard-step-subtitle h2,
+.insurance-plan-selection .wizard-step-subtitle p {
+  font-size: 14px;
+  color: #28272b;
+  line-height: 1.5;
+  margin: 0 0 1em;
+  padding: 0;
+  text-align: center;
+  font-family: 'Adobe Clean', sans-serif;
+  font-weight: 400;
+}
+
+.insurance-plan-selection .wizard-step-subheading h3,
+.insurance-plan-selection .wizard-step-subheading h2 {
+  font-size: 16.38px;
+  font-weight: 600;
+  color: #28272b;
+  margin: 1em 0;
+  text-align: center;
+  padding: 0;
+}
+
+.insurance-plan-selection fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Target standard headless fieldset wrapper children safely */
+.insurance-plan-selection .field-wrapper fieldset > label,
+.insurance-plan-selection .field-wrapper fieldset > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.insurance-plan-selection .field-wrapper fieldset.radio-group-wrapper {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.insurance-plan-selection .field-wrapper fieldset > .radio-wrapper {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+}
+
+.insurance-plan-selection .field-wrapper fieldset > .radio-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.insurance-plan-selection .field-wrapper fieldset > .checkbox-wrapper {
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+}
+
+.insurance-plan-selection .field-wrapper fieldset > .checkbox-wrapper input[type="checkbox"] {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.insurance-plan-selection input[type="radio"],
+.insurance-plan-selection input[type="checkbox"] {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+  cursor: pointer;
+  accent-color: #464646;
+  margin: 1px 0 0;
+}
+
+.insurance-plan-selection .field-wrapper fieldset label,
+.insurance-plan-selection .field-wrapper fieldset span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.insurance-plan-selection .field-wrapper fieldset > .radio-wrapper label,
+.insurance-plan-selection .field-wrapper fieldset > .radio-wrapper span {
+  font-size: 14px;
+  color: #222;
+}
+
+/* --- Wizard Navigation & Buttons --- */
+.insurance-plan-selection .wizard-button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100;
+  padding: 1.5rem;
+}
+
+.insurance-plan-selection button {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+/* Back Button (Left aligned automatically due to space-between and order: 1) */
+.insurance-plan-selection .wizard-button-prev {
+  order: 1;
+  margin: 0;
+}
+
+.insurance-plan-selection .wizard-button-prev button {
+  border: 3px solid #d5d5d5 !important;
+  background-color: transparent !important;
+  padding: 4px 14px 5px !important;
+  border-radius: 20px;
+  color: #000 !important;
+  letter-spacing: 0px;
+  text-transform: unset;
+  font-family: 'Adobe Clean Bold', sans-serif;
+  font-weight: 700;
+  width: fit-content;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: unset;
+  display: block;
+  text-align: center;
+  min-width: 72px;
+}
+
+.insurance-plan-selection .wizard-button-prev button:hover {
+  background-color: #cbd5e1;
+}
+
+.insurance-plan-selection .wizard-button-prev button:disabled {
+  background-color: #d5d5d5 !important;
+  color: #909090 !important;
+}
+
+/* Next / Submit Buttons (Right aligned automatically due to space-between and order: 2) */
+.insurance-plan-selection .wizard-button-next,
+.insurance-plan-selection .submit-wrapper {
+  margin: 0;
+  order: 2;
+}
+
+.insurance-plan-selection .wizard-button-next button,
+.insurance-plan-selection .submit-wrapper button {
+  border: 1px solid #0065d6 !important;
+  background-color: #0065d6 !important;
+  padding: 4px 14px 5px !important;
+  border-radius: 20px;
+  color: #fff !important;
+  letter-spacing: 0px;
+  text-transform: unset;
+  font-family: 'Adobe Clean Bold', sans-serif;
+  font-weight: 700;
+  width: fit-content;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: unset;
+  display: block;
+  text-align: center;
+  min-width: 72px;
+}
+
+.insurance-plan-selection .wizard-button-next button:hover,
+.insurance-plan-selection .submit-wrapper button:hover {
+  background-color: #0054b6;
+}
+
+/* Hide submit wrapper until the end */
+.insurance-plan-selection .plan-selection-form.is-wizard .submit-wrapper {
+  display: none;
+  margin: 0;
+}
+
+.insurance-plan-selection .current-wizard-step:last-of-type ~ .wizard-button-wrapper .wizard-button-next {
+  display: none;
+}
+
+.insurance-plan-selection .current-wizard-step:last-of-type ~ .wizard-button-wrapper .submit-wrapper {
+  display: block;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .insurance-plan-selection .plan-selection-header {
+    padding: 0 16px;
+  }
+
+  .insurance-plan-selection .wizard-step-title h2,
+  .insurance-plan-selection .wizard-step-title h1 {
+    font-size: 24px;
+  }
+
+  /* Stack buttons on small screens */
+  .insurance-plan-selection .wizard-button-wrapper {
+    gap: 16px;
+  }
+
+  .insurance-plan-selection button {
+    width: 100%;
+  }
+
+  .insurance-plan-selection .wizard-button-next,
+  .insurance-plan-selection .wizard-button-prev,
+  .insurance-plan-selection .submit-wrapper {
+    width: fit-content;
+  }
+  .insurance-plan-selection .field-wrapper fieldset > .radio-wrapper{
+    height:auto;
+  }
+  .insurance-plan-selection .field-wrapper fieldset > .radio-wrapper label{
+     margin-top:5px;
+  }
+}

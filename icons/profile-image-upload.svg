@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44.706" height="46.782" viewBox="0 0 44.706 46.782">
+  <g id="icon" transform="translate(1.001 0.75)">
+    <path id="Path_98586" data-name="Path 98586" d="M-10321.171-13533.225a36.225,36.225,0,0,1,.46-5.779,8.351,8.351,0,0,1,3.242-5.5" transform="translate(10321.171 13579.25)" fill="none" stroke="#404141" stroke-width="2"/>
+    <path id="Path_98587" data-name="Path 98587" d="M-10317.469-13533.225a38.094,38.094,0,0,0-.44-5.779,8.423,8.423,0,0,0-3.262-5.5" transform="translate(10360.173 13579.25)" fill="none" stroke="#404141" stroke-width="2"/>
+    <g id="Group_179634" data-name="Group 179634" transform="translate(4.019 26.241)">
+      <g id="Group_179632" data-name="Group 179632" transform="translate(0 0)">
+        <line id="Line_78" data-name="Line 78" y2="7.091" transform="translate(0.532)" fill="none" stroke="#2e76e1" stroke-width="1.5"/>
+        <line id="Line_79" data-name="Line 79" x1="8.51" transform="translate(0 7.091)" fill="none" stroke="#2e76e1" stroke-width="1.5"/>
+      </g>
+      <g id="Group_179633" data-name="Group 179633" transform="translate(26.238 0)">
+        <line id="Line_78-2" data-name="Line 78" y2="7.091" transform="translate(7.978)" fill="none" stroke="#2e76e1" stroke-width="1.5"/>
+        <line id="Line_79-2" data-name="Line 79" x2="8.51" transform="translate(0 7.091)" fill="none" stroke="#2e76e1" stroke-width="1.5"/>
+      </g>
+    </g>
+    <g id="Group_179635" data-name="Group 179635" transform="translate(4.019 0)">
+      <g id="Group_179632-2" data-name="Group 179632" transform="translate(0 0)">
+        <line id="Line_78-3" data-name="Line 78" y1="7.091" transform="translate(0.532 0)" fill="none" stroke="#2e76e1" stroke-width="1.5"/>
+        <line id="Line_79-3" data-name="Line 79" x1="8.51" fill="none" stroke="#2e76e1" stroke-width="1.5"/>
+      </g>
+      <g id="Group_179633-2" data-name="Group 179633" transform="translate(26.238 0)">
+        <line id="Line_78-4" data-name="Line 78" y1="7.091" transform="translate(7.978 0)" fill="none" stroke="#2e76e1" stroke-width="1.5"/>
+        <line id="Line_79-4" data-name="Line 79" x2="8.51" fill="none" stroke="#2e76e1" stroke-width="1.5"/>
+      </g>
+    </g>
+    <g id="Group_179636" data-name="Group 179636" transform="translate(11.253 2.904)">
+      <path id="Path_98588" data-name="Path 98588" d="M-10304.814-13561.771s3.418.058,3.928-.912c.49-.949,0-4.35,0-4.35s-5.506-6.954-4.223-13.565,6.074-8.885,9.551-8.806" transform="translate(10305.304 13589.406)" fill="none" stroke="#404141" stroke-width="2"/>
+      <path id="Path_98589" data-name="Path 98589" d="M-10296.038-13561.771s-3.429.058-3.928-.912c-.509-.949,0-4.35,0-4.35s5.486-6.954,4.212-13.565-6.074-8.885-9.551-8.806" transform="translate(10315.051 13589.406)" fill="none" stroke="#404141" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

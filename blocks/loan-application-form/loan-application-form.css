@@ -1,0 +1,249 @@
+/* Loan Preapproval Form block – 3-step wizard, teal Next/Submit, grey Back, file upload on step 3 */
+:root {
+  --loan-application-teal: #0d9488;
+  --loan-application-teal-hover: #0f766e;
+  --loan-application-grey: #e5e7eb;
+  --loan-application-grey-border: #d1d5db;
+  --loan-application-label: #374151;
+}
+
+main > .section:has(.loan-application-form-block) > div {
+  background: #fff;
+}
+
+.loan-application-form-block {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem 1.25rem;
+  font-family: var(--body-font-family, system-ui, sans-serif);
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.loan-application-form-block .loan-application-form-heading {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  text-align: center;
+  width: 100%;
+}
+
+.loan-application-form-block .loan-application-form-wrapper {
+  width: 100%;
+  min-width: 0;
+}
+
+.loan-application-form-block .loan-application-form-consent {
+  font-size: 0.875rem;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+.loan-application-form-block .loan-application-form-upload-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--loan-application-label);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.loan-application-form-block form {
+  display: flex;
+  flex-direction: column;
+}
+
+.loan-application-form-block .loan-application-form-wizard.wizard {
+  display: contents;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-menu-items,
+.loan-application-form-block .wizard-menu-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-menu-item,
+.loan-application-form-block .wizard-menu-item {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--loan-application-grey-border);
+  padding: 0;
+  margin: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-menu-item::before,
+.loan-application-form-block .wizard-menu-item::before {
+  display: none !important;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-menu-active-item,
+.loan-application-form-block .wizard-menu-active-item {
+  background: var(--loan-application-teal);
+  border-color: var(--loan-application-teal);
+}
+
+.loan-application-form-block .loan-application-form-step-label {
+  font-size: 0.875rem;
+  color: var(--loan-application-label);
+  margin: 0 1rem;
+  flex: 0 0 auto;
+  order: 2;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--loan-application-grey);
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-wrapper > .field-wrapper {
+  width: auto;
+  flex: 0 0 auto;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-prev,
+.loan-application-form-block .loan-application-form-wizard [id*="wizard-button-prev"] {
+  order: 1;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-prev button,
+.loan-application-form-block .loan-application-form-wizard [id*="wizard-button-prev"] button {
+  padding: 0.75rem 1.5rem;
+  background: var(--loan-application-grey) !important;
+  color: var(--loan-application-label) !important;
+  border: 1px solid var(--loan-application-grey-border) !important;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: auto !important;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-next,
+.loan-application-form-block .loan-application-form-wizard [id*="wizard-button-next"] {
+  order: 3;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-wrapper > .submit-wrapper {
+  order: 3;
+  width: auto !important;
+  max-width: none;
+  flex: 0 0 auto !important;
+  margin-top: 0;
+  display: none;
+}
+
+.loan-application-form-block .loan-application-form-wizard .current-wizard-step.panel-wrapper:last-of-type ~ .wizard-button-wrapper > .submit-wrapper {
+  display: flex;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-next button,
+.loan-application-form-block .loan-application-form-wizard [id*="wizard-button-next"] button {
+  padding: 0.75rem 1.5rem !important;
+  background: var(--loan-application-teal) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: auto !important;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-next button:hover,
+.loan-application-form-block .loan-application-form-wizard [id*="wizard-button-next"] button:hover {
+  background: var(--loan-application-teal-hover) !important;
+}
+
+.loan-application-form-block .loan-application-form-wizard input[type="text"],
+.loan-application-form-block .loan-application-form-wizard input[type="email"],
+.loan-application-form-block .loan-application-form-wizard select {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--loan-application-grey-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.loan-application-form-block .loan-application-form-wizard .field-label {
+  font-weight: 600;
+  color: var(--loan-application-label);
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+}
+
+.loan-application-form-block .loan-application-form-wizard .panel-wrapper {
+  gap: 0.875rem;
+}
+
+.loan-application-form-block .loan-application-form-wizard .submit-wrapper {
+  max-width: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loan-application-form-block .loan-application-form-wizard .submit-wrapper button {
+  width: auto !important;
+  min-width: auto !important;
+  max-width: none !important;
+  padding: 0.75rem 1.5rem !important;
+  background: var(--loan-application-teal) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Keep Submit same size as Back/Next when in the button row (override form.css width: 100% and col-12) */
+.loan-application-form-block .loan-application-form-wizard .wizard-button-wrapper > .submit-wrapper,
+.loan-application-form-block .loan-application-form-wizard .wizard-button-wrapper > .submit-wrapper.field-wrapper {
+  grid-column: unset;
+}
+
+.loan-application-form-block .loan-application-form-wizard .wizard-button-wrapper > .submit-wrapper button {
+  width: auto !important;
+  min-width: auto !important;
+}
+
+.loan-application-form-block .loan-application-form-wizard .submit-wrapper button:hover {
+  background: var(--loan-application-teal-hover) !important;
+}
+
+.loan-application-form-block .loan-application-form-success-msg {
+  margin: 0 0 0.5rem 0;
+  padding: 0.75rem 1rem;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .loan-application-form-block {
+    padding: 0 1rem 1.25rem;
+  }
+}

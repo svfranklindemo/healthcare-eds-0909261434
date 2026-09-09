@@ -1,0 +1,389 @@
+/* ============================================
+   Medicare Plan Selection Block Styling
+   ============================================ */
+
+.medicare-plan-selection-wrapper {
+  padding: 1px 0 !important;
+}
+
+.medicare-plan-selection {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Header Section & Stepper Dots --- */
+.medicare-plan-selection .plan-selection-header {
+  text-align: center;
+  width: 100%;
+}
+
+.medicare-plan-selection .plan-selection-header h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #28272b;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0.67em 0;
+  font-family: 'Adobe Clean Black', sans-serif;
+}
+
+.medicare-plan-selection .plan-selection-header p {
+  font-size: 14px;
+  color: #28272b;
+  line-height: 1.5;
+  margin: 1em 0;
+}
+
+/* Custom Progress Dots (Injected into header) */
+.medicare-plan-selection .wizard-progress-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.medicare-plan-selection .wizard-dots {
+  display: flex;
+  gap: 1rem;
+}
+
+.medicare-plan-selection .wizard-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  transition: background-color 0.3s ease;
+}
+
+.medicare-plan-selection .wizard-dot.active {
+  background-color: #0065d6;
+}
+
+/* --- Form Container & Wizard Architecture --- */
+.medicare-plan-selection .form-container {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin: 0 auto 5rem;
+}
+
+.medicare-plan-selection .plan-selection-form {
+  --form-columns: 12;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .medicare-plan-selection .plan-selection-form {
+    padding: 0 16px;
+  }
+}
+
+.medicare-plan-selection .plan-selection-form .heading-wrapper {
+  max-width: 600px;
+}
+
+/* 🚨 KILL DUPLICATE LABELS & HEADLESS DEFAULTS 🚨 */
+.medicare-plan-selection .plan-selection-form .wizard-menu-items,
+.medicare-plan-selection .plan-selection-form .heading-wrapper label,
+.medicare-plan-selection .plan-selection-form .wizard > .panel-wrapper > label,
+.medicare-plan-selection .plan-selection-form .wizard > .panel-wrapper > .field-label {
+  display: none !important;
+}
+
+/* Hide non-current wizard steps */
+.medicare-plan-selection .plan-selection-form.is-wizard .wizard > .panel-wrapper {
+  display: none;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0;
+  border: none;
+}
+
+.medicare-plan-selection .plan-selection-form.is-wizard .wizard > .panel-wrapper.current-wizard-step {
+  display: grid !important;
+}
+
+.medicare-plan-selection .plan-selection-form.is-wizard .panel-wrapper > * {
+  grid-column: span 12;
+}
+
+/* --- Step Headings --- */
+.medicare-plan-selection .wizard-step-title h2,
+.medicare-plan-selection .wizard-step-title h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #28272b;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0.67em 0;
+  text-align: center;
+  font-family: 'Adobe Clean Black', sans-serif;
+}
+
+.medicare-plan-selection .wizard-step-subtitle h1,
+.medicare-plan-selection .wizard-step-subtitle h2,
+.medicare-plan-selection .wizard-step-subtitle p {
+  font-size: 14px;
+  color: #28272b;
+  line-height: 1.5;
+  margin: 0 0 1em;
+  padding: 0;
+  text-align: center;
+  font-family: 'Adobe Clean', sans-serif;
+  font-weight: 400;
+}
+
+.medicare-plan-selection .wizard-step-subheading h3,
+.medicare-plan-selection .wizard-step-subheading h2 {
+  font-size: 16.38px;
+  font-weight: 600;
+  color: #28272b;
+  margin: 1em 0;
+  text-align: center;
+  padding: 0;
+}
+
+.medicare-plan-selection fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Target standard headless fieldset wrapper children safely */
+.medicare-plan-selection .field-wrapper fieldset > label,
+.medicare-plan-selection .field-wrapper fieldset > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.medicare-plan-selection .field-wrapper fieldset.radio-group-wrapper {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.medicare-plan-selection .field-wrapper fieldset > .radio-wrapper {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+}
+
+.medicare-plan-selection .field-wrapper fieldset > .radio-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.medicare-plan-selection .field-wrapper fieldset > .checkbox-wrapper {
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+}
+
+.medicare-plan-selection .field-wrapper fieldset > .checkbox-wrapper input[type="checkbox"] {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.medicare-plan-selection input[type="radio"],
+.medicare-plan-selection input[type="checkbox"] {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+  cursor: pointer;
+  accent-color: #464646;
+  margin: 1px 0 0;
+}
+
+.medicare-plan-selection .field-wrapper fieldset label,
+.medicare-plan-selection .field-wrapper fieldset span {
+  font-size: 15px;
+  font-weight: 500;
+  color: #334155;
+  cursor: pointer;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.medicare-plan-selection .field-wrapper fieldset > .radio-wrapper label,
+.medicare-plan-selection .field-wrapper fieldset > .radio-wrapper span {
+  font-size: 14px;
+  color: #222;
+}
+
+/* --- ZIP Code Input Specific --- */
+.medicare-plan-selection .field-wrapper.center-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 0;
+}
+
+.medicare-plan-selection .field-wrapper.center-input label {
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
+  color: #28272b;
+  padding: 4px 0 5px;
+  max-width: 400px;
+}
+
+.medicare-plan-selection .field-wrapper.center-input input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 3px 12px 5px 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #28272b;
+  box-sizing: border-box;
+}
+
+.medicare-plan-selection .field-wrapper.center-input input[type="text"]:focus {
+  outline: none;
+  border-color: #0065d6;
+}
+
+/* --- Wizard Navigation & Buttons --- */
+.medicare-plan-selection .wizard-button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100;
+  padding: 1.5rem;
+}
+
+.medicare-plan-selection button {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+/* Back Button (Left aligned automatically due to space-between and order: 1) */
+.medicare-plan-selection .wizard-button-prev {
+  order: 1;
+  margin: 0;
+}
+
+.medicare-plan-selection .wizard-button-prev button {
+  border: 3px solid #d5d5d5 !important;
+  background-color: transparent !important;
+  padding: 4px 14px 5px !important;
+  border-radius: 20px;
+  color: #000 !important;
+  letter-spacing: 0px;
+  text-transform: unset;
+  font-family: 'Adobe Clean Bold', sans-serif;
+  font-weight: 700;
+  width: fit-content;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: unset;
+  display: block;
+  text-align: center;
+  min-width: 72px;
+}
+
+.medicare-plan-selection .wizard-button-prev button:hover {
+  background-color: #cbd5e1;
+}
+
+.medicare-plan-selection .wizard-button-prev button:disabled {
+  background-color: #d5d5d5 !important;
+  color: #909090 !important;
+}
+
+/* Next / Submit Buttons (Right aligned automatically due to space-between and order: 2) */
+.medicare-plan-selection .wizard-button-next,
+.medicare-plan-selection .submit-wrapper {
+  margin: 0;
+  order: 2;
+}
+
+.medicare-plan-selection .wizard-button-next button,
+.medicare-plan-selection .submit-wrapper button {
+  border: 1px solid #0065d6 !important;
+  background-color: #0065d6 !important;
+  padding: 4px 14px 5px !important;
+  border-radius: 20px;
+  color: #fff !important;
+  letter-spacing: 0px;
+  text-transform: unset;
+  font-family: 'Adobe Clean Bold', sans-serif;
+  font-weight: 700;
+  width: fit-content;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: unset;
+  display: block;
+  text-align: center;
+  min-width: 72px;
+}
+
+.medicare-plan-selection .wizard-button-next button:hover,
+.medicare-plan-selection .submit-wrapper button:hover {
+  background-color: #0054b6;
+}
+
+/* Hide submit wrapper until the end */
+.medicare-plan-selection .plan-selection-form.is-wizard .submit-wrapper {
+  display: none;
+  margin: 0;
+}
+
+.medicare-plan-selection .current-wizard-step:last-of-type ~ .wizard-button-wrapper .wizard-button-next {
+  display: none;
+}
+
+.medicare-plan-selection .current-wizard-step:last-of-type ~ .wizard-button-wrapper .submit-wrapper {
+  display: block;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .medicare-plan-selection .plan-selection-header {
+    padding: 0 16px;
+  }
+
+  .medicare-plan-selection .wizard-step-title h1 {
+    font-size: 24px;
+  }
+
+  /* Stack buttons on small screens */
+  .medicare-plan-selection .wizard-button-wrapper {
+    gap: 16px;
+  }
+
+  .medicare-plan-selection button {
+    width: 100%;
+  }
+
+  .medicare-plan-selection .wizard-button-next,
+  .medicare-plan-selection .wizard-button-prev,
+  .medicare-plan-selection .submit-wrapper {
+    width: fit-content;
+  }
+  .medicare-plan-selection .field-wrapper fieldset > .radio-wrapper{
+    height:auto;
+  }
+  .medicare-plan-selection .field-wrapper fieldset > .radio-wrapper label
+  {
+    margin-top:5px;
+  }
+}

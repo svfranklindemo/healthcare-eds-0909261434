@@ -1,0 +1,919 @@
+body.expnews-theme {
+  --main-accent-color: #ee4b3a;
+  --nav-text-color: #14142b;
+  --nav-height: 88px;
+}
+
+body.expnews-theme header {
+  position: static;
+}
+
+/* header: white bar, no dark overlay */
+body.expnews-theme header .nav-wrapper {
+  background-color: #ffffff;
+  color: var(--nav-text-color);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 8%);
+  position: static;
+}
+
+body.expnews-theme header nav .nav-hamburger button {
+  color: var(--nav-text-color);
+}
+
+/* Mobile hamburger */
+body.expnews-theme header .nav-hamburger button {
+  color: #2C2C2C;
+  width: 36px;
+  height: 36px;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" fill="%232C2C2C"><rect fill-rule="evenodd" height="4" rx="1" ry="1" width="28" x="4" y="16"/><rect fill-rule="evenodd" height="4" rx="1" ry="1" width="28" x="4" y="6"/><rect fill-rule="evenodd" height="4" rx="1" ry="1" width="28" x="4" y="26"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+}
+
+body.expnews-theme header .nav-hamburger-icon,
+body.expnews-theme header .nav-hamburger-icon::before,
+body.expnews-theme header .nav-hamburger-icon::after {
+  content: unset;
+  display: none;
+}
+
+/* brand logo */
+body.expnews-theme header .nav-brand {
+  flex-basis: unset;
+  display: flex;
+  align-items: center;
+}
+
+body.expnews-theme header nav .nav-brand a {
+  display: flex;
+  align-items: center;
+}
+
+body.expnews-theme header nav .nav-brand a::after {
+  content: unset;
+}
+
+body.expnews-theme header nav .nav-brand img {
+  width: auto;
+  height: 31px;
+}
+
+body.expnews-theme header nav .nav-brand picture {
+  width: auto;
+  aspect-ratio: auto;
+}
+
+/* nav links: sit close to the logo, not centered in the leftover flex space */
+@media (width >= 900px) {
+  body.expnews-theme header nav .nav-sections {
+    flex: 0 1 auto;
+  }
+
+  body.expnews-theme header nav .nav-sections ul {
+    justify-content: flex-start;
+    gap: 32px;
+  }
+}
+
+body.expnews-theme header nav .nav-sections ul > li > a {
+  color: var(--nav-text-color);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+body.expnews-theme header nav .nav-sections ul > li > a:hover {
+  color: var(--main-accent-color);
+}
+
+body.expnews-theme header .nav-wrapper nav .nav-sections ul > li > a::before {
+  background: var(--main-accent-color);
+}
+
+body.expnews-theme header nav .nav-sections .default-content-wrapper > ul > li {
+  color: var(--nav-text-color);
+}
+
+/* source header only shows nav links + account icon: hide search and language switcher */
+body.expnews-theme header nav .nav-tools .search-wrapper,
+body.expnews-theme header nav .nav-tools .lang-switcher {
+  display: none !important;
+}
+
+/* sign-in link becomes an icon-only account glyph */
+body.expnews-theme header nav .nav-tools .sign-in-btn {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 4px 14px;
+  color: #222222;
+  border-radius: 10px;
+  border: 2px solid #222222;
+}
+
+@media screen and (max-width: 768px) {
+  body.expnews-theme header nav .nav-tools .sign-in-btn {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    border: 0;
+    padding: 0;
+  }
+
+  body.expnews-theme header nav .nav-tools .sign-in-btn::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-color: var(--nav-text-color);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z'/%3E%3C/svg%3E") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z'/%3E%3C/svg%3E") no-repeat center / contain;
+  }
+
+}
+
+body.expnews-theme header nav .nav-tools .sign-in-btn::after {
+  content: none !important;
+}
+
+/* mobile: hamburger left, logo centered, account icon right */
+@media (width < 900px) {
+  body.expnews-theme header nav .nav-sections ul {
+    gap: 8px;
+  }
+
+  body.expnews-theme header nav {
+    justify-content: space-between;
+  }
+
+  body.expnews-theme header .nav-brand {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  body.expnews-theme header nav .nav-brand a {
+    display: inline-flex;
+  }
+
+  /* keep the logo's own aspect ratio instead of being width-clamped by the grown flex box */
+  body.expnews-theme header nav .nav-brand img {
+    height: 28px;
+    max-width: none;
+  }
+
+  body.expnews-theme header nav .nav-tools .sign-in-btn {
+    display: inline-flex !important;
+  }
+
+  body.expnews-theme header nav[aria-expanded='true'] .nav-tools .sign-in-btn, body.expnews-theme header nav[aria-expanded='true'] .nav-tools a[href*="sign"] {
+    font-size: 0 !important;
+    min-height: unset !important;
+    padding: unset !important;
+    text-align: unset !important;
+  }
+
+  body.expnews-theme header nav[aria-expanded='true']::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 111111;
+    background-color: var(--dark-color-opacity);
+  }
+
+  body.expnews-theme header nav[aria-expanded='true'] .nav-sections {
+    background-color: #fff;
+    padding: 1rem;
+  }
+
+  body.expnews-theme header nav[aria-expanded='true'] .nav-tools {
+    position: static;
+    width: unset;
+    background-color: unset;
+  }
+
+  body.expnews-theme header nav[aria-expanded='true'] .nav-tools .lang-switcher {
+    display: none !important;
+  }
+}
+
+/* footer: white bar, copyright left / nav links right on one row */
+body.expnews-theme footer {
+  background-color: #ffffff;
+  color: var(--nav-text-color);
+}
+
+body.expnews-theme footer .footer .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+body.expnews-theme footer .footer .default-content-wrapper ul {
+  order: 2;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 28px;
+}
+
+body.expnews-theme footer .footer .default-content-wrapper ul > li a {
+  color: var(--nav-text-color);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+body.expnews-theme footer .footer .default-content-wrapper ul > li a::after {
+  content: unset;
+}
+
+body.expnews-theme footer .footer .default-content-wrapper p {
+  order: 1;
+  color: #9a9a9a;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 361px;
+  margin: 30px 0 0;
+}
+
+@media (width < 900px) {
+  /* source footer shows only the copyright text on mobile */
+  body.expnews-theme footer .footer .default-content-wrapper ul {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Exp News Theme Overrides — Create Account Form
+   ========================================================================== */
+
+/* Base Font & Color */
+body.expnews-theme main .create-account {
+  color: #4D4D4D;
+  background-color: #ffffff;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Headings 
+   -------------------------------------------------------------------------- */
+body.expnews-theme main .create-account h2[id*="heading-"],
+body.expnews-theme main .create-account h2#communicationHeading,
+body.expnews-theme main .create-account h2#paymentHeading,
+body.expnews-theme main .create-account h2#heading-know-you-better {
+  color: #4D4D4D;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+body.expnews-theme main .create-account h2[id*="heading-"] {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+body.expnews-theme main .create-account h2#heading-create-account,
+body.expnews-theme main .create-account h2#communicationHeading,
+body.expnews-theme main .create-account h2#paymentHeading,
+body.expnews-theme main .create-account h2#heading-know-you-better {
+  font-size: 28px;
+  line-height: 1.5;
+  margin: 0.67em 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Labels & Inputs
+   -------------------------------------------------------------------------- */
+body.expnews-theme main .create-account label.field-label {
+  color: #4D4D4D;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+  padding: 4px 0 5px;
+}
+
+body.expnews-theme main .create-account .field-wrapper:not(.heading-wrapper, .button-wrapper) {
+  grid-column: span 6 !important;
+}
+
+@media screen and (max-width: 768px) {
+  body.expnews-theme main .create-account .field-wrapper:not(.heading-wrapper, .button-wrapper) {
+    grid-column: span 12 !important; 
+  }
+}
+
+body.expnews-theme main .create-account input[type="text"],
+body.expnews-theme main .create-account input[type="email"],
+body.expnews-theme main .create-account input[type="password"],
+body.expnews-theme main .create-account select {
+  border: 1px solid #909090; /* Darker border matching mockup */
+  border-radius: 4px;
+  color: #222222;
+  height: 32px;
+  padding: 3px 12px 4px 11px;
+  background-color: #ffffff;
+  font-size: 14px;
+  margin: 0;
+}
+
+body.expnews-theme main .create-account input::placeholder {
+  color: #909090;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Red Focus Ring */
+body.expnews-theme main .create-account input:focus,
+body.expnews-theme main .create-account select:focus {
+  border-color: #FF4F4F !important;
+  box-shadow: 0 0 0 1px #FF4F4F !important;
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Switches / Checkboxes
+   -------------------------------------------------------------------------- */
+body.expnews-theme main .create-account .field-wrapper.switch {
+  grid-column: span 2 !important;
+}
+
+@media screen and (max-width: 768px) {
+  body.expnews-theme main .create-account .field-wrapper.switch {
+    grid-column: span 6 !important;
+  }
+}
+
+body.expnews-theme main .create-account .field-wrapper.checkbox-wrapper:not(.switch) {
+  display: flex;
+  align-items: center;
+}
+
+body.expnews-theme main .create-account .field-wrapper.checkbox-wrapper:not(.switch) input[type="checkbox"] {
+  width: 26px;
+  height: 14px;
+  cursor: pointer;
+  margin: 0;
+  appearance: none;
+  background: #ccc;
+  border-radius: 12px;
+  position: relative;
+  transition: background 0.2s;
+  margin: 0 10px 0 0;
+}
+
+body.expnews-theme main .create-account .field-wrapper.checkbox-wrapper:not(.switch) label.field-label {
+  padding: 0;
+  font-size: 14px;
+}
+
+body.expnews-theme main .create-account .field-wrapper.switch input[type="checkbox"],
+body.expnews-theme main .create-account .field-wrapper.checkbox-wrapper input[type="checkbox"] {
+  width: 26px;
+  height: 14px;
+}
+
+body.expnews-theme main .create-account .field-wrapper.checkbox-wrapper:not(.switch) input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+body.expnews-theme main .create-account .field-wrapper.switch input[type="checkbox"]::before,
+body.expnews-theme main .create-account .field-wrapper.checkbox-wrapper:not(.switch) input[type="checkbox"]::before {
+  width: 10px;
+  height: 10px;
+  top: 2px;
+}
+
+body.expnews-theme main .create-account .field-wrapper.switch input[type="checkbox"]:checked:before,
+body.expnews-theme main .create-account .field-wrapper.checkbox-wrapper:not(.switch) input[type="checkbox"]:checked::before {
+  transform: translate(12px);
+}
+
+body.expnews-theme main .create-account .switch-wrapper input[type="checkbox"]:checked,
+body.expnews-theme main .create-account .field-wrapper.switch input[type="checkbox"]:checked,
+body.expnews-theme main .create-account .field-wrapper.checkbox-wrapper:not(.switch) input[type="checkbox"]:checked {
+  background-color: #464646;
+}
+
+body.expnews-theme main .create-account .switch-wrapper label,
+body.expnews-theme main .create-account .field-wrapper.switch label {
+  color: #4D4D4D;
+  font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   Submit Button
+   -------------------------------------------------------------------------- */
+body.expnews-theme main .create-account .submit-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers the button as seen in Exp News mockup */
+  align-items: center;
+}
+
+body.expnews-theme main .create-account .submit-wrapper button {
+  background-color: #FF4F4F !important;
+  color: #ffffff !important;
+  border-radius: 10px; /* Rounded pill edge */
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: capitalize;
+  padding: 4px 14px 5px;
+  min-width: 88px;
+  box-shadow: none !important;
+  text-align: center;
+  transition: filter 0.2s ease;
+  height: 32px;
+  width: fit-content;
+}
+
+body.expnews-theme main .create-account .submit-wrapper button:hover {
+  filter: brightness(0.9);
+  transform: none;
+}
+
+body.expnews-theme .section.expnews-banner .hero {
+  padding: 0;
+}
+body.expnews-theme .section.expnews-banner .hero > div:has(picture) {
+  width: 100%;
+}
+body.expnews-theme .section.expnews-banner .hero picture {
+  position: static;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-banner {
+    padding: 0 16px;
+  }
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper {
+  padding: 0;
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-grid {
+  display: block;
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card {
+  display: flex;
+  gap: 1rem;
+  background-color: #efefef;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card {
+    padding: 16px;
+    flex-direction: column;
+  }
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card-media {
+  display: block;
+  width: 60%;
+  background-color: transparent;
+  height: unset;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card-media {
+    width: 100%;
+  }
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card-media img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card-meta {
+  display: block;
+  width: 40%;
+  padding: 1rem;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card-meta {
+    width: 100%;
+  }
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card-category {
+  display: none;
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card-title {
+  font-size: 21px;
+  line-height: 1.5;
+  color: #4d4d4d;
+  margin: 0.83em 0;
+  font-weight: 700;
+  text-align: left;
+}
+body.expnews-theme .section.expnews-single-card .category-products-lister-wrapper .cpl-card-desc p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4d4d4d;
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
+}
+body.expnews-theme .section.expnews-default-lister {
+  display: grid;
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  grid-template-columns: auto 200px;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-default-lister {
+    padding: 0 16px;
+    grid-template-columns: auto;
+    row-gap: 1rem;
+  }
+}
+body.expnews-theme .section.expnews-default-lister .default-content-wrapper {
+  display: block;
+  width: 100%;
+  padding: 0;
+  grid-column: 1/3;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-default-lister .default-content-wrapper {
+    grid-column: unset;
+  }
+}
+body.expnews-theme .section.expnews-default-lister .default-content-wrapper h2 {
+  font-size: 21px;
+  line-height: 1.5;
+  color: #4d4d4d;
+  margin: 0.83em 0;
+  font-weight: 700;
+  text-align: left;
+  padding: 0;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper {
+  padding: 0;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-grid {
+  gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card-wrapper {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card-wrapper {
+    max-width: 184px;
+  }
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card {
+  display: block;
+  border: 0;
+  border-radius: 0;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card:hover {
+  transform: unset;
+  box-shadow: unset;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card-media {
+  height: 147px;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card-media img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card-meta {
+  align-items: flex-start;
+  padding: 8px 0 0;
+  gap: 0;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card-category {
+  display: none;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card-date {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4d4d4d;
+}
+body.expnews-theme .section.expnews-default-lister .category-products-lister-wrapper .cpl-card-title {
+  margin: 0.5rem 0 1em;
+  font-size: 16.38px;
+}
+body.expnews-theme .section.expnews-default-lister .hero-wrapper {
+  margin: 0;
+  width: 100%;
+  max-width: 200px;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.expnews-default-lister .hero-wrapper {
+    margin: 0 auto;
+  }
+}
+body.expnews-theme .section.expnews-default-lister .hero-wrapper .hero {
+  display: block;
+  padding: 0;
+}
+body.expnews-theme .section.expnews-default-lister .hero-wrapper .hero picture {
+  position: static;
+}
+body.expnews-theme .section.expnews-grid-lister {
+  display: block;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  -moz-column-count: 2;
+       column-count: 2;
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+}
+@media screen and (max-width: 1024px) {
+  body.expnews-theme .section.expnews-grid-lister {
+    -moz-column-count: unset;
+         column-count: unset;
+    padding: 0 16px;
+  }
+}
+body.expnews-theme .section.expnews-grid-lister .default-content-wrapper {
+  -moz-column-break-after: avoid;
+       break-after: avoid;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+body.expnews-theme .section.expnews-grid-lister .default-content-wrapper h2 {
+  font-size: 21px;
+  line-height: 1.5;
+  color: #4d4d4d;
+  padding: 0.83em 0;
+  margin: 0;
+  font-weight: 700;
+  text-align: left;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper {
+  padding: 0;
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  margin-bottom: 30px;
+  max-width: 500px;
+  min-width: 500px;
+}
+@media screen and (max-width: 1024px) {
+  body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper {
+    min-width: unset;
+    width: 100%;
+  }
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid .cpl-card-wrapper {
+  display: block;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid .cpl-card {
+  border: 0;
+  border-radius: 0;
+  display: flex;
+  gap: 0;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid .cpl-card:hover {
+  transform: unset;
+  box-shadow: unset;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid .cpl-card-media {
+  width: 50%;
+  background-color: unset;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid .cpl-card-meta {
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid .cpl-card-category {
+  display: none;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid .cpl-card-date {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #4d4d4d;
+}
+body.expnews-theme .section.expnews-grid-lister .category-products-lister-wrapper .cpl-grid .cpl-card-title {
+  margin: 0.5rem 0 1em;
+  font-size: 16.38px;
+}
+body.expnews-theme .section.product-detail-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 1rem 2rem;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.product-detail-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+  }
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper {
+  display: contents;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .product-detail {
+  display: contents;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-container {
+  display: contents;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-image {
+  grid-column: 1/-1;
+  position: static;
+  display: block;
+  width: 100%;
+  max-height: 500px;
+  border-radius: 0;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-image video {
+  display: none;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-image .pd-video-image-wrapper {
+  display: block;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-date {
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  color: #4d4d4d;
+  line-height: 1.5;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-name {
+  display: block;
+  margin: 0.83em 0;
+  padding: 0;
+  font-size: 21px;
+  line-height: 1.5;
+  color: #4d4d4d;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-video-meta {
+  order: 1;
+  margin: 0;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-video-meta .pd-video-category-tag {
+  display: block;
+  font-weight: 700;
+  color: #4d4d4d;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  font-size: 16px;
+  text-transform: none;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-video-meta .pd-video-category-tag::before {
+  content: "Category: ";
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-video-meta .pd-video-rating.Rating__content {
+  display: none;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-video-meta .pd-video-age {
+  display: none;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-description {
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4d4d4d;
+  margin: 0;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-description p {
+  margin: 0;
+}
+body.expnews-theme .section.product-detail-container .product-detail-wrapper .pd-content .pd-description a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+body.expnews-theme .section.product-detail-container .hero-wrapper {
+  grid-column: 2;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  body.expnews-theme .section.product-detail-container .hero-wrapper {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+}
+body.expnews-theme .section.product-detail-container .hero-wrapper .hero {
+  display: block;
+  padding: 0;
+}
+body.expnews-theme .section.product-detail-container .hero-wrapper .hero picture {
+  position: static;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block {
+  box-shadow: none;
+  max-width: 430px;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block .form {
+  position: relative;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block h2#heading-sign-in {
+  font-size: 28px;
+  line-height: 1.5;
+  color: #4d4d4d;
+  font-weight: 700;
+  padding: 0;
+  margin: 0.67em 0;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block label {
+  margin: 0;
+  padding: 4px 0 5px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block [data-required=true] > label::after {
+  content: unset;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=text],
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=email],
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=password] {
+  padding: 3px 12px 5px 11px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=text]:focus, body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=text]:focus-visible,
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=email]:focus,
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=email]:focus-visible,
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=password]:focus,
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block input[type=password]:focus-visible {
+  border-color: #ff4f4f;
+  box-shadow: unset;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block .submit-wrapper {
+  margin: 0;
+  padding-top: 8px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block .submit-wrapper button {
+  display: block;
+  background-color: #ff4f4f;
+  border-radius: 10px;
+  padding: 4px 14px 5px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: unset;
+  height: 32px;
+  min-width: 78px;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block .sign-in-divider {
+  display: none;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block .create-account-link {
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  position: absolute;
+  color: #0000ee;
+  font-weight: 400;
+  text-decoration: underline;
+  font-size: 16px;
+  line-height: 1.5;
+  bottom: 4px;
+  text-transform: unset;
+  left: 110px;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: "Adobe Clean", sans-serif;
+}
+body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block .create-account-link:hover {
+  background: unset;
+  box-shadow: unset;
+}
+
+@media screen and (max-width: 768px) {
+  body.expnews-theme .sign-in-container .sign-in-wrapper .sign-in.block {
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  body.expnews-theme .sign-in-container .sign-in-wrapper {
+    padding: 0;
+  }
+}

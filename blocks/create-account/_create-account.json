@@ -1,0 +1,195 @@
+{
+  "definitions": [
+    {
+      "title": "Create Account",
+      "id": "create-account",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Create Account",
+              "model": "create-account",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "create-account",
+      "fields": [
+        {
+          "component": "select",
+          "name": "variant",
+          "label": "Theme Variant",
+          "value": "default",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Default",
+              "value": "default"
+            },
+            {
+              "name": "Luma",
+              "value": "luma"
+            },
+            {
+              "name": "Frescopa",
+              "value": "frescopa"
+            },
+            {
+              "name": "WKND Fly",
+              "value": "wknd-fly"
+            },
+            {
+              "name": "Halliby",
+              "value": "halliby"
+            },
+            {
+              "name": "Binji",
+              "value": "binji"
+            },
+            {
+              "name": "Bodea",
+              "value": "bodea"
+            },
+            { 
+              "name": "Exp News", 
+              "value": "expnews"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "createaccounttitle",
+          "label": "Heading",
+          "value": "Create an account",
+          "valueType": "string"
+        },
+        {
+          "component": "select",
+          "name": "form-layout",
+          "label": "Form Layout",
+          "value": "single",
+          "valueType": "string",
+          "options": [
+            { "name": "Default Form (Single-Page)", "value": "single" },
+            { "name": "Wizard (Multi-Step)", "value": "wizard" }
+          ],
+          "description": "Choose between the default single page form or a multi-step wizard experience."
+        },
+        {
+          "component": "boolean",
+          "name": "showcreditcard",
+          "label": "Show Credit Card Fields",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "Show or hide the payment collection fields."
+        },
+        {
+          "component": "boolean",
+          "name": "showaddress",
+          "label": "Show Address Fields",
+          "value": "true",
+          "valueType": "boolean",
+          "description": "Show or hide the address, ZIP code, and city fields."
+        },
+        {
+          "component": "boolean",
+          "name": "showdateofbirth",
+          "label": "Show Date of Birth Field",
+          "value": "true",
+          "valueType": "boolean",
+          "description": "Show or hide the date of birth field."
+        },
+        {
+          "component": "boolean",
+          "name": "showloyaltyprogram",
+          "label": "Show Loyalty Program",
+          "value": "false",
+          "valueType": "boolean"
+        },
+        {
+          "component": "boolean",
+          "name": "showprivacypolicy",
+          "label": "Show Privacy Policy",
+          "value": "false",
+          "valueType": "boolean"
+        },
+        {
+          "component": "boolean",
+          "name": "showcommunicationpreferences",
+          "label": "Show Communication Preferences",
+          "value": "true",
+          "valueType": "boolean"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "redirectUrl",
+          "label": "Redirect URL",
+          "description": "Page to redirect to after successful account creation. Leave empty for no redirect."
+        },
+        {
+          "component": "text",
+          "name": "createaccountbuttontext",
+          "label": "Button Text",
+          "value": "Submit",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttoneventtype",
+          "label": "Button Event Type",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttonwebhookurl",
+          "label": "Button Webhook URL",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttonformid",
+          "label": "Button Form ID",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "buttondata",
+          "label": "Button Data Sheet",
+          "valueType": "string",
+          "description": "AEM sheet path whose key/value rows are sent on submit"
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        },
+        {
+          "component": "text",
+          "name": "mobilebuttoneventtype",
+          "label": "Mobile Button Event Type",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "create-account",
+      "components": []
+    }
+  ]
+}

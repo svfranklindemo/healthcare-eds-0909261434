@@ -1,0 +1,108 @@
+{
+  "definitions": [
+    {
+      "title": "Loan Application Form",
+      "id": "loan-application-form",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Loan Application Form",
+              "model": "loan-application-form",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "loan-application-form",
+      "fields": [
+        {
+          "component": "text",
+          "name": "form-title",
+          "label": "Form Title",
+          "valueType": "string",
+          "description": "Heading displayed at the top of the form and passed in data layer as wizard title"
+        },
+        {
+          "component": "text",
+          "name": "form-name",
+          "label": "Form Name",
+          "valueType": "string",
+          "description": "Name of the form passed in the data layer"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "redirectUrl",
+          "label": "Redirect URL",
+          "description": "Page to redirect to after successful form submission. Leave empty for no redirect."
+        },
+        {
+          "component": "text",
+          "name": "started-event-type",
+          "label": "Started Event Type",
+          "valueType": "string",
+          "description": "Launch/Analytics event fired when the form wizard starts"
+        },
+        {
+          "component": "text",
+          "name": "step-event-type",
+          "label": "Step Event Type",
+          "valueType": "string",
+          "description": "Launch/Analytics event fired on each wizard step advance"
+        },
+        {
+          "component": "text",
+          "name": "abandoned-event-type",
+          "label": "Abandoned Event Type",
+          "valueType": "string",
+          "description": "Launch/Analytics event fired when user leaves without submitting"
+        },
+        {
+          "component": "text",
+          "name": "buttoneventtype",
+          "label": "Form Submission Event",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttonwebhookurl",
+          "label": "Button Webhook URL",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttonformid",
+          "label": "Button Form ID",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "buttondata",
+          "label": "Button Data Sheet",
+          "valueType": "string",
+          "description": "AEM sheet path whose key/value rows are sent on submit"
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        },
+        {
+          "component": "text",
+          "name": "mobilebuttoneventtype",
+          "label": "Mobile Form Submission Event",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

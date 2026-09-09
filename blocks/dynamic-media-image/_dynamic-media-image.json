@@ -1,0 +1,199 @@
+{
+  "definitions": [
+    {
+      "title": "Dynamic Media(Image)",
+      "id": "dynamic-media-image",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Dynamic Media Image",
+              "model": "dynamic-media-image"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "dynamic-media-image",
+      "fields": [
+        {
+          "component": "custom-asset-namespace:custom-asset",
+          "name": "image",
+          "label": "Image",
+          "configUrl": "/content/dam/config/image.config.json",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "imageTitle",
+          "label": "Alt Text",
+          "valueType": "string"
+        },
+        {
+          "component": "boolean",
+          "valueType": "boolean",
+          "name": "enableSmartCrop",
+          "label": "Enable Smart Crop",
+          "value": false
+        },
+        {
+          "component": "select",
+          "name": "preset",
+          "value": "na",
+          "label": "Preset",
+          "description": "Preset to be applied to the image. This preset needs to exist on the DM account if using any account other than DynamicMediaNA",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            {
+              "name": "Border with Color",
+              "value": "border"
+            },
+            {
+              "name": "Grayscale",
+              "value": "grayscale"
+            }
+          ]
+        },
+        {
+          "component": "container",
+          "label": "Border Settings",
+          "name": "borderSettings",
+          "valueType": "string",
+          "condition": {
+            "==": [
+              {
+                "var": "preset"
+              },
+              "border"
+            ]
+          },
+          "fields": [
+            {
+              "component": "text",
+              "valueType": "string",
+              "name": "extend",
+              "label": "Extend",
+              "description": "Provide value in Left,top,right,bottom format e.g. 10,10,10,10 to add a 10 pixel padding on all sides"
+            },
+            {
+              "component": "text",
+              "valueType": "string",
+              "name": "borderbgcolor",
+              "label": "Border Color",
+              "description": "Provide hexcode of the color without # e.g. FFFFFF"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "rotate",
+          "value": "",
+          "label": "Rotate",
+          "description": "Select the rotation which will rotate the image.",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            {
+              "name": "30",
+              "value": "30"
+            },
+            {
+              "name": "45",
+              "value": "45"
+            },
+            {
+              "name": "60",
+              "value": "60"
+            },
+            {
+              "name": "90",
+              "value": "90"
+            },
+            {
+              "name": "120",
+              "value": "120"
+            },
+            {
+              "name": "160",
+              "value": "160"
+            },
+            {
+              "name": "180",
+              "value": "180"
+            },
+            {
+              "name": "230",
+              "value": "230"
+            },
+            {
+              "name": "270",
+              "value": "270"
+            },
+            {
+              "name": "300",
+              "value": "300"
+            },
+            {
+              "name": "330",
+              "value": "330"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "flip",
+          "value": "",
+          "label": "Flip",
+          "description": "Select the flip for the image either vertical or horizontal or vertical & horizontal",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            {
+              "name": "Vertical",
+              "value": "v"
+            },
+            {
+              "name": "Horizontal",
+              "value": "h"
+            },
+            {
+              "name": "Horizontal & Vertical",
+              "value": "hv"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "crop",
+          "value": "",
+          "label": "Crop",
+          "description": "Crop the final image using four values: left, top, width, and height, all in percentages. For example, 10p,10p,50p,50p means crop the image starting 10% from the left and top, and take 50% of the image's width and height",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

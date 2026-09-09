@@ -1,0 +1,171 @@
+[
+  {
+    "id": "main",
+    "components": [
+      "section"
+    ]
+  },
+  {
+    "id": "section",
+    "components": [
+      "accordion",
+      "action-button",
+      "button",
+      "cards",
+      "carousel",
+      "columns",
+      "contentfragment",
+      "dm-template",
+      "dynamic-media-image",
+      "fragment",
+      "hero",
+      "iframe",
+      "image",
+      "quote",
+      "teaser",
+      "text",
+      "title",
+      "video",
+      "search",
+      "separator",
+      "tabs",
+      "form",
+      "forex",
+      "embed-adaptive-form",
+      "find-a-doctor",
+      "flight-search",
+      "flights",
+      "create-account",
+      "child-account-application",
+      "name-change-request",
+      "sign-in",
+      "transfer-funds",
+      "set-up-auto-save",
+      "checkout",
+      "checkout-shipping",
+      "credit-card-application-form",
+      "loan-application-form",
+      "get-offer",
+      "new-account",
+      "loan-calculator",
+      "insurance",
+      "add-external",
+      "confirmation",
+      "feedback",
+      "coffee-quiz-frescopa",
+      "join-us",
+      "test-drive",
+      "cart",
+      "category-products-lister",
+      "new-arrival",
+      "order-confirmation",
+      "order-summary",
+      "product-detail",
+      "product-card",
+      "build-your-own",
+      "bodea-secure-antivirus",
+      "rss-list",
+      "rss-details",
+      "insurance-plan-selection",
+      "medicare-plan-selection",
+      "plan-application",
+      "healthcare-upload-photo",
+      "healthcare-schedule-check"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "carousel",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "video",
+      "action-button"
+    ]
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tabs-item"
+    ]
+  },
+    {
+    "id": "bodea-secure-antivirus",
+    "components": []
+  },
+  {
+    "id": "form",
+    "components": [
+      "captcha",
+      "checkbox",
+      "checkbox-group",
+      "date-input",
+      "drop-down",
+      "email",
+      "file-input",
+      "form-accordion",
+      "form-button",
+      "form-fragment",
+      "form-image",
+      "form-modal",
+      "form-reset-button",
+      "form-submit-button",
+      "number-input",
+      "panel",
+      "password",
+      "plain-text",
+      "radio-group",
+      "rating",
+      "telephone-input",
+      "text-input",
+      "tnc",
+      "wizard",
+      "range"
+    ]
+  },
+  {
+    "id": "insurance-plan-selection",
+    "components": []
+  },
+  {
+    "id": "medicare-plan-selection",
+    "components": []
+  },
+  {
+    "id": "plan-application",
+    "components": []
+  },
+  {
+    "id": "healthcare-upload-photo",
+    "components": []
+  },
+  {
+    "id": "healthcare-schedule-check",
+    "components": []
+  }
+]

@@ -1,0 +1,161 @@
+{
+  "definitions": [
+    {
+      "title": "Product Detail",
+      "id": "product-detail",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Product Detail",
+              "model": "product-detail",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "product-detail",
+      "fields": [
+        {
+          "component": "aem-content",
+          "name": "folder",
+          "label": "Product Folder",
+          "valueType": "string",
+          "required": true,
+          "rootPath": "/content/dam"
+        },
+        {
+          "component": "text",
+          "name": "productvieweventtype",
+          "label": "Product View Event Type",
+          "value": "",
+          "valueType": "string",
+          "description": "Optional Launch event fired when the product page loads."
+        },
+        {
+          "component": "text",
+          "name": "addtocarteventtype",
+          "label": "Add To Cart Event Type",
+          "value": "",
+          "valueType": "string",
+          "description": "Optional Launch event fired on Add to Cart click."
+        },
+        {
+          "component": "boolean",
+          "name": "showaddtowishlistbutton",
+          "label": "Show Add To Wishlist Button",
+          "value": "true",
+          "valueType": "boolean",
+          "description": "When disabled, Add to Cart and Add to Wishlist buttons are not rendered."
+        },
+        {
+          "component": "text",
+          "name": "addtowishlisteventtype",
+          "label": "Add To Wishlist Event Type",
+          "value": "",
+          "valueType": "string",
+          "description": "Optional Launch event fired on Add to Wishlist click.",
+          "condition": {
+            "==": [
+              {
+                "var": "showaddtowishlistbutton"
+              },
+              true
+            ]
+          }
+        },
+        {
+          "component": "boolean",
+          "name": "showyoumayalsolikesection",
+          "label": "Show Related Products Section",
+          "value": "true",
+          "valueType": "boolean",
+          "description": "When disabled, the Related Products section is not rendered."
+        },
+        {
+          "component": "text",
+          "name": "relatedproductstitle",
+          "label": "Heading for Related Products section",
+          "value": "YOU MAY ALSO LIKE",
+          "valueType": "string",
+          "description": "Authored heading will be displayed as a title of the Related Product Section."
+        },
+        {
+          "component": "boolean",
+          "name": "alt-variation",
+          "label": "Recipe Detail Variation for Halliby",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "Features a full-width, 50/50 split header hero (image left, bold title right). Below is a 70/30 layout: a wide left column for rich-text ingredients/instructions, and a narrow right sidebar housing the chef's profile card and a vertical stack of compact recipe recommendation cards. Collapses to a single column on mobile. (Note: Styling will be required for other websites as the base styling is halliby only.)"
+        },
+        {
+          "component": "text",
+          "name": "ingredientstitle",
+          "label": "Recipe Details Title",
+          "value": "Ingredients",
+          "valueType": "string",
+          "description": "Heading of the recipe details content section below the hero image."
+        },
+        {
+          "component": "boolean",
+          "name": "showrecipeauthor",
+          "label": "Show Recipe Author",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "If enabled, a hardcoded recipe author block in the sidebar will be shown."
+        },
+        {
+          "component": "aem-content",
+          "name": "pd-recommended-path",
+          "label": "Recommended Product Detail Page Path",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        },
+        {
+          "component": "boolean",
+          "name": "showextras",
+          "label": "Show Extras",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "When enabled, an extras section with checkboxes will be shown based on the options authored below."
+        },
+        {
+          "component": "text",
+          "name": "extraoptions",
+          "label": "Extra Options",
+          "multi": true,
+          "valueType": "string[]",
+          "description": "If the extra options are enabled, the authored values will be shown as the extras in the UI."
+        },
+        {
+          "component": "boolean",
+          "name": "showquantity",
+          "label": "Show Quantity Dropdown",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "When enabled, a quantity dropdown will be shown."
+        },
+        {
+          "component": "number",
+          "name": "maxquantity",
+          "label": "Quantity Options",
+          "valueType": "number",
+          "value": 1,
+          "description": "The number of quantity options to be shown from when adding to cart. The dropdown will be populated with values starting from 1 and ends on the number that is authored."
+        }
+      ]
+    }
+  ]
+}

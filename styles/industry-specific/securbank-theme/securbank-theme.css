@@ -1,0 +1,126 @@
+.securbank-theme,
+body.securbank-theme,
+.securfinancial-theme,
+body.securfinancial-theme {
+  --main-accent-color: #0296a6;
+  --link-hover-color: #038f9e;
+  --main-accent-hover: #027a88;
+  --button-border-radius: 30px;
+    --spacing-xhuge:8rem;
+}
+
+body.securbank-theme a.button,
+body.securbank-theme button,
+body.securfinancial-theme a.button,
+body.securfinancial-theme button {
+  border-radius: 30px;
+}
+
+body.securbank-theme h1,
+body.securfinancial-theme h1 {
+  font-size: 39px !important;
+  line-height: 1.5 !important;
+}
+
+body.securbank-theme h2,
+body.securfinancial-theme h2 {
+  font-size: 36px !important;
+  line-height: 1.5 !important;
+}
+
+body.securbank-theme header .nav-wrapper,
+body.securfinancial-theme header .nav-wrapper {
+  background-color: var(--main-accent-color);
+  color: var(--text-light);
+}
+
+body.securbank-theme footer,
+body.securfinancial-theme footer {
+  background-color: #fff;
+  color: #000;
+}
+
+body.securbank-theme footer .footer,
+body.securfinancial-theme footer .footer,
+body.securbank-theme footer .footer p,
+body.securfinancial-theme footer .footer p,
+body.securbank-theme footer .footer a,
+body.securfinancial-theme footer .footer a {
+  color: #000;
+}
+
+body.securbank-theme footer .footer a::after {
+  display: none;
+}
+
+body.securbank-theme footer .footer a {
+  padding: 10px;
+}
+
+body.securbank-theme footer .footer a:hover,
+body.securfinancial-theme footer .footer a:hover {
+  color: var(--main-accent-color);
+}
+
+body.securbank-theme header .nav-wrapper nav .nav-sections ul > li > a::before,
+body.securfinancial-theme header .nav-wrapper nav .nav-sections ul > li > a::before {
+  background: var(--text-light);
+}
+
+body.securbank-theme header .nav-wrapper nav .nav-sections ul > li > a:hover,
+body.securfinancial-theme header .nav-wrapper nav .nav-sections ul > li > a:hover {
+  color: #000;
+}
+
+body.securbank-theme .search.search-icon .search-box .icon img,
+body.securbank-theme .search.search-icon .search-trigger .icon img,
+body.securfinancial-theme .search.search-icon .search-box .icon img,
+body.securfinancial-theme .search.search-icon .search-trigger .icon img {
+  filter: invert(0);
+}
+
+.securbank-theme .section.section-horizontal-widths.cards-container {
+  padding: 0;
+}
+
+body.securbank-theme main > .section {
+  margin-top: 0;
+}
+
+.securbank-theme .hero.image-background-text-left h1,
+.securbank-theme .hero.image-background-text-left h2,
+.securbank-theme .hero.image-background-text-left h3,
+.securbank-theme .hero.image-background-text-left h4,
+.securbank-theme .hero.image-background-text-left h5,
+.securbank-theme .hero.image-background-text-left h6,
+.securbank-theme .hero.image-background-text-left p {
+  margin: 0;
+}
+
+.securbank-theme .TopRibbon {
+  color: #fff;
+  background-color: #171c28;
+  background-image: url(https://demo-system-next.s3.eu-north-1.amazonaws.com/assets/securfinancial/visual-2.png);
+  background-size: auto;
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
+}
+
+body.securbank-theme main li::marker {
+  color: var(--main-accent-color);
+}
+
+body.securbank-theme main :is(ul, menu) ul {
+  list-style-type: disc;
+}
+.securbank-theme .hero-wrapper .button-container.cta-button a.button:hover {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border-color: var(--text-light) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    transform: translateY(-1px);
+    border-color: var(--main-accent-color) !important;
+    color: var(--main-accent-color)!important;
+}
+.securbank-theme .hero-wrapper .button-container.cta-button a.button::after{
+    display: none;
+}

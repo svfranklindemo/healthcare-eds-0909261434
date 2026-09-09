@@ -1,0 +1,672 @@
+/* ============================================
+   Create Account Form Styling
+   ============================================ */
+
+main .create-account {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: #fff;
+}
+
+main .create-account form {
+  display: block;
+}
+
+main .create-account .create-account-form {
+  --form-columns: 12;
+  --form-button-background-color: #2874F0;
+  --form-button-background-hover-color: #0052cc;
+  --form-input-border-color: #cbd5e1;
+  --form-label-color: #1e293b;
+  --form-label-font-weight: 500;
+  --form-label-font-size: 16px;
+  --form-field-vert-gap: 16px;
+  --form-field-horz-gap: 24px;
+}
+
+/* Flat (single) form panel — always a 12-col grid.
+   Scoped to :not(.is-wizard) so wizard step panels are never touched here
+   and the AEM wizard JS retains full control of their display. */
+main .create-account .create-account-form:not(.is-wizard) .panel-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+main .create-account .heading-wrapper label {
+  display: none !important;
+}
+
+main .create-account .heading-wrapper {
+  grid-column: span 12 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+main .create-account .field-wrapper.is-hidden,
+main .create-account .heading-wrapper.is-hidden {
+  display: none !important;
+}
+
+main .create-account h2#heading-create-account {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0 0 32px;
+  padding: 0;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+main .create-account h2#communicationHeading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 28px 0 0;
+  padding: 0;
+  color: #1e293b;
+  letter-spacing: 0.05em;
+}
+
+main .create-account h2#heading-know-you-better {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 28px 0 0;
+  padding: 0;
+  color: #1e293b;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+body.citi-signal-theme main .create-account h2 {
+  font-size: 28px !important;
+  font-family: 'Adobe Clean Bold', sans-serif !important;
+}
+
+main .create-account .panel-wrapper > .heading-wrapper {
+  grid-column: span 12 !important;
+}
+
+main .create-account label {
+  color: #334155;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+main .create-account input[type="text"],
+main .create-account input[type="email"],
+main .create-account select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #1e293b;
+  background: #fff;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+main .create-account input[type="text"]:focus,
+main .create-account input[type="email"]:focus,
+main .create-account select:focus {
+  outline: none;
+  border-color: #2874F0;
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, 0.1);
+}
+
+main .create-account input[type="text"]:hover,
+main .create-account input[type="email"]:hover,
+main .create-account select:hover {
+  border-color: #94a3b8;
+}
+
+body.citi-signal-theme main .create-account input[type="text"],
+body.citi-signal-theme main .create-account input[type="email"],
+body.citi-signal-theme main .create-account select {
+  height: 32px;
+  min-height: 32px;
+  padding: 0.25rem 0.75rem;
+}
+
+main .create-account input::placeholder {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+main .create-account .field-wrapper {
+  margin: 0;
+}
+
+main .create-account .field-wrapper.col-12,
+main .create-account .field-wrapper[data-colspan="12"] {
+  grid-column: span 12 !important;
+}
+
+main .create-account .field-wrapper.col-6,
+main .create-account .field-wrapper[data-colspan="6"] {
+  grid-column: span 6 !important;
+}
+
+main .create-account .field-wrapper.col-4,
+main .create-account .field-wrapper[data-colspan="4"] {
+  grid-column: span 4 !important;
+}
+
+main .create-account .submit-wrapper.col-12 {
+  grid-column: span 12 !important;
+}
+
+main .create-account .field-wrapper.switch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 4px 0;
+}
+
+main .create-account .loyalty-program-field {
+  grid-column: span 12 !important;
+  margin-top: 4px;
+}
+
+main .create-account .know-you-better-heading {
+  margin-top: 12px !important;
+}
+
+main .create-account .field-wrapper.switch label {
+  order: 2;
+  font-size: 15px;
+  color: #334155;
+  cursor: pointer;
+  margin: 0;
+}
+
+main .create-account .field-wrapper.switch input[type="checkbox"] {
+  order: 1;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+  margin: 0;
+  appearance: none;
+  background: #ccc;
+  border-radius: 12px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+main .create-account .field-wrapper.switch input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+main .create-account .field-wrapper.switch input[type="checkbox"]:checked {
+  background: #2874F0;
+}
+
+main .create-account .field-wrapper.switch input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+main .create-account .submit-wrapper {
+  margin-top: 24px;
+  grid-column: span 12 !important;
+}
+
+main .create-account .submit-wrapper button {
+  background: #2874F0;
+  color: #fff;
+  padding: 16px 60px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(40, 116, 240, 0.2);
+}
+
+main .create-account .submit-wrapper button:hover {
+  background: #0052cc;
+  box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3);
+  transform: translateY(-1px);
+}
+
+main .create-account .submit-wrapper button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(40, 116, 240, 0.2);
+}
+
+body.citi-signal-theme main .create-account .submit-wrapper button {
+  background: var(--main-accent-color) !important;
+  color: var(--text-light, #fff) !important;
+  border-color: var(--main-accent-color) !important;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 18%);
+  width: auto;
+  min-width: 220px;
+  margin: 0 auto;
+  display: block;
+}
+
+body.citi-signal-theme main .create-account .submit-wrapper button:hover {
+  background: var(--main-accent-hover, var(--link-hover-color)) !important;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 24%);
+}
+
+body.citi-signal-theme main .create-account .submit-wrapper button:active {
+  box-shadow: 0 1px 4px rgb(0 0 0 / 18%);
+}
+
+main .create-account [data-required="true"] > label::after {
+  content: " *";
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.create-account input.error,
+.create-account select.error,
+.create-account textarea.error {
+  border-color: #f44336 !important;
+  background-color: #ffebee !important;
+}
+
+.create-account input.error:focus,
+.create-account select.error:focus,
+.create-account textarea.error:focus {
+  outline-color: #f44336;
+  border-color: #f44336;
+}
+
+.create-account .form-message {
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  animation: slideDown 0.3s ease-out;
+}
+
+.create-account .form-message.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.create-account .form-message.error {
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.create-account button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.create-account [data-aue-prop="buttoneventtype"],
+.create-account [data-aue-prop="buttonwebhookurl"],
+.create-account [data-aue-prop="buttonformid"],
+.create-account [data-aue-prop="buttondata"] {
+  display: none !important;
+}
+
+.create-account div:has(> [data-aue-prop="buttoneventtype"]),
+.create-account div:has(> [data-aue-prop="buttonwebhookurl"]),
+.create-account div:has(> [data-aue-prop="buttonformid"]),
+.create-account div:has(> [data-aue-prop="buttondata"]) {
+  display: none !important;
+}
+
+@media (width <= 768px) {
+  main .create-account {
+    padding: 40px 20px;
+  }
+
+  main .create-account .panel-wrapper > .field-wrapper[class*="col-"] {
+    grid-column: span 12 !important;
+  }
+
+  main .create-account h2#heading-create-account {
+    font-size: 1.875rem;
+    margin-bottom: 32px;
+  }
+
+  main .create-account h2#communicationHeading {
+    font-size: 1.125rem;
+    margin: 32px 0 0;
+  }
+
+  main .create-account .submit-wrapper button {
+    width: 100%;
+    padding: 16px 32px;
+  }
+}
+
+@media (width <= 480px) {
+  main .create-account {
+    padding: 30px 16px;
+  }
+
+  main .create-account h2#heading-create-account {
+    font-size: 1.75rem;
+    margin-bottom: 28px;
+  }
+}
+
+/* ============================================
+   Wizard Mode — Structural (all variants)
+   ============================================ */
+
+/* Wizard step panels: let AEM wizard JS control display on inactive steps.
+   The active step gets display:grid so its children lay out correctly.
+   Inner panels (nested inside a step) always get grid regardless. */
+main .create-account .create-account-form.is-wizard .wizard > .panel-wrapper {
+  display: none;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0;
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+
+main .create-account .create-account-form.is-wizard .wizard > .panel-wrapper.current-wizard-step {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 0 1rem !important;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+/* Inner panels nested inside a step always render as grid */
+main .create-account .create-account-form.is-wizard .wizard > .panel-wrapper > .panel-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+main .create-account .create-account-form.is-wizard .panel-wrapper > * {
+  grid-column: span 12;
+}
+
+main .create-account .create-account-form.is-wizard .col-6 {
+  grid-column: span 6 !important;
+}
+
+main .create-account .create-account-form.is-wizard .col-12 {
+  grid-column: span 12 !important;
+}
+
+/* Wizard navigation bar */
+main .create-account .create-account-form.is-wizard .wizard .wizard-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  width: 100%;
+  margin: 0;
+}
+
+main .create-account .create-account-form.is-wizard .wizard .wizard-button-wrapper button {
+  min-width: 80px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: none;
+}
+
+main .create-account .create-account-form.is-wizard .wizard .wizard-button-next,
+main .create-account .create-account-form.is-wizard .wizard .registration-wizard__submit-btn {
+  order: 3;
+}
+
+main .create-account .create-account-form.is-wizard .wizard .wizard-button-next button {
+  background: #2874F0;
+  color: #fff;
+  border: none;
+}
+
+main .create-account .create-account-form.is-wizard .wizard .wizard-button-next button:hover {
+  background: #0052cc;
+}
+
+main .create-account .create-account-form.is-wizard .wizard .wizard-button-prev {
+  order: 1;
+}
+
+main .create-account .create-account-form.is-wizard .wizard .wizard-button-prev button {
+  background: #e6e6e6;
+  color: #1e293b;
+  border: none;
+}
+
+main .create-account .create-account-form.is-wizard .wizard .wizard-button-prev button:hover {
+  background: #d1d5db;
+}
+
+/* Binji wizard: submit button hidden by default, shown on last step */
+main .create-account .create-account-form.is-binji-wizard .registration-wizard__submit-btn {
+  display: none;
+}
+
+main .create-account .create-account-form.is-binji-wizard .current-wizard-step:last-of-type ~ .wizard-button-wrapper .wizard-button-next {
+  display: none;
+}
+
+main .create-account .create-account-form.is-binji-wizard .current-wizard-step:last-of-type ~ .wizard-button-wrapper .registration-wizard__submit-btn {
+  display: block;
+  margin: 0;
+}
+
+/* Standard wizard: submit wrapper lives inside step, not button-wrapper */
+main .create-account .create-account-form.is-wizard:not(.is-binji-wizard) .submit-wrapper {
+  grid-column: span 12 !important;
+  margin-top: 8px;
+}
+
+/* Progress dots — default (non-binji) */
+main .create-account .wizard-progress-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2;
+}
+
+main .create-account .wizard-dots {
+  display: flex;
+  gap: 10px;
+}
+
+main .create-account .wizard-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  transition: background-color 0.2s;
+}
+
+main .create-account .wizard-dot.active {
+  background-color: #2874F0;
+}
+
+/* Progress dots — binji (structure only, colors overridden in binji file) */
+main .create-account .registration-wizard__progress-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2;
+}
+
+main .create-account .registration-wizard__dots {
+  display: flex;
+  gap: 10px;
+}
+
+main .create-account .registration-wizard__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #cbd5e1;
+  transition: background-color 0.2s;
+}
+
+main .create-account .registration-wizard__dot.active {
+  background-color: #2874F0;
+}
+
+/* Step indicator / title headings inside wizard */
+main .create-account .wizard-step-indicator h2,
+main .create-account .registration-wizard__step-indicator h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 4px;
+  padding: 0;
+}
+
+main .create-account .wizard-step-title h2,
+main .create-account .registration-wizard__title h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px;
+  padding: 0;
+  line-height: 1.2;
+}
+
+main .create-account .registration-wizard__subtitle h2,
+main .create-account .registration-wizard__disclaimer h2 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+/* Binji-style inputs inside create-account wizard */
+main .create-account .registration-wizard__input {
+  margin: 0 0 1rem;
+}
+
+main .create-account .registration-wizard__input label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Binji-style switch inside create-account */
+main .create-account .registration-wizard__switch {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 12px;
+  margin: 0 0 1rem;
+}
+
+main .create-account .registration-wizard__switch input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 26px;
+  min-width: 26px;
+  height: 14px;
+  background-color: #94a3b8;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  margin: 4px 0 0;
+  transition: background-color 0.2s ease;
+  padding: 0;
+}
+
+main .create-account .registration-wizard__switch input[type="checkbox"]:checked {
+  background-color: #2874F0;
+}
+
+main .create-account .registration-wizard__switch input[type="checkbox"]:checked::after {
+  transform: translateX(12px);
+}
+
+main .create-account .registration-wizard__switch label {
+  margin: 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  color: #334155;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+/* Submit button for binji wizard (default colors) */
+main .create-account .registration-wizard__submit-btn button {
+  background: #2874F0 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+main .create-account .registration-wizard__submit-btn button:hover {
+  background: #0052cc !important;
+}
+
+/* Hide legacy AEM wizard menu */
+main .create-account .wizard-menu-items,
+main .create-account .credit-card-application-form-step-label {
+  display: none;
+}
+
+@media (width <= 600px) {
+  main .create-account .create-account-form.is-wizard .col-6 {
+    grid-column: span 12 !important;
+  }
+
+  main .create-account .create-account-form.is-wizard .wizard .wizard-button-wrapper {
+    padding: 1rem 0;
+  }
+}

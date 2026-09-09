@@ -1,0 +1,96 @@
+{
+  "definitions": [
+    {
+      "title": "Bodea Secure Antivirus",
+      "id": "bodea-secure-antivirus",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Bodea Secure Antivirus",
+              "model": "bodea-secure-antivirus",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "bodea-secure-antivirus",
+      "fields": [
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "variant",
+          "label": "Page Variant",
+          "description": "Which trial step/page to display",
+          "options": [
+            {
+              "name": "Trial 1 — Antivirus",
+              "value": "antivirus"
+            },
+            {
+              "name": "Trial 2 — Firewall",
+              "value": "firewall"
+            },
+            {
+              "name": "Trial 3 — File Encryption",
+              "value": "encryption"
+            },
+            {
+              "name": "Trial 4 — Log Management",
+              "value": "log-management"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "company-name",
+          "label": "Company Name",
+          "value": "Towsend CO",
+          "description": "Company name shown in the sidebar"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "bodea-website-url",
+          "label": "Bodea Website URL",
+          "description": "URL for the 'Bodea Website' button in the training header"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "antivirus-url",
+          "label": "Trial 1 Antivirus Page URL",
+          "description": "Link to the Antivirus trial page (Trial Step 1)"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "firewall-url",
+          "label": "Trial 2 Firewall Page URL",
+          "description": "Link to the Firewall trial page (Trial Step 2)"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "encryption-url",
+          "label": "Trial 3 Encryption Page URL",
+          "description": "Link to the File Encryption trial page (Trial Step 3)"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "log-management-url",
+          "label": "Trial 4 Log Management Page URL",
+          "description": "Link to the Log Management trial page (Trial Step 4)"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

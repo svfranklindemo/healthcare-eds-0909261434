@@ -1,0 +1,114 @@
+{
+  "definitions": [
+    {
+      "title": "Sign In",
+      "id": "sign-in",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Sign In",
+              "model": "sign-in",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "sign-in",
+      "fields": [
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "sign-in-btn-text",
+          "label": "Sign In Button Text",
+          "value": "SIGN IN",
+          "description": "The text to be shown on the Sign in button, default is Sign In."
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "logo-image",
+          "label": "Logo Image",
+          "multi": false,
+          "description": "Logo image to display above the sign-in form"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "logo-image-alt",
+          "label": "Logo Image Alt Text",
+          "value": "",
+          "description": "Alt text for the logo image"
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "sign-in-redirect-url",
+          "label": "Sign-In Redirect URL",
+          "description": "Page to redirect to after successful sign-in. Leave empty to stay on the home page."
+        },
+        {
+          "component": "aem-content",
+          "valueType": "string",
+          "name": "create-account-url",
+          "label": "Create Account URL",
+          "description": "Page for the 'Create an account' link. Use a full AEM path (e.g. /content/<site-name>/language-masters/<language-node>/registration)."
+        },
+        {
+          "component": "text",
+          "name": "buttoneventtype",
+          "label": "Button Event Type",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttonwebhookurl",
+          "label": "Button Webhook URL",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "name": "buttonformid",
+          "label": "Button Form ID",
+          "value": "",
+          "valueType": "string"
+        },
+        {
+          "component": "aem-content",
+          "name": "buttondata",
+          "label": "Button Data Sheet",
+          "valueType": "string",
+          "description": "AEM sheet path whose key/value rows are sent on submit"
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        },
+        {
+          "component": "text",
+          "name": "mobilebuttoneventtype",
+          "label": "Mobile Button Event Type",
+          "value": "",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "sign-in",
+      "components": []
+    }
+  ]
+}

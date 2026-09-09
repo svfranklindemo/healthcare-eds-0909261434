@@ -1,0 +1,171 @@
+.build-your-own {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: var(--body-font-family, system-ui, sans-serif);
+  box-sizing: border-box;
+}
+
+.byo-main-title {
+  margin: 0 0 2rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.byo-category-section {
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+}
+
+.byo-category-section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Centered title above the two-column layout */
+.byo-section-title {
+  margin: 0 0 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 0;
+}
+
+.byo-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Left preview — clean, no background box */
+.byo-preview-pane {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+}
+
+.byo-preview-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+  transition: opacity 0.25s ease;
+}
+
+/* Right options pane */
+.byo-options-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Swatch grid */
+.byo-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.byo-swatch {
+  position: relative;
+  padding: 0;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  background: #f0f0f0;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.15s;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.byo-swatch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9px;
+  display: block;
+}
+
+.byo-swatch:hover {
+  border-color: #ccc;
+  transform: scale(1.04);
+}
+
+
+
+/* Tick overlay on selected swatch */
+.byo-swatch.is-selected:before {
+  content: '';
+  background-image: url('/icons/tick.svg');
+  background-size: 40%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+h1.byo-main-title {
+    display: none;
+}
+/* Summary */
+.byo-summary {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 1rem;
+}
+
+.byo-summary-label {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.byo-summary-price {
+  margin: 0;
+  font-size: 1rem;
+  color: #888;
+  font-weight: 500;
+}
+
+body.carvelo-theme .byo-swatch-grid button.byo-swatch {
+    padding: 0px;
+}
+
+@media (max-width: 768px) {
+  .byo-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .byo-preview-pane {
+    min-height: 240px;
+  }
+
+  .byo-swatch-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .build-your-own {
+    padding: 1.5rem 1rem;
+  }
+
+  .byo-swatch-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+}

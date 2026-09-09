@@ -1,0 +1,777 @@
+body.luma-theme {
+  --main-accent-color: #3273DE;
+  --link-hover-color: #3273DE;
+  --nav-text-color: #000000;
+  --footer-text-color: #000000;
+  --light-color: #f6f6f6;
+  --spacing-xhuge: 9rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.luma-theme main {
+  flex: 1;
+}
+
+body.luma-theme main > .section > div {
+  padding: 0;
+}
+
+body.luma-theme header .nav-wrapper,
+body.luma-theme footer {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.luma-theme header nav {
+  max-width: 1200px;
+}
+
+body.luma-theme header .nav-brand,
+body.luma-theme header nav .nav-brand a,
+body.luma-theme header nav .nav-brand picture {
+  display: flex;
+  align-items: center;
+}
+
+body.luma-theme header nav .nav-sections ul > li > a,
+body.luma-theme footer .footer,
+body.luma-theme footer .footer p,
+body.luma-theme footer .footer a {
+  color: #000000;
+}
+
+body.luma-theme header nav .nav-sections ul > li > a {
+  font-family: 'Adobe Clean Bold';
+  font-size: 1.1rem;
+}
+
+body.luma-theme footer .footer > div {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body.luma-theme .TopRibbon__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+body.luma-theme header nav .nav-sections ul > li > a::before {
+  background: var(--main-accent-color);
+}
+
+body.luma-theme footer .footer a::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.luma-theme footer .footer p:has(> a) {
+  font-size: .75rem;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+body.luma-theme header nav .nav-sections ul > li > a:hover,
+body.luma-theme footer .footer a:hover {
+  color: var(--main-accent-color);
+}
+
+body.luma-theme .lang-switcher .lang-button,
+body.luma-theme a.sign-in-btn,
+body.luma-theme header nav .nav-tools a[href*="sign"] {
+  color: #000000;
+  border: 1px solid rgb(0 0 0 / 40%);
+}
+
+body.luma-theme header nav .nav-tools {
+  gap: 16px;
+}
+
+body.luma-theme header nav .nav-tools .cart-icon,
+body.luma-theme header nav .nav-tools a[href*="cart"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" fill="%23000"><ellipse fill-rule="evenodd" cx="10.445" cy="31.143" rx="2.667" ry="2.917"/><ellipse fill-rule="evenodd" cx="25.778" cy="31.143" rx="2.667" ry="2.917"/><path fill-rule="evenodd" d="M29.326,24H10.469l.762-2.6H28a1.331,1.331,0,0,0,1.307-1.071L33.974,7.66a1.334,1.334,0,0,0-1.308-1.595H32.54v-.03H6.5l-1.289-3.5A1.335,1.335,0,0,0,3.889,1.4H1.333a1.334,1.334,0,0,0,0,2.667H2.739L8.667,20,7.373,25.075A1.569,1.569,0,0,0,8.667,27H29.333a1.589,1.589,0,0,0,1.334-1.6A1.4,1.4,0,0,0,29.326,24ZM7.529,8.835H30.6l-3.693,9.9H11.174Z" transform="translate(0)"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+  background-color: transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  overflow: visible;
+}
+
+body.luma-theme header nav .nav-tools .cart-icon::after,
+body.luma-theme header nav .nav-tools a[href*="cart"]::after {
+  content: none !important;
+}
+
+body.luma-theme header nav .nav-tools .cart-icon:hover,
+body.luma-theme header nav .nav-tools a[href*="cart"]:hover {
+  background-color: #e8e8e8;
+}
+
+body.luma-theme header nav .nav-tools .cart-icon .cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  background-color: #ff0000;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+  z-index: 1;
+}
+body.luma-theme .hero.block.overlay.hero--text-overlay-off picture, body.luma-theme .hero.image-background-text-left.hero--text-overlay-off picture, body.luma-theme .hero.image-background-text-right.hero--text-overlay-off picture {
+    filter: brightness(1);
+}
+body.luma-theme header nav .nav-tools .cart-icon .cart-badge[style*='display: none'] {
+  display: none !important;
+}
+body.luma-theme .hero.image-background-text-right div:nth-child(2) {
+    margin-right: 0;
+}
+body.luma-theme .cta-button a.button::after,
+body.luma-theme .cta-button-secondary a.button::after,
+body.luma-theme .cta-button-dark a.button::after,
+body.luma-theme .button-container.cta-link a::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.luma-theme a.sign-in-btn,
+body.luma-theme header nav .nav-tools a[href*="sign"] {
+  text-align: center;
+  align-items: center;
+  padding: 10px;
+  padding-left: 25px;
+}
+
+body.luma-theme .search.search-icon .search-box .icon img,
+body.luma-theme .search.search-icon .search-trigger .icon img {
+  filter: invert(0);
+}
+body.luma-theme .iframe-wrapper {
+  height: calc(100vh - 300px);
+  overflow: hidden;
+}
+
+body.luma-theme .iframe.block {
+  overflow: hidden;
+}
+
+body.luma-theme .iframe.block iframe {
+  margin: 0 var(--section-gutter-space);
+}
+
+@media (width < 900px) {
+  body.luma-theme header nav .nav-sections ul > li > a {
+    color: #000000;
+  }
+}
+body.luma-theme .hero.block{
+  min-height: 500px;
+  height: 500px;
+}
+
+/*membership*/
+body.luma-theme main .membership .membership-title {
+  margin: 0 auto 30px;
+}
+
+body.luma-theme main .membership form {
+  padding: 40px;
+}
+
+body.luma-theme main .membership.form form .membership-panel.panel-wrapper {
+  gap: 30px 30px;
+}
+
+body.luma-theme main .membership label {
+  margin-bottom: 8px;
+}
+
+body.luma-theme main .membership .submit-wrapper {
+  margin-top: 10px;
+}
+
+@media (width <= 768px) {
+  body.luma-theme main .membership .membership-title {
+    margin-bottom: 24px;
+  }
+
+  body.luma-theme main .membership form {
+    padding: 30px 20px;
+  }
+
+  body.luma-theme main .membership.form form .membership-panel.panel-wrapper {
+    gap: 20px 20px;
+  }
+}
+
+@media (width <= 480px) {
+  body.luma-theme main .membership form {
+    padding: 24px 16px;
+  }
+}
+
+.section.banner-less-height.hero-container .hero {
+    min-height: 300px;
+    height: 300px !important;
+}
+
+body.luma-theme .section.ContentCardContainer,
+body.luma-theme .section.ContentCardContainer > div,
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner {
+  min-height: 300px;
+  height: 300px !important;
+  overflow: hidden;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  
+  box-sizing: border-box;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Image,
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Image img {
+  width: 100%;
+  height: 300px !important;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Image img {
+  display: block;
+  object-fit: cover;
+  filter: brightness(.65);
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Banner__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 600px;
+  margin-left: 5%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Title,
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Title__content {
+  width: 100%;
+  text-align: left;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Title__pretitle,
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Title h2 {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0 0 20px;
+  text-align: left;
+  color: var(--text-light, #fff);
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Title__pretitle {
+  font-family: 'Adobe Clean Bold';
+  font-size: 1rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Title h2 {
+  font-family: var(--black-font-family);
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Button {
+  margin-top: 30px;
+  text-align: left;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Button button {
+  display: none;
+  min-height: 0;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid var(--main-accent-color);
+  background: var(--main-accent-color);
+  color: var(--text-light, #fff);
+  font-family: 'Adobe Clean Bold';
+  font-size: 1rem;
+  line-height: 1;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Button button:hover {
+  background-color: rgb(255 255 255 / 10%);
+  border-color: var(--text-light, #fff);
+}
+
+@media (width <= 768px) {
+  body.luma-theme .section.ContentCardContainer .Banner.hero-banner {
+    padding: 30px 20px;
+  }
+
+  body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Banner__content {
+    max-width: calc(100% - 40px);
+    margin-left: 0;
+    padding: 16px 20px;
+  }
+
+  body.luma-theme .section.ContentCardContainer .Banner.hero-banner .Title h2 {
+    font-size: 24px;
+  }
+}
+body.luma-theme .hero.image-background-text-left div:nth-child(2) {
+    margin-left: 0;
+}
+
+/*slider*/
+body.luma-theme .section > div.carousel-wrapper {
+  overflow: visible;
+  margin: 0 auto;
+  max-width: none;
+}
+
+body.luma-theme .carousel .button-container .next {
+  right: -25px;
+}
+
+body.luma-theme .carousel .button-container .prev {
+  left: -25px;
+}
+
+@media only screen and (width > 1024px) {
+  body.luma-theme .carousel-container > .default-content-wrapper {
+    flex: 0.824;
+  }
+}
+
+body.luma-theme .hero p {
+  font-family: 'Adobe Clean Black';
+}
+
+body.luma-theme .default-content-wrapper .button-container {
+  text-align: center;
+  margin: 0;
+}
+
+body.luma-theme .default-content-wrapper .button-container a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid #d7d7d7;
+  background: #fff;
+  color: #2f3138;
+  font-family: 'Adobe Clean Bold';
+  font-size: 1rem;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+body.luma-theme .default-content-wrapper .button-container a.button::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.luma-theme .default-content-wrapper .button-container a.button:hover {
+  border-color: #bdbdbd;
+  background: #fff;
+  color: #2f3138;
+}
+
+body.luma-theme main .section.join-us-container .join-us-wrapper {
+  display: flex !important;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+body.luma-theme main .section.join-us-container .join-us.block {
+  flex: 0 0 70% !important;
+  width: 70% !important;
+  max-width: 70% !important;
+  margin-left: auto;
+  background: transparent;
+  min-width: 0;
+}
+
+body.luma-theme main .join-us {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body.luma-theme main .join-us .form,
+body.luma-theme main .join-us form,
+body.luma-theme main .join-us .panel-wrapper {
+  background: transparent !important;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+
+body.luma-theme main .join-us .panel-wrapper {
+  display: grid !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2rem;
+  padding: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+body.luma-theme main .join-us .heading-wrapper {
+  grid-column: 1 / -1;
+  margin: 0 0 1rem !important;
+  text-align: center;
+}
+
+body.luma-theme main .join-us .heading-wrapper > .field-label {
+  display: none !important;
+}
+
+body.luma-theme main .join-us .field-wrapper {
+  grid-column: span 6;
+  margin: 0;
+}
+
+body.luma-theme main .join-us .submit-wrapper {
+  grid-column: 1 / -1;
+  margin-top: 0;
+  text-align: left;
+}
+
+body.luma-theme main .join-us input[type="text"],
+body.luma-theme main .join-us input[type="email"],
+body.luma-theme main .join-us input[type="tel"] {
+  width: 100%;
+  height: 38px;
+  padding: 0 1rem;
+  margin: 0;
+  border: 2px solid #d8d8d8;
+  border-radius: 0;
+  background: #fff;
+  color: #2f3138;
+  box-shadow: none;
+}
+
+body.luma-theme main .join-us input[type="text"]:focus,
+body.luma-theme main .join-us input[type="email"]:focus,
+body.luma-theme main .join-us input[type="tel"]:focus {
+  border-color: #bdbdbd;
+  box-shadow: none;
+}
+
+body.luma-theme main .join-us .submit-wrapper button {
+  width: auto;
+  min-width: 120px;
+  padding: 0.9rem 2rem;
+  border: 0;
+  border-radius: 0;
+  background: var(--main-accent-color);
+  color: #fff;
+  font-family: 'Adobe Clean Bold';
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: none;
+}
+
+body.luma-theme main .join-us .submit-wrapper button:hover {
+  background: var(--main-accent-color);
+  color: #fff;
+  border: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+
+/* Feature Support Cards - Luma Style */
+.cards.feature-support {
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+.cards.feature-support li.image-left.cards-card--alignment-left {
+    height: 75px;
+}
+.feature-support .cards > ul > li.teaser-overlay .cards-card-body p {
+    font-family: 'Adobe Clean Black';
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    width: 50%;
+}
+.luma-theme .cards > ul > li.teaser-overlay .cards-card-body p {
+    font-family: 'Adobe Clean Black';
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 24px;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+.cards.feature-support > ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.cards.feature-support > ul > li.image-left {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: transparent;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    margin: 0;
+    width: 384px;
+}
+
+.cards.feature-support > ul > li.image-left .cards-card-image {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    flex-grow: unset !important;
+    flex-basis: unset !important;
+}
+
+.cards.feature-support > ul > li.image-left .cards-card-image img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.cards.feature-support > ul > li.image-left .cards-card-body {
+    flex: unset !important;
+    flex-grow: unset !important;
+    flex-basis: unset !important;
+    padding: 0;
+    margin: 0 !important;
+}
+
+.cards-config {
+    display: none;
+}
+
+.cards.feature-support > ul > li.image-left .cards-card-body h1,
+.cards.feature-support > ul > li.image-left .cards-card-body h2,
+.cards.feature-support > ul > li.image-left .cards-card-body h3,
+.cards.feature-support > ul > li.image-left .cards-card-body h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: #333333;
+}
+
+.cards.feature-support > ul > li.image-left .cards-card-body p {
+    margin: 0 !important;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666666;
+    font-weight: 400;
+}
+
+/* Responsive for Feature Support Cards */
+@media (max-width: 900px) {
+    .cards.feature-support {
+        padding: 20px;
+    }
+
+    .cards.feature-support > ul {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .cards.feature-support > ul > li.image-left {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+body.luma-theme h1 {
+  font-size: 28px;
+}
+
+body.luma-theme .hero h2 {
+  font-size: 28px;
+}
+body.luma-theme .na-carousel-wrapper{
+    padding: 0;
+}
+
+@media (width <= 768px) {
+  body.luma-theme main .section.join-us-container .join-us.block {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.luma-theme main .join-us .field-wrapper {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ─── Product Detail - Extras, Quantity & Recipe Overrides ──────────────── */
+
+/* Headings (Adobe Clean Bold, Black, Uppercase) */
+body.luma-theme main .product-detail .pd-extras-title,
+body.luma-theme main .product-detail .pd-quantity-title,
+body.luma-theme main .product-detail .recipe-hero__title,
+body.luma-theme main .product-detail .recipe-main__title,
+body.luma-theme main .product-detail .recipe-author__name {
+  font-family: 'Adobe Clean Bold', sans-serif;
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+/* Body Text & Labels (Adobe Clean, Dark Gray) */
+body.luma-theme main .product-detail .recipe-main__content,
+body.luma-theme main .product-detail .recipe-main__content p,
+body.luma-theme main .product-detail .recipe-main__content li,
+body.luma-theme main .product-detail .recipe-author__role {
+  color: #2f3138;
+  font-family: 'Adobe Clean', sans-serif;
+}
+
+/* Checkbox Labels specifically bolded for Luma */
+body.luma-theme main .product-detail .pd-extra-label {
+  color: #2f3138;
+  font-family: 'Adobe Clean Bold', sans-serif;
+  font-size: 0.95rem;
+}
+
+/* Checkboxes */
+body.luma-theme main .product-detail .pd-extra-checkbox {
+  accent-color: var(--main-accent-color); /* Luma blue */
+  border-radius: 0;
+}
+
+/* Quantity Dropdown (Square, Gray Border) */
+body.luma-theme main .product-detail .pd-quantity-select {
+  border: 2px solid #d8d8d8;
+  border-radius: 0;
+  color: #2f3138;
+  height: 42px;
+  padding: 0 32px 0 16px;
+  font-family: 'Adobe Clean Bold', sans-serif;
+  background-color: #ffffff;
+}
+
+body.luma-theme main .product-detail .pd-quantity-select:focus {
+  border-color: #bdbdbd;
+  outline: none;
+}
+
+/* Match the default text dropdown arrow to Luma's dark gray */
+body.luma-theme main .product-detail .pd-quantity-select-wrapper::after {
+  color: #2f3138;
+  font-size: 0.75rem;
+}
+/* ─── Recipe Sidebar Recommendations Overrides - Luma ────────────────── */
+
+body.luma-theme main .product-detail .recipe-sidebar .pd-rec-title,
+body.luma-theme main .product-detail .recipe-sidebar .pd-rec-card-title {
+  color: #000000;
+  font-family: 'Adobe Clean Bold', sans-serif;
+  text-align: left;
+}
+
+body.luma-theme main .product-detail .recipe-sidebar .pd-rec-card-title {
+  font-size: 16px !important;
+}
+
+body.luma-theme main .product-detail .recipe-sidebar .pd-rec-title {
+  text-transform: uppercase;
+  font-size: 30px;
+  padding: 0;
+}
+
+body.luma-theme main .product-detail .recipe-sidebar .pd-rec-card {
+  gap: 1rem;
+}
+
+body.luma-theme main .product-detail .recipe-sidebar .pd-rec-card-meta {
+  padding: 0;
+}
+
+body.luma-theme main .product-detail .recipe-sidebar .pd-rec-card-meta::after {
+  color: #2f3138;
+  border-color: #d8d8d8;
+  border-radius: 0; /* Luma square shape */
+  font-family: 'Adobe Clean Bold', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+body.luma-theme main .product-detail .recipe-sidebar .pd-rec-card:hover .pd-rec-card-meta::after {
+  background-color: var(--main-accent-color); /* Luma blue */
+  border-color: var(--main-accent-color);
+  color: #ffffff;
+}
+
+body.luma-theme main .product-detail .pd-video-layout .pd-video-category-tag {
+  background-color: #2f3138;
+  border-radius: 0;
+}
+
+body.luma-theme main .product-detail .pd-video-layout .pd-video-age {
+  color: #2f3138;
+  border-color: #2f3138;
+  border-radius: 0;
+}

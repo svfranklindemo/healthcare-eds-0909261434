@@ -1,0 +1,34 @@
+{
+  "definitions": [
+    {
+      "title": "Feedback",
+      "id": "feedback",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Feedback",
+              "model": "feedback"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "feedback",
+      "fields": [
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        }
+      ]
+    }
+  ]
+}

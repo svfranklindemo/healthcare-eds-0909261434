@@ -1,0 +1,162 @@
+main .rss-details-wrapper {
+  padding: 0 !important;
+}
+
+main .rss-details {
+  padding: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+main .rss-details .rss-detail-loading,
+main .rss-details .rss-detail-error {
+  text-align: center;
+  padding: 60px 20px;
+  color: #4d4d4d;
+  font-size: 18px;
+}
+
+main .rss-details .rss-detail-error {
+  color: #d32f2f;
+}
+
+main .rss-details .rss-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 2rem;
+}
+
+main .rss-details .rss-detail-wrapper:has(.rss-promo-banner) {
+  display: grid;
+  grid-template-columns: auto 300px;
+}
+
+main .rss-details .rss-detail-nav {
+  margin-bottom: 24px;
+}
+
+main .rss-details .rss-detail-nav a {
+  color: #0000ee;
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+main .rss-details .rss-detail-image {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-height: 500px;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+main .rss-details .rss-detail-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+main .rss-details .rss-detail-content {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+main .rss-details .rss-detail-date,
+main .rss-details .rss-detail-author {
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  color: #4d4d4d;
+  line-height: 1.5;
+}
+
+main .rss-details .rss-detail-title {
+  display: block;
+  margin: 0.83em 0;
+  padding: 0;
+  font-size: 21px;
+  line-height: 1.5;
+  color: #4d4d4d;
+  font-weight: 700;
+}
+
+main .rss-details .rss-detail-body {
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4d4d4d;
+}
+
+main .rss-details .rss-detail-body p {
+  margin: 0;
+}
+
+main .rss-details .rss-detail-body ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-position: outside;
+}
+
+main .rss-details .rss-detail-body a {
+  display: inline;
+  font-size: 14px;
+  font-family: 'Adobe Clean', sans-serif;
+  font-weight: 400;
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+main .rss-details .rss-detail-body a::after {
+  content: unset;
+}
+
+main .rss-details .rss-detail-action {
+  margin-top: 24px;
+}
+
+main .rss-details .rss-detail-btn {
+  display: inline-block;
+  background-color: #ff4f4f;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  transition: filter 0.2s ease;
+}
+
+main .rss-details .rss-detail-btn:hover {
+  filter: brightness(0.9);
+}
+
+main .rss-details .rss-detail-category {
+  color: #4d4d4d;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+main .rss-details .rss-detail-wrapper--no-image {
+  grid-template-columns: 1fr;
+}
+
+main .rss-details .rss-detail-wrapper--no-image .rss-detail-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (width <= 768px) {
+  main .rss-details {
+    padding: 0 16px;
+  }
+
+  main .rss-details .rss-detail-wrapper:has(.rss-promo-banner) {
+    display: flex;
+    flex-direction: column;
+  }
+}

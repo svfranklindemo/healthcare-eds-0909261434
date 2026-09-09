@@ -1,0 +1,344 @@
+/* Checkout shipping - align adaptive form output with the clean Luma checkout */
+main > .section:has(.checkout-shipping-block) > div {
+  max-width: 1400px;
+}
+
+.checkout-shipping-block {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem 2.5rem;
+  box-sizing: border-box;
+  font-family: var(--body-font-family, system-ui, sans-serif);
+  color: #333;
+}
+
+.checkout-shipping-block .form,
+.checkout-shipping-block .form form,
+.checkout-shipping-block .checkout-shipping-form {
+  width: 100%;
+  max-width: 100%;
+}
+
+.checkout-shipping-block .field-label {
+  margin-bottom: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.checkout-shipping-block .heading-wrapper > .field-label,
+.checkout-shipping-block .checkout-shipping-subheading > .field-label,
+.checkout-shipping-block .checkout-shipping--personal-col > legend,
+.checkout-shipping-block .checkout-shipping--summary-col > legend,
+.checkout-shipping-block .checkout-shipping-actions-panel > legend {
+  display: none !important;
+}
+
+.checkout-shipping-page-title {
+  text-align: center;
+  margin: 0 0 2.75rem !important;
+}
+
+.checkout-shipping-page-title h2 {
+  margin: 0;
+  font-size: 1.85rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.checkout-shipping-subheading {
+  margin: 0 0 1rem !important;
+  grid-column: 1 / -1;
+}
+
+.checkout-shipping-subheading h2 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 700;
+  text-align: left;
+  color: #333;
+}
+
+.checkout-shipping-columns.panel-wrapper,
+.checkout-shipping-actions-panel.panel-wrapper {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.checkout-shipping-columns.panel-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr) minmax(260px, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.checkout-shipping-columns.panel-wrapper > .checkout-shipping--personal-col,
+.checkout-shipping-columns.panel-wrapper > .checkout-shipping--payment-col,
+.checkout-shipping-columns.panel-wrapper > .checkout-shipping--summary-col {
+  min-width: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  align-content: start;
+  gap: 0.25rem 2rem;
+}
+
+.checkout-shipping-columns.panel-wrapper > .checkout-shipping--personal-col {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.checkout-shipping-columns.panel-wrapper > .checkout-shipping--payment-col,
+.checkout-shipping-columns.panel-wrapper > .checkout-shipping--summary-col {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.checkout-shipping-block .checkout-shipping--personal-col .field-wrapper,
+.checkout-shipping-block .checkout-shipping--personal-col .heading-wrapper,
+.checkout-shipping-block .checkout-shipping--payment-col .field-wrapper,
+.checkout-shipping-block .checkout-shipping--summary-col .field-wrapper {
+  margin: 0;
+}
+
+.checkout-shipping-block .checkout-shipping--personal-col .field-wrapper:not(.heading-wrapper) {
+  grid-column: span 6;
+}
+
+.checkout-shipping-block .checkout-shipping--payment-col > .radio-group-wrapper,
+.checkout-shipping-block .checkout-shipping--summary-col > .checkbox-wrapper,
+.checkout-shipping-block .checkout-shipping--summary-col > .heading-wrapper,
+.checkout-shipping-summary-box {
+  grid-column: 1 / -1;
+}
+
+.checkout-shipping-block input:not([type='radio']):not([type='checkbox']),
+.checkout-shipping-block select,
+.checkout-shipping-block textarea {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  margin: 0.25rem 0 0;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 0;
+  background: #fff;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.3;
+  box-shadow: none;
+}
+
+.checkout-shipping-block input:not([type='radio']):not([type='checkbox']):focus,
+.checkout-shipping-block select:focus,
+.checkout-shipping-block textarea:focus {
+  border-color: #999;
+  outline: none;
+}
+
+body.citi-signal-theme .checkout-shipping-block input:not([type='radio']):not([type='checkbox']),
+body.citi-signal-theme .checkout-shipping-block select,
+body.citi-signal-theme .checkout-shipping-block textarea {
+  height: 32px;
+  min-height: 32px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.checkout-shipping-block .radio-group-wrapper {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.checkout-shipping-block .radio-group-wrapper legend {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #333;
+}
+
+.checkout-shipping-block .radio-group-wrapper .radio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.checkout-shipping-block .radio-group-wrapper .radio-wrapper label {
+  flex: 1;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #333;
+}
+
+.checkout-shipping-block .radio-group-wrapper input[type='radio'] {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: #444;
+}
+input#cardNumber {
+   margin-bottom: 20px;
+}
+.checkout-shipping-block .checkbox-wrapper.switch.horizontal {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.checkout-shipping-block .checkbox-wrapper.switch.horizontal input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 34px;
+  height: 20px;
+  border: 0;
+  border-radius: 999px;
+  margin: 0;
+  background: #c7c7c7;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.checkout-shipping-block .checkbox-wrapper.switch.horizontal input[type='checkbox']::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 18%);
+  transition: transform 0.2s ease;
+}
+
+.checkout-shipping-block .checkbox-wrapper.switch.horizontal input[type='checkbox']:checked {
+  background: var(--main-accent-color, #3273de);
+}
+
+.checkout-shipping-block .checkbox-wrapper.switch.horizontal input[type='checkbox']:checked::after {
+  transform: translateX(14px);
+}
+
+.checkout-shipping-block .checkbox-wrapper.switch.horizontal label {
+  flex: 1;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #333;
+}
+
+.checkout-shipping-summary-box {
+  margin-top: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e6e6e6;
+  font-size: 1rem;
+}
+
+.checkout-shipping-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  color: #333;
+}
+
+.checkout-shipping-summary-total {
+  font-weight: 700;
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e6e6e6;
+}
+
+.checkout-shipping-actions-panel.panel-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+.checkout-shipping-actions-panel .submit-wrapper {
+  width: auto;
+  max-width: none;
+  flex: 0 0 auto;
+}
+
+.checkout-shipping-actions-panel button {
+  min-width: 0;
+  width: auto;
+  padding: 0.8rem 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1;
+  font-weight: 700;
+  border-radius: 0;
+}
+
+.checkout-shipping-actions-panel #btn-back {
+  background: #fff;
+  color: #333;
+  border: 1px solid #cfcfcf;
+}
+
+.checkout-shipping-actions-panel #btn-back:hover {
+  background: #f7f7f7;
+}
+
+body.luma-theme .checkout-shipping-actions-panel #btn-continue,
+.checkout-shipping-actions-panel #btn-continue {
+  background: var(--main-accent-color, #3273de);
+  border-color: var(--main-accent-color, #3273de);
+  color: #fff;
+}
+
+@media (max-width: 1100px) {
+  .checkout-shipping-columns.panel-wrapper {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .checkout-shipping-columns.panel-wrapper > .checkout-shipping--summary-col {
+    grid-column: 1 / -1;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 767px) {
+  .checkout-shipping-block {
+    padding: 0 1rem 2rem;
+  }
+
+  .checkout-shipping-page-title {
+    margin-bottom: 2rem !important;
+  }
+
+  .checkout-shipping-columns.panel-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .checkout-shipping-columns.panel-wrapper > .checkout-shipping--summary-col {
+    max-width: none;
+  }
+
+  .checkout-shipping-block .checkout-shipping--personal-col .field-wrapper:not(.heading-wrapper) {
+    grid-column: 1 / -1;
+  }
+
+  .checkout-shipping-actions-panel.panel-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .checkout-shipping-actions-panel .submit-wrapper,
+  .checkout-shipping-actions-panel button {
+    width: 100%;
+  }
+}

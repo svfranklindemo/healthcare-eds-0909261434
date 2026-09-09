@@ -1,0 +1,96 @@
+[
+  {
+    "id": "main",
+    "components": ["section"]
+  },
+  {
+    "id": "section",
+    "components": [
+      "accordion",
+      "action-button",
+      "add-external",
+      "build-your-own",
+      "button",
+      "cards",
+      "carousel",
+      "cart",
+      "category-products-lister",
+      "checkout",
+      "checkout-shipping",
+      "child-account-application",
+      "coffee-quiz-frescopa",
+      "columns",
+      "confirmation",
+      "contentfragment",
+      "create-account",
+      "credit-card-application-form",
+      "dm-template",
+      "dynamic-media-image",
+      "embed-adaptive-form",
+      "feedback",
+      "find-a-doctor",
+      "flight-search",
+      "flights",
+      "forex",
+      "form",
+      "fragment",
+      "get-offer",
+      "hero",
+      "iframe",
+      "image",
+      "insurance",
+      "join-us",
+      "loan-application-form",
+      "loan-calculator",
+      "name-change-request",
+      "new-account",
+      "new-arrival",
+      "order-confirmation",
+      "order-summary",
+      "product-card",
+      "product-detail",
+      "quote",
+      "search",
+      "separator",
+      "set-up-auto-save",
+      "sign-in",
+      "tabs",
+      "teaser",
+      "test-drive",
+      "text",
+      "title",
+      "transfer-funds",
+      "video",
+      "rss-list",
+      "rss-details",
+      "insurance-plan-selection",
+      "medicare-plan-selection",
+      "plan-application",
+      "healthcare-upload-photo",
+      "healthcare-schedule-check"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": ["card"]
+  },
+  {
+    "id": "columns",
+    "components": ["column"]
+  },
+  {
+    "id": "column",
+    "components": [
+      "action-button",
+      "button",
+      "dm-template",
+      "image",
+      "text",
+      "title",
+      "video"
+    ]
+  },
+  {
+    "...": "../blocks/*/_*.json#/filters"
+  }
+]

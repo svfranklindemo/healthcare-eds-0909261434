@@ -1,0 +1,276 @@
+/* Coffee Quiz Frescopa Block */
+
+.coffee-quiz-frescopa-wrapper .coffee-quiz-frescopa {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+/* Step content */
+.coffee-quiz-frescopa__step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.coffee-quiz-frescopa__question {
+  text-align: center;
+}
+
+.coffee-quiz-frescopa__question h2 {
+  font-size: var(--heading-font-size-m, 1.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text-color, #58181d);
+  margin: 0 0 0.25rem;
+}
+
+/* ── Card grids ─────────────────────────────────────────────────────── */
+.coffee-quiz-frescopa__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.coffee-quiz-frescopa__cards--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.coffee-quiz-frescopa__cards--cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ── Selectable card ────────────────────────────────────────────────── */
+.coffee-quiz-frescopa__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid transparent;
+  overflow: hidden;
+  cursor: pointer;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  position: relative;
+  text-align: center;
+}
+
+/*
+  The Frescopa theme rule:
+    body.frescopa-theme button { border-radius: 999px !important; padding: 0.9rem 2rem; ... }
+  has specificity (0,1,2). Our single-class rule (0,1,0) loses even with !important.
+  Fix: prefix with body.frescopa-theme to reach (0,2,1) — beats (0,1,2) at equal !important weight.
+*/
+body.frescopa-theme .coffee-quiz-frescopa__card {
+  border-radius: 8px !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  font-family: inherit !important;
+}
+
+/* Fallback for non-frescopa pages */
+.coffee-quiz-frescopa__card {
+  border-radius: 8px;
+  padding: 0;
+}
+
+.coffee-quiz-frescopa__card:hover {
+  border-color: var(--main-accent-color, #27647d);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+}
+
+.coffee-quiz-frescopa__card.is-selected {
+  border-color: var(--main-accent-color, #27647d);
+  box-shadow: 0 0 0 2px var(--main-accent-color, #27647d);
+}
+
+.coffee-quiz-frescopa__card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.coffee-quiz-frescopa__card-label {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--body-font-family, roboto, sans-serif);
+  font-size: 0.9rem;
+  color: var(--text-color, #58181d);
+  pointer-events: none;
+}
+
+/* ── Step 4 cards ───────────────────────────────────────────────────── */
+.coffee-quiz-frescopa__cards.step-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+.coffee-quiz-frescopa__cards.step-4 .coffee-quiz-frescopa__card img {
+  aspect-ratio: auto;
+}
+
+.coffee-quiz-frescopa__cards.step-4 .coffee-quiz-frescopa__card {
+  cursor: default;
+  pointer-events: none;
+}
+
+.coffee-quiz-frescopa__cards.step-4 .coffee-quiz-frescopa__card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+/* ── Buttons row ────────────────────────────────────────────────────── */
+.coffee-quiz-frescopa__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  margin-top: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/*
+  Nav buttons (.coffee-quiz-frescopa__btn):
+  The Frescopa theme already supplies:
+    border-radius: 999px   (via !important)
+    font-family: baskerville-display-pt
+    font-size: 1rem        (via !important)
+    padding: 0.9rem 2rem
+  Block CSS only owns: colors, transition, cursor, disabled state.
+  No need to fight the theme here — let it apply naturally.
+*/
+.coffee-quiz-frescopa__btn {
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.coffee-submit {
+  display: none;
+}
+
+.coffee-submit.show {
+  display: inline-block;
+}
+
+.coffee-next.hide {
+  display: none;
+}
+
+.coffee-quiz-frescopa__btn::after {
+  content: none !important;
+  display: none !important;
+}
+
+/*
+  Color rules use body.frescopa-theme prefix (specificity 0,2,1) to safely
+  override any theme color rules for <button> (0,1,2) without needing !important.
+*/
+body.frescopa-theme .coffee-quiz-frescopa__btn--primary,
+.coffee-quiz-frescopa__btn--primary {
+  background-color: var(--main-accent-color, #27647d);
+  border: 2px solid var(--main-accent-color, #27647d);
+  color: #ffffff;
+}
+
+body.frescopa-theme .coffee-quiz-frescopa__btn--primary:hover:not(:disabled),
+.coffee-quiz-frescopa__btn--primary:hover:not(:disabled) {
+  background-color: var(--main-accent-hover, #1f5368);
+  border-color: var(--main-accent-hover, #1f5368);
+}
+
+body.frescopa-theme .coffee-quiz-frescopa__btn--secondary,
+.coffee-quiz-frescopa__btn--secondary {
+  background-color: #c4553a;
+  border: 2px solid #c4553a;
+  color: #ffffff;
+}
+
+body.frescopa-theme .coffee-quiz-frescopa__btn--secondary:hover:not(:disabled),
+.coffee-quiz-frescopa__btn--secondary:hover:not(:disabled) {
+  background-color: #a84430;
+  border-color: #a84430;
+}
+
+.coffee-quiz-frescopa__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Progress dots ──────────────────────────────────────────────────── */
+.coffee-quiz-frescopa__progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.coffee-quiz-frescopa__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.coffee-quiz-frescopa__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #acacac;
+  opacity: 0.35;
+  transition: background-color 0.25s ease, opacity 0.25s ease;
+  display: inline-block;
+}
+
+.coffee-quiz-frescopa__dot.is-active {
+  background-color: var(--main-accent-color, #27647d);
+  opacity: 1;
+}
+
+.coffee-quiz-frescopa__progress-label {
+  font-family: var(--body-font-family, roboto, sans-serif);
+  font-size: 0.8rem;
+  color: var(--text-color, #58181d);
+  opacity: 0.6;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (width <= 768px) {
+  .coffee-quiz-frescopa__cards--cols-3,
+  .coffee-quiz-frescopa__cards--cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .coffee-quiz-frescopa__question h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (width <= 480px) {
+  .coffee-quiz-frescopa__cards,
+  .coffee-quiz-frescopa__cards--cols-3,
+  .coffee-quiz-frescopa__cards--cols-4 {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .coffee-quiz-frescopa__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .coffee-quiz-frescopa__btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .coffee-quiz-frescopa__progress {
+    order: -1;
+    flex: unset;
+  }
+}
