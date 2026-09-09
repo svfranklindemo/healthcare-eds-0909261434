@@ -14,6 +14,7 @@ import {
   img,
   span,
   a,
+  domEl,
 } from '../../scripts/dom-helpers.js';
 
 import { isAuthorEnvironment } from '../../scripts/scripts.js';
@@ -615,6 +616,32 @@ function addLumaCartIcon(container, langCode) {
   document.addEventListener('dataLayerUpdated', updateCartCount);
 }
 
+/**
+ * builds the "official government site" utility banner shown above the nav
+ * when the VA theme is active
+ * @returns {Element} the banner element
+ */
+function buildGovBanner() {
+  return div(
+    { class: 'va-gov-banner' },
+    div(
+      { class: 'va-gov-banner-inner' },
+      img({
+        src: '/icons/flag-USD.svg', alt: '', class: 'va-gov-banner-flag', loading: 'lazy',
+      }),
+      span({}, 'An official website of the United States government'),
+      div(
+        { class: 'va-gov-banner-details' },
+        domEl(
+          'details',
+          domEl('summary', "Here's how you know"),
+          domEl('p', 'Official government websites end in .gov or .mil. Before sharing sensitive information, make sure you’re on a federal government site.'),
+        ),
+      ),
+      a({ href: 'tel:988', class: 'va-crisis-line' }, 'Crisis Line'),
+    ),
+  );
+}
 
 /**
  * loads and decorates the header, mainly the nav
@@ -835,6 +862,11 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  if (document.body.classList.contains('va-theme')) {
+    block.prepend(buildGovBanner());
+  }
+
   settingAltTextForSearchIcon();
   //fetchingPlaceholdersData();
   addLogoLink(langCode);
