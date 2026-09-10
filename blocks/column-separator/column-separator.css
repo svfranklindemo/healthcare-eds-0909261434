@@ -19,10 +19,11 @@
   font-style: italic;
   height: 100%;
   min-height: 100%;
+  display: block;
 
   &::before {
     content: "Column Separator";
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
     white-space: nowrap;
     display: block;
   }
