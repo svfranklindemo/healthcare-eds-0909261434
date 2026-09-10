@@ -543,6 +543,52 @@ body.va-theme .search.search-icon .search-trigger .icon img {
   filter: none;
 }
 
+
+/* Sections */
+body.va-theme main .section {
+  &[data-sec-spacing="section-none"] {
+    p:has(picture) {
+      margin: 0;
+    }
+  }
+
+  &.bg-dark {
+    padding-left: calc((100vw - 1200px) / 2);
+    padding-right: calc((100vw - 1200px) / 2);
+
+    a {
+      color: white;
+      text-decoration: underline;
+      &::after {
+        color: white;
+      }
+    }
+  }
+
+  &.split-light-blue {
+    background-color: var(--va-primary-lighter);
+    max-width: 100vw;
+    position: relative;
+    padding-left: calc((100vw - 1200px) / 2);
+    padding-right: calc((100vw - 1200px) / 2);
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: white;
+      z-index: 0;
+    }
+    > div {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
 /* -----------------------------------------------------
    6. Cards — benefit-category icon grid
    (author sets the cards block style to "Icon Cards"; wrap the section
