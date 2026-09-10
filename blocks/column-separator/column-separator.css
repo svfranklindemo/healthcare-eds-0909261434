@@ -1,0 +1,20 @@
+/* Hidden on the live page: it's a structural marker, not visible content. */
+.section > div:has(> .column-separator.block) {
+  display: none;
+}
+
+/* Kept visible (and selectable) while authoring in the Universal Editor. */
+.adobe-ue-edit .section > div:has(> .column-separator.block),
+.adobe-ue-preview .section > div:has(> .column-separator.block) {
+  display: block;
+}
+
+.adobe-ue-edit .column-separator.block,
+.adobe-ue-preview .column-separator.block {
+  margin: 8px 0;
+  padding: 6px 10px;
+  border-top: 2px dashed #999;
+  color: #767676;
+  font-size: 12px;
+  font-style: italic;
+}

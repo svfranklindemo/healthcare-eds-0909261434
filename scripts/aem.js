@@ -701,6 +701,45 @@ function decorateIcons(element, prefix = '') {
 }
 
 /**
+ * Whether a section's direct-child wrapper div contains a column-separator block.
+ * @param {Element} el A direct child of a section (an item wrapper div)
+ */
+function isColumnSeparatorWrapper(el) {
+  return el.tagName === 'DIV' && !!el.querySelector(':scope > .column-separator');
+}
+
+/**
+ * Groups a section's direct children into column wrapper divs, split at each
+ * column-separator block. E.g. [item1, item2, separator, item3] becomes
+ * [columnWrapper(item1, item2), separator, columnWrapper(item3)]. Separator
+ * wrappers are left in place (hidden via CSS) so authors can still select/move
+ * them in the Universal Editor; applySectionItemWidths() then sizes the
+ * resulting column wrappers using the section's Column Layout field.
+ * @param {Element} section The section element
+ */
+function applyColumnSeparators(section) {
+  const children = [...section.children];
+  if (!children.some(isColumnSeparatorWrapper)) return;
+
+  let currentGroup = null;
+  const newOrder = [];
+  children.forEach((child) => {
+    if (isColumnSeparatorWrapper(child)) {
+      currentGroup = null;
+      newOrder.push(child);
+      return;
+    }
+    if (!currentGroup) {
+      currentGroup = document.createElement('div');
+      currentGroup.classList.add('column-group');
+      newOrder.push(currentGroup);
+    }
+    currentGroup.append(child);
+  });
+  newOrder.forEach((node) => section.append(node));
+}
+
+/**
  * Decorates all sections in a container element.
  * @param {Element} main The container element
  */
@@ -718,6 +757,7 @@ function decorateSections(main) {
       wrappers[wrappers.length - 1].append(e);
     });
     wrappers.forEach((wrapper) => section.append(wrapper));
+    applyColumnSeparators(section);
     section.classList.add('section');
     section.dataset.sectionStatus = 'initialized';
     section.style.display = 'none';
@@ -847,8 +887,8 @@ function applySectionItemWidths(section) {
     || '').trim();
   const isSectionBg = (el) => el.tagName === 'PICTURE' && el.classList?.contains('section-bg');
   let sectionChildren = [...section.children].filter((el) =>
-    !el.classList?.contains('section-metadata') && !isSectionBg(el));
-  let inner = section.querySelector('.default-content-wrapper') || sectionChildren[0];
+    !el.classList?.contains('section-metadata') && !isSectionBg(el) && !isColumnSeparatorWrapper(el));
+  let inner = section.querySelector(':scope > .default-content-wrapper') || sectionChildren[0];
   if (!inner) return;
 
   const clearWidths = (el) => {
@@ -863,7 +903,7 @@ function applySectionItemWidths(section) {
   const widths = raw ? raw.split(',')
     .map((s) => parseInt(s.trim(), 10))
     .filter((n) => !Number.isNaN(n) && n > 0 && n <= 100) : [];
-  const dcw = section.querySelector('.default-content-wrapper');
+  const dcw = section.querySelector(':scope > .default-content-wrapper');
   if (widths.length > 0 && dcw && dcw.children.length > 1) {
     const otherCount = sectionChildren.length - 1;
     const totalItems = dcw.children.length + otherCount;
@@ -878,8 +918,8 @@ function applySectionItemWidths(section) {
       newWrappers.forEach((w) => section.insertBefore(w, dcw));
       dcw.remove();
       sectionChildren = [...section.children].filter((el) =>
-        !el.classList?.contains('section-metadata') && !isSectionBg(el));
-      inner = section.querySelector('.default-content-wrapper') || sectionChildren[0];
+        !el.classList?.contains('section-metadata') && !isSectionBg(el) && !isColumnSeparatorWrapper(el));
+      inner = section.querySelector(':scope > .default-content-wrapper') || sectionChildren[0];
     }
   }
 

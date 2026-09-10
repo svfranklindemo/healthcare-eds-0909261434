@@ -1661,12 +1661,38 @@
         ]
       },
       {
-        "component": "text",
+        "component": "select",
         "valueType": "string",
         "name": "sec-item-widths",
         "value": "",
-        "label": "Item widths (%)",
-        "description": "Comma-separated width percentages for items (e.g. 25,25,50). When set, items are arranged horizontally with these widths."
+        "label": "Column Layout",
+        "description": "Splits the section into columns with these widths. Use a Column Separator block between content blocks to mark where each column starts.",
+        "options": [
+          {
+            "name": "No columns / full width",
+            "value": ""
+          },
+          {
+            "name": "50 / 50",
+            "value": "50,50"
+          },
+          {
+            "name": "25 / 75",
+            "value": "25,75"
+          },
+          {
+            "name": "75 / 25",
+            "value": "75,25"
+          },
+          {
+            "name": "33 / 33 / 33",
+            "value": "34,33,33"
+          },
+          {
+            "name": "25 / 25 / 25 / 25",
+            "value": "25,25,25,25"
+          }
+        ]
       }
     ]
   },
@@ -2533,6 +2559,19 @@
         "value": "",
         "valueType": "string",
         "description": "Space-separated class names to add to the block"
+      }
+    ]
+  },
+  {
+    "id": "column-separator",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "note",
+        "label": "Note (not shown on the live page)",
+        "value": "",
+        "description": "Structural marker only. Place this between content blocks in a section to split it into columns; size the columns with the section's Column Layout field."
       }
     ]
   },
