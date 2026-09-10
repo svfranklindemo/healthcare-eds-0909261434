@@ -18,9 +18,10 @@
   font-size: 12px;
   font-style: italic;
   height: 100%;
+  min-height: 100%;
 
   &::before {
     content: "Column Separator";
-    transform: rotate(-90);
+    transform: rotate(-90deg);
   }
 }
