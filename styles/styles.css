@@ -1554,6 +1554,9 @@ main > .section.bg-light:not([data-sec-full-width="true"]) {
 main > .section.bg-theme:not([data-sec-full-width="true"]) {
   max-width: unset;
 }
+main > .section.bg-primary-blue:not([data-sec-full-width="true"]) {
+  max-width: unset;
+}
 
 
 main > .section > div {
@@ -1793,6 +1796,11 @@ main .section.bg-dark {
 main .section.bg-light {
   background-color: var(--light-color);
   color: var(--text-color);
+}
+/* "Dark Background Container" option from the section's Background style field */
+main .section.bg-primary-blue {
+  background-color: var(--dark-color);
+  color: var(--text-light);
 }
 
 /* Section text color (UE field, same pattern as hero) */
