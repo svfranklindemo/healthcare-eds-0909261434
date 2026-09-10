@@ -39,6 +39,7 @@
   --va-warning: #ffbe2e;
   --va-error: #d54309;
   --va-info: #00bde3;
+  --vads-color-action-focus-on-light: #face00;
 
   /* VADS token names, aliased to the values above */
   --vads-color-primary: var(--va-primary);
@@ -95,8 +96,7 @@ body.va-theme a:focus {
   text-decoration-thickness: 2px;
 }
 
-body.va-theme .cta-button a.button,
-body.va-theme .hero-wrapper .button-container.cta-button a.button {
+body.va-theme .cta-button a.button {
   background-color: var(--va-primary);
   border: 1px solid var(--va-primary);
   border-radius: var(--border-radius-small);
@@ -105,15 +105,12 @@ body.va-theme .hero-wrapper .button-container.cta-button a.button {
   font-weight: 700;
 }
 
-body.va-theme .cta-button a.button:hover,
-body.va-theme .hero-wrapper .button-container.cta-button a.button:hover {
+body.va-theme .cta-button a.button:hover {
   background-color: var(--va-primary-dark) !important;
   border-color: var(--va-primary-dark) !important;
-  color: #fff !important;
 }
 
-body.va-theme .cta-button a.button::after,
-body.va-theme .hero-wrapper .button-container.cta-button a.button::after {
+body.va-theme .cta-button a.button::after {
   content: none;
 }
 
@@ -408,6 +405,8 @@ body.va-theme .hero {
   padding: 48px 24px;
 }
 
+
+
 body.va-theme .hero.theme-light {
   background-color: #fff;
 }
@@ -419,6 +418,17 @@ body.va-theme .hero.theme-dark {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding-left: calc((100vw - 1200px) / 2);
+}
+
+body.va-theme .hero.theme-dark u {
+   text-decoration: none;
+   border-bottom: 1px solid white;
+   border-top: 1px solid white;
+   padding: 5px 0;
+   font-size: 1.2em;
+   margin-bottom: 30px;
+   display: inline-block;
+   font-family: var(--heading-font-family);
 }
 
 /* Background bleeds edge to edge, but the actual content stays
@@ -443,8 +453,63 @@ body.va-theme .hero.theme-dark p {
 
 body.va-theme .hero.theme-dark .button-container a.button {
   color: #fff !important;
-  border-color: #fff !important;
+  border: none !important;
+  background-color: transparent !important;
 }
+
+/* Hero CTA: plain underlined link with a round white icon badge,
+   replacing the standard filled button look used elsewhere on the page */
+body.va-theme .hero-wrapper .button-container.cta-button a.button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0 !important;
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 700;
+  margin-top: 50px;
+  box-shadow: none;
+}
+
+body.va-theme .hero-wrapper .button-container.cta-button a.button:hover {
+  background: none !important;
+  border: none !important;
+  color: var(--vads-color-action-focus-on-light) !important;
+  text-decoration: underline;
+  box-shadow: none !important;
+
+  &::before {
+    background-color: var(--vads-color-action-focus-on-light) !important;
+  }
+}
+
+body.va-theme .hero-wrapper .button-container.cta-button a.button::before {
+  content: '';
+  display: inline-block;
+  order: 0;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  mask-image: url('/styles/industry-specific/va-theme/icons/arrow-down-white.svg');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 16px;
+  float: none;
+  transform: rotate(-90deg);
+}
+
+body.va-theme .hero-wrapper .button-container.cta-button a.button::after {
+  display: none;
+} 
 
 body.va-theme .hero h1,
 body.va-theme .hero h2,
