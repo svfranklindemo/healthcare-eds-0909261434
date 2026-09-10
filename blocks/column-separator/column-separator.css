@@ -20,11 +20,15 @@
   height: 100%;
   min-height: 100px;
   display: block;
+  position: relative;
 
   &::before {
     content: "Column Separator";
     transform: rotate(-90deg);
     white-space: nowrap;
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
   }
 }
