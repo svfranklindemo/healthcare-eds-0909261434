@@ -122,6 +122,6 @@ initializeCustomEventsWhenLaunchReady();
 if (!window.location.hostname.includes('localhost')) {
   embedCustomLibraries();
   if (window.parent && !(window.parent.location.pathname.indexOf('/canvas/') > -1)) {
-    loadAT();
+    // loadAT(); // disabled: Target should be delivered via the Web SDK (alloy), not at.js
   }
 }
