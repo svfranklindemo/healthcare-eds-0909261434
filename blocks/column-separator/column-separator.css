@@ -12,8 +12,6 @@
 .adobe-ue-edit .column-separator.block,
 .adobe-ue-preview .column-separator.block {
   margin: 8px 0;
-  padding: 6px 10px;
-  border: 2px dashed #999;
   color: #767676;
   font-size: 12px;
   font-style: italic;
@@ -26,5 +24,7 @@
     transform: rotate(-90deg);
     white-space: nowrap;
     display: block;
+    padding: 6px 10px;
+    border: 2px dashed #999;
   }
 }
