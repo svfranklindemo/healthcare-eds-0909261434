@@ -13,8 +13,14 @@
 .adobe-ue-preview .column-separator.block {
   margin: 8px 0;
   padding: 6px 10px;
-  border-top: 2px dashed #999;
+  border: 2px dashed #999;
   color: #767676;
   font-size: 12px;
   font-style: italic;
+  height: 100%;
+
+  &::before {
+    content: "Column Separator";
+    transform: rotate(-90);
+  }
 }
