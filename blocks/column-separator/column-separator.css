@@ -24,5 +24,6 @@
     content: "Column Separator";
     transform: rotate(90deg);
     white-space: nowrap;
+    display: block;
   }
 }
