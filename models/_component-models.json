@@ -1341,6 +1341,12 @@
     ]
   },
   {
+    "...": "./_section.json#/models"
+  },
+  {
+    "...": "./_text.json#/models"
+  },
+  {
     "...": "../blocks/*/_*.json#/models"
   }
 ]
