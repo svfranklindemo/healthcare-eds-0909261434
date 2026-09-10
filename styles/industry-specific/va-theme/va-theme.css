@@ -50,6 +50,10 @@
   --light-font-family: 'Source Sans Pro', helvetica, arial, sans-serif;
   --extra-font-family: 'Bitter', georgia, serif;
   --black-font-family: 'Bitter', georgia, serif;
+
+
+  /* Overrides from theme */
+  --dark-color: var(--va-primary-darker);
 }
 
 /* Sticky footer layout, consistent with the other theme files */
