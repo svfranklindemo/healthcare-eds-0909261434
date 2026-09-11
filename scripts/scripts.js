@@ -471,12 +471,17 @@ async function getAndApplyRenderDecisions() {
   // eslint-disable-next-line no-console
   console.info('[webSdk] sendEvent resolved, propositions:', propositions);
   onDecoratedElement(async () => {
-    await window.webSdk('applyPropositions', { propositions });
+    // Only pass propositions that still have items -- applyPropositions
+    // rejects any proposition with an empty items array, and items get
+    // pruned below once their target element has been found/applied.
+    const applicable = propositions.filter((p) => p.items.length > 0);
+    if (applicable.length === 0) return;
+    await window.webSdk('applyPropositions', { propositions: applicable });
     // Drop dom-action items once their target element has actually been
     // found/applied, so later re-runs of this callback (onDecoratedElement
     // fires again for every block/section that finishes decorating) don't
     // keep re-applying the same already-handled propositions forever.
-    await Promise.all(propositions.map(async (p) => {
+    await Promise.all(applicable.map(async (p) => {
       const keepFlags = await Promise.all(p.items.map(async (i) => (
         i.schema !== 'https://ns.adobe.com/personalization/dom-action'
         || !(await getElementForProposition(i))
