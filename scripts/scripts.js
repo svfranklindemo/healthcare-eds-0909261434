@@ -386,7 +386,11 @@ function initWebSDK(path, config) {
   }
   return new Promise((resolve) => {
     import(path).then(() => window.webSdk('configure', config))
-      .then(resolve)
+      .then((result) => {
+        // eslint-disable-next-line no-console
+        console.info('[webSdk] configure resolved:', result);
+        resolve();
+      })
       // Never let a Web SDK load/configure failure hang loadEager's
       // `await alloyLoadedPromise` forever -- resolve anyway so the rest of
       // the page keeps loading.
@@ -438,6 +442,8 @@ async function getAndApplyRenderDecisions() {
   // into the AEM EDS page load sequence instead of blocking on them.
   const response = await window.webSdk('sendEvent', { renderDecisions: false });
   const { propositions } = response;
+  // eslint-disable-next-line no-console
+  console.info('[webSdk] sendEvent resolved, propositions:', propositions);
   onDecoratedElement(async () => {
     await window.webSdk('applyPropositions', { propositions });
     propositions.forEach((p) => {
@@ -462,7 +468,10 @@ const alloyLoadedPromise = initWebSDK('./alloy.js', {
   datastreamId: '52111c1f-3550-417e-a968-2f17fb6ab876',
   orgId: '0E061E2D61F93F260A495FD6@AdobeOrg',
 });
-alloyLoadedPromise.then(() => getAndApplyRenderDecisions());
+alloyLoadedPromise.then(() => getAndApplyRenderDecisions().catch((error) => {
+  // eslint-disable-next-line no-console
+  console.error('[webSdk] getAndApplyRenderDecisions failed:', error);
+}));
 
 /**
  * Loads everything needed to get to LCP.
