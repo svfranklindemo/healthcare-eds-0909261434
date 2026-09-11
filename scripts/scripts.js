@@ -440,7 +440,21 @@ function onDecoratedElement(fn) {
 async function getAndApplyRenderDecisions() {
   // Get the decisions, but don't render them automatically so we can hook
   // into the AEM EDS page load sequence instead of blocking on them.
-  const response = await window.webSdk('sendEvent', { renderDecisions: false });
+  // Page context matters for Target's activity/audience matching (e.g. URL-based
+  // targeting rules) -- without it, decisioning can fall back to only the
+  // generic default-content-item proposition instead of the actual experience.
+  const response = await window.webSdk('sendEvent', {
+    renderDecisions: false,
+    xdm: {
+      eventType: 'web.webpagedetails.pageViews',
+      web: {
+        webPageDetails: {
+          URL: window.location.href,
+          name: document.title,
+        },
+      },
+    },
+  });
   const { propositions } = response;
   // eslint-disable-next-line no-console
   console.info('[webSdk] sendEvent resolved, propositions:', propositions);
