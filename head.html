@@ -2,6 +2,9 @@
 <script src="/scripts/copilot-init.js" type="module" defer></script>
   <script src="/alloyServiceWorker.js" async></script>
 <!-- Adobe Experience Platform Launch - Secur Financial -->
+<!-- Disabled for now to test the direct-loaded Web SDK (scripts/alloy.js) in
+     isolation, without Launch's own Web SDK instance/rule engine running
+     alongside it. Re-enable by removing this HTML comment wrapper.
   <script>
   (function loadLaunchFromPlaceholders() {
     const PLACEHOLDERS_URL = '/placeholders.json';
@@ -54,6 +57,7 @@
       });
   }());
 </script>
+-->
 
 <script src="/scripts/aem.js" type="module"></script>
 <script src="/scripts/scripts.js" type="module"></script>
