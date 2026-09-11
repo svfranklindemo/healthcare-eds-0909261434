@@ -368,19 +368,24 @@ async function renderWBDataLayer() {
  * Adobe Launch-delivered Web SDK for Target personalization only. Launch
  * itself (head.html) is left in place for analytics/other extensions.
  */
+// Instance name is "webSdk", not "alloy" -- the Launch bundle already loaded
+// via head.html configures its own Web SDK instance named "alloy", and both
+// bootstraps expect to own window[name]/window.__alloyNS, so reusing "alloy"
+// here causes a race ("Cannot set properties of undefined (setting 'push')")
+// where whichever bootstrap runs second finds the global already replaced.
 function initWebSDK(path, config) {
-  if (!window.alloy) {
+  if (!window.webSdk) {
     // eslint-disable-next-line no-underscore-dangle -- required global name expected by alloy.js
-    (window.__alloyNS ||= []).push('alloy');
-    window.alloy = (...args) => new Promise((resolve, reject) => {
+    (window.__alloyNS ||= []).push('webSdk');
+    window.webSdk = (...args) => new Promise((resolve, reject) => {
       window.setTimeout(() => {
-        window.alloy.q.push([resolve, reject, args]);
+        window.webSdk.q.push([resolve, reject, args]);
       });
     });
-    window.alloy.q = [];
+    window.webSdk.q = [];
   }
   return new Promise((resolve) => {
-    import(path).then(() => window.alloy('configure', config))
+    import(path).then(() => window.webSdk('configure', config))
       .then(resolve);
   });
 }
@@ -423,10 +428,10 @@ function onDecoratedElement(fn) {
 async function getAndApplyRenderDecisions() {
   // Get the decisions, but don't render them automatically so we can hook
   // into the AEM EDS page load sequence instead of blocking on them.
-  const response = await window.alloy('sendEvent', { renderDecisions: false });
+  const response = await window.webSdk('sendEvent', { renderDecisions: false });
   const { propositions } = response;
   onDecoratedElement(async () => {
-    await window.alloy('applyPropositions', { propositions });
+    await window.webSdk('applyPropositions', { propositions });
     propositions.forEach((p) => {
       p.items = p.items.filter((i) => i.schema !== 'https://ns.adobe.com/personalization/dom-action' || !getElementForProposition(i));
     });
@@ -434,7 +439,7 @@ async function getAndApplyRenderDecisions() {
 
   // Reporting is deferred to avoid adding to long tasks.
   window.setTimeout(() => {
-    window.alloy('sendEvent', {
+    window.webSdk('sendEvent', {
       xdm: {
         eventType: 'decisioning.propositionDisplay',
         _experience: {
