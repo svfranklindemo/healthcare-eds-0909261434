@@ -458,7 +458,7 @@ async function getAndApplyRenderDecisions() {
       web: {
         webPageDetails: {
           URL: window.location.href,
-          name: document.title,
+          name: pageName,
         },
       },
     },
