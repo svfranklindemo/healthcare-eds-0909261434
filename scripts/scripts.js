@@ -386,7 +386,15 @@ function initWebSDK(path, config) {
   }
   return new Promise((resolve) => {
     import(path).then(() => window.webSdk('configure', config))
-      .then(resolve);
+      .then(resolve)
+      // Never let a Web SDK load/configure failure hang loadEager's
+      // `await alloyLoadedPromise` forever -- resolve anyway so the rest of
+      // the page keeps loading.
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.warn('[webSdk] load/configure failed, continuing without it:', error);
+        resolve();
+      });
   });
 }
 
