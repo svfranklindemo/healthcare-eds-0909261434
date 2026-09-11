@@ -461,9 +461,17 @@ async function getAndApplyRenderDecisions() {
   console.info('[webSdk] sendEvent resolved, propositions:', propositions);
   onDecoratedElement(async () => {
     await window.webSdk('applyPropositions', { propositions });
-    propositions.forEach((p) => {
-      p.items = p.items.filter((i) => i.schema !== 'https://ns.adobe.com/personalization/dom-action' || !getElementForProposition(i));
-    });
+    // Drop dom-action items once their target element has actually been
+    // found/applied, so later re-runs of this callback (onDecoratedElement
+    // fires again for every block/section that finishes decorating) don't
+    // keep re-applying the same already-handled propositions forever.
+    await Promise.all(propositions.map(async (p) => {
+      const keepFlags = await Promise.all(p.items.map(async (i) => (
+        i.schema !== 'https://ns.adobe.com/personalization/dom-action'
+        || !(await getElementForProposition(i))
+      )));
+      p.items = p.items.filter((_, index) => keepFlags[index]);
+    }));
   });
 
   // Reporting is deferred to avoid adding to long tasks.
