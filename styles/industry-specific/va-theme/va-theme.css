@@ -559,6 +559,7 @@ body.va-theme main .section {
     a {
       color: white;
       text-decoration: underline;
+
       &::after {
         color: white;
       }
@@ -571,6 +572,7 @@ body.va-theme main .section {
     position: relative;
     padding-left: calc((100vw - 1200px) / 2);
     padding-right: calc((100vw - 1200px) / 2);
+
     &::before {
       content: '';
       display: block;
@@ -582,6 +584,7 @@ body.va-theme main .section {
       background-color: white;
       z-index: 0;
     }
+
     > div {
       position: relative;
       z-index: 1;
@@ -592,42 +595,76 @@ body.va-theme main .section {
 /* -----------------------------------------------------
    6. Cards — benefit-category icon grid
    (author sets the cards block style to "Icon Cards"; wrap the section
-   with the custom class "va-benefits-grid" for the 4-column desktop grid)
+   with the custom class "va-benefits-grid" for the 3-column desktop grid).
+   Icon sits to the left of a linked heading, with the description below —
+   no card border/box. Badge colors cycle through a fixed palette by
+   position since content authors don't set a per-card color.
 ----------------------------------------------------- */
 body.va-theme .cards > ul > li.icon-cards {
-  background-color: #fff;
-  border: 1px solid var(--va-bg-muted);
-  border-radius: var(--border-radius-small);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-body.va-theme .cards > ul > li.icon-cards:hover {
-  border-color: var(--va-primary-light);
-  box-shadow: 0 4px 12px rgb(0 94 162 / 15%);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 body.va-theme .cards > ul > li.icon-cards .cards-card-image {
   display: flex;
+  align-items: center;
   justify-content: center;
-  background-color: transparent;
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--va-primary);
+  overflow: hidden;
 }
 
 body.va-theme .cards > ul > li.icon-cards img {
-  min-height: 48px;
-  max-height: 48px;
-  width: 48px;
-  margin: 24px auto 0;
+  width: 22px;
+  height: 22px;
+  min-height: 0;
+  max-height: none;
+  margin: 0;
   object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Badge color palette, cycling by card position */
+body.va-theme .cards > ul > li.icon-cards:nth-child(6n+1) .cards-card-image { background-color: var(--va-primary); }
+body.va-theme .cards > ul > li.icon-cards:nth-child(6n+2) .cards-card-image { background-color: var(--va-error); }
+body.va-theme .cards > ul > li.icon-cards:nth-child(6n+3) .cards-card-image { background-color: var(--va-primary-darker); }
+body.va-theme .cards > ul > li.icon-cards:nth-child(6n+4) .cards-card-image { background-color: #c05600; }
+body.va-theme .cards > ul > li.icon-cards:nth-child(6n+5) .cards-card-image { background-color: #4d7c0f; }
+body.va-theme .cards > ul > li.icon-cards:nth-child(6n+6) .cards-card-image { background-color: var(--va-link-visited); }
+
+body.va-theme .cards > ul > li.icon-cards .cards-card-body {
+  flex: 1;
+  padding: 0;
+  margin: 0;
 }
 
 body.va-theme .cards > ul > li.icon-cards .cards-card-body h2,
 body.va-theme .cards > ul > li.icon-cards .cards-card-body h3 {
   font-family: var(--heading-font-family);
-  color: var(--brand-text-color);
+  font-size: 19px;
+  color: var(--va-link);
+  text-decoration: underline;
+  margin: 0 0 6px;
+  cursor: pointer;
+}
+
+body.va-theme .cards > ul > li.icon-cards:hover .cards-card-body h2,
+body.va-theme .cards > ul > li.icon-cards:hover .cards-card-body h3 {
+  color: var(--va-link-active);
 }
 
 body.va-theme .cards > ul > li.icon-cards .cards-card-body p {
   color: var(--brand-text-color);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
 }
 
 body.va-theme .cards > ul > li.icon-cards .cards-card-body a {
@@ -637,13 +674,19 @@ body.va-theme .cards > ul > li.icon-cards .cards-card-body a {
 
 body.va-theme main .section.va-benefits-grid .cards > ul {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 32px;
+}
+
+@media (width >= 600px) {
+  body.va-theme main .section.va-benefits-grid .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (width >= 900px) {
   body.va-theme main .section.va-benefits-grid .cards > ul {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
