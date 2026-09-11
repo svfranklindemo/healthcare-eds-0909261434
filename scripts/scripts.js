@@ -445,13 +445,24 @@ async function getAndApplyRenderDecisions() {
   // shorthand (top-level, not nested in xdm) is what Launch's "Page View"
   // rule actually sent; it auto-populates additional page-view XDM context
   // beyond a manually-built xdm.eventType, which is what was missing here.
+  // Matches the exact XDM shape Launch's "XDM - Page View" data element
+  // builds (found in the Launch property bundle): URL lives under
+  // webInteraction, and webPageDetails.viewName (not .name) is what Target's
+  // server-side decisioning uses to resolve the named view ("home" for the
+  // homepage here) -- that field is fed from window.dataLayer.page.name.
+  // Without viewName, only the page-wide __view__ scope gets evaluated.
   const response = await window.webSdk('sendEvent', {
     type: 'web.webpagedetails.pageViews',
     renderDecisions: false,
     xdm: {
       web: {
-        webPageDetails: {
+        webInteraction: {
           URL: window.location.href,
+          name: document.title,
+        },
+        webPageDetails: {
+          name: document.title,
+          viewName: window.dataLayer?.page?.name,
         },
       },
     },
