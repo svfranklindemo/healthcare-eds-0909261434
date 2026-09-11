@@ -31,7 +31,7 @@ import {
 } from './utils.js';
 
 // Import dataLayer management (available immediately)
-import { getPageNameFromPathname } from './datalayer.js';
+import './datalayer.js';
 
 function addPreconnect(origin) {
   try {
@@ -440,25 +440,18 @@ function onDecoratedElement(fn) {
 async function getAndApplyRenderDecisions() {
   // Get the decisions, but don't render them automatically so we can hook
   // into the AEM EDS page load sequence instead of blocking on them.
-  // Page context matters for Target's activity/audience matching (e.g. URL-based
-  // targeting rules) -- without it, decisioning can fall back to only the
-  // generic default-content-item proposition instead of the actual experience.
-  // decisionScopes must include the named view scope (this project's page-name
-  // convention, e.g. "home" for the root path -- see getPageNameFromPathname in
-  // datalayer.js) since sendEvent only auto-evaluates the page-wide __view__
-  // scope by default, not named view-level activities.
-  const pageName = getPageNameFromPathname(window.location.pathname);
+  // This is a URL-based A/B activity in Target, not a named-view one, so what
+  // it needs is a properly-recognized page-view event -- Web SDK's `type`
+  // shorthand (top-level, not nested in xdm) is what Launch's "Page View"
+  // rule actually sent; it auto-populates additional page-view XDM context
+  // beyond a manually-built xdm.eventType, which is what was missing here.
   const response = await window.webSdk('sendEvent', {
+    type: 'web.webpagedetails.pageViews',
     renderDecisions: false,
-    personalization: {
-      decisionScopes: ['__view__', pageName],
-    },
     xdm: {
-      eventType: 'web.webpagedetails.pageViews',
       web: {
         webPageDetails: {
           URL: window.location.href,
-          name: pageName,
         },
       },
     },
