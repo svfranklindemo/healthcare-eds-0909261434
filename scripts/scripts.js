@@ -31,7 +31,7 @@ import {
 } from './utils.js';
 
 // Import dataLayer management (available immediately)
-import './datalayer.js';
+import { getPageNameFromPathname } from './datalayer.js';
 
 function addPreconnect(origin) {
   try {
@@ -443,8 +443,16 @@ async function getAndApplyRenderDecisions() {
   // Page context matters for Target's activity/audience matching (e.g. URL-based
   // targeting rules) -- without it, decisioning can fall back to only the
   // generic default-content-item proposition instead of the actual experience.
+  // decisionScopes must include the named view scope (this project's page-name
+  // convention, e.g. "home" for the root path -- see getPageNameFromPathname in
+  // datalayer.js) since sendEvent only auto-evaluates the page-wide __view__
+  // scope by default, not named view-level activities.
+  const pageName = getPageNameFromPathname(window.location.pathname);
   const response = await window.webSdk('sendEvent', {
     renderDecisions: false,
+    personalization: {
+      decisionScopes: ['__view__', pageName],
+    },
     xdm: {
       eventType: 'web.webpagedetails.pageViews',
       web: {

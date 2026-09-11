@@ -81,7 +81,7 @@ function syncWindowDataLayer() {
   window.dataLayer = _dataLayer;
 }
 
-function getPageNameFromPathname(pathname) {
+export function getPageNameFromPathname(pathname) {
   const normalized = (pathname || '').replace(/\/+$/, '');
   if (!normalized || normalized === '/') return 'home';
   const segments = normalized.split('/').filter(Boolean);
